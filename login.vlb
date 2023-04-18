@@ -1,0 +1,16 @@
+﻿[lb_saúde]
+Coordinates=10,280,67,58
+
+[Image1]
+Coordinates=190,280,57,58
+
+[pn_login]
+Coordinates=100,280,63,58
+
+[edt_senha]
+Coordinates=140,90,74,58
+
+[]
+Coordinates=10,90,73,58
+Visible=True
+
