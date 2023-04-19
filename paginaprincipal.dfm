@@ -301,6 +301,7 @@
         F439C4671B0A5FD50783338B0F8CA1EAFBD9C13CB38C94B8481F189C77EE4498
         0B355DD80CEFFE4F601465903CB45E5CBEA54917CCEDD2FE01CCE8151987727B
         6B0000000049454E44AE426082}
+      OnClick = img_pacClick
     end
   end
   object pn_principal: TPanel
@@ -318,7 +319,7 @@
     ParentBackground = False
     TabOrder = 2
     object CalendarView1: TCalendarView
-      Left = 269
+      Left = 263
       Top = 0
       Width = 1024
       Height = 680

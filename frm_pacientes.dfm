@@ -1,0 +1,176 @@
+object pacientes: Tpacientes
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'pacientes'
+  ClientHeight = 680
+  ClientWidth = 1285
+  Color = clBtnFace
+  Constraints.MaxHeight = 766
+  Constraints.MaxWidth = 1366
+  Constraints.MinHeight = 680
+  Constraints.MinWidth = 1285
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pn_cad_pac: TPanel
+    Left = 0
+    Top = 0
+    Width = 1285
+    Height = 680
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 3416861
+    Constraints.MaxHeight = 680
+    Constraints.MaxWidth = 1285
+    Constraints.MinHeight = 680
+    Constraints.MinWidth = 1285
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitLeft = -8
+    object pn_titulo: TPanel
+      Left = 0
+      Top = 0
+      Width = 1285
+      Height = 49
+      BevelOuter = bvNone
+      Caption = 'Pacientes'
+      Color = -1
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -27
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 0
+    end
+    object grid_pacientes: TDBGrid
+      Left = 0
+      Top = 48
+      Width = 1285
+      Height = 632
+      DataSource = ds_pacientes
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Tw Cen MT'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDblClick = grid_pacientesDblClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'nome_pac'
+          ImeName = 'Portuguese (Brazilian ABNT)'
+          Title.Caption = 'Nome'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'sexo_pac'
+          Title.Caption = 'Sexo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nascimento_pac'
+          Title.Caption = 'Nascimento'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'cpf_pac'
+          Title.Caption = 'CPF'
+          Width = 180
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'rg_pac'
+          Title.Caption = 'RG'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'profissao'
+          Title.Caption = 'Profiss'#227'o'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'rua'
+          Title.Caption = 'Rua'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'numero_casa'
+          Title.Caption = 'N'#250'mero'
+          Width = 50
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'bairro'
+          Title.Caption = 'Bairro'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'cidade'
+          Title.Caption = 'Cidade'
+          Width = 150
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'cep'
+          Title.Caption = 'CEP'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'telefone_pac'
+          Title.Caption = 'Telefone'
+          Width = 170
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'estado'
+          Title.Caption = 'Estado'
+          Width = 150
+          Visible = True
+        end>
+    end
+  end
+  object query_pacientes: TFDQuery
+    Active = True
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from pacientes')
+    Left = 1096
+    Top = 440
+  end
+  object ds_pacientes: TDataSource
+    DataSet = query_pacientes
+    Left = 1040
+    Top = 440
+  end
+end

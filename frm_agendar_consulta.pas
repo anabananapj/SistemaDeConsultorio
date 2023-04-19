@@ -108,7 +108,7 @@ begin
 
   user_logado := userlogado;
 
-  SQL := 'INSERT INTO consultas (user_logado, crm_med, cpf_pac, data_cons, hora_cons) ' +
+  SQL := 'INSERT INTO consultas (user_logado, nome_med, cpf_pac, data_cons, hora_cons) ' +
        'VALUES (' + IntToStr(user_logado) + ', ' + QuotedStr(cm_medicos.Text) + ', ' + IntToStr(cpf_pac) + ', ' +
        QuotedStr(FormatDateTime('yyyy-mm-dd', dia_consulta.Date)) + ', ' +
        QuotedStr(FormatDateTime('hh:nn', hora_consulta.Time)) + ')';

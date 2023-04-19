@@ -34,6 +34,7 @@ type
     procedure btn_cad_medicosClick(Sender: TObject);
     procedure btn_cad_funcionariosClick(Sender: TObject);
     procedure btn_agendarClick(Sender: TObject);
+    procedure img_pacClick(Sender: TObject);
 
 
 
@@ -53,7 +54,7 @@ implementation
 {$R *.dfm}
 
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
-  frm_cadastro_funcionario, frm_agendar_consulta;
+  frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes;
 
 { Tfrm_telaprincipal }
 
@@ -142,6 +143,17 @@ procedure Tfrm_telaprincipal.img_menuClick(Sender: TObject);
 begin
 closeform;
   pn_principal.show;
+end;
+
+procedure Tfrm_telaprincipal.img_pacClick(Sender: TObject);
+begin
+closeform;
+
+  pacientes := Tpacientes.create(self);
+  pacientes.parent := pn_formularios;
+  pn_principal.hide;
+
+  pacientes.show;
 end;
 
 end.
