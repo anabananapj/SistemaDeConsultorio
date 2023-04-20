@@ -30,10 +30,11 @@ type
      constructor Create(AOwner: TComponent); override;
      destructor Destroy; override;
 
-      function GetDataSource: TDataSource;
-    procedure SetDataSource(ADataSource: TDataSource);
+     function GetDataSource: TDataSource;
+     procedure SetDataSource(ADataSource: TDataSource);
 
-    property DataSource: TDataSource read GetDataSource write SetDataSource;
+     property DataSource: TDataSource read GetDataSource write SetDataSource;
+
   end;
 
 
@@ -44,7 +45,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDTModuleConnection, frm_editar;
+uses uDTModuleConnection, frm_editar, frm_editar_pac;
 
 
 
@@ -74,8 +75,6 @@ begin
   FDataSource := ADataSource;
   grid_pacientes.DataSource := FDataSource;
 end;
-
-
 
 
 procedure Tpacientes.grid_pacientesDblClick(Sender: TObject);

@@ -133,6 +133,22 @@
             <Form>pacientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frm_editar_med.pas">
+            <Form>editar_med</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frm_editar_func.pas">
+            <Form>funcionarios</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frm_funcionarios.pas">
+            <Form>frm_func</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frm_medicos.pas">
+            <Form>medicos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="frm_editar.pas">
             <Form>editar_pacientes</Form>
             <FormType>dfm</FormType>

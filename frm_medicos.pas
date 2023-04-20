@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Vcl.StdCtrls, Vcl.WinXCtrls;
 
 type
   Tmedicos = class(TForm)
@@ -16,6 +17,7 @@ type
     grid_medicos: TDBGrid;
     query_medicos: TFDQuery;
     ds_medicos: TDataSource;
+    SearchBox1: TSearchBox;
     procedure grid_medicosDblClick(Sender: TObject);
  private
     { Private declarations }

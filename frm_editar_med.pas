@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, Vcl.Imaging.pngimage;
 
 type
   Teditar_med = class(TForm)
@@ -40,7 +40,9 @@ type
     edt_telefone: TEdit;
     Panel1: TPanel;
     query_medicos: TFDQuery;
+    btn_fechar: TImage;
     procedure Panel1Click(Sender: TObject);
+    procedure btn_fecharClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,10 +58,14 @@ implementation
 
 uses frm_medicos;
 
+procedure Teditar_med.btn_fecharClick(Sender: TObject);
+begin
+close;
+end;
+
 procedure Teditar_med.Panel1Click(Sender: TObject);
  begin
     try
-      // Atualiza as informações do paciente no banco de dados
       query_medicos.Edit;
       query_medicos.FieldByName('nome_med').AsString := edt_nome.Text;
       query_medicos.FieldByName('telefone_med').AsString := edt_telefone.Text;
@@ -80,7 +86,7 @@ procedure Teditar_med.Panel1Click(Sender: TObject);
     except
       on E: Exception do
       begin
-        ShowMessage('Erro ao atualizar as informações do paciente: ' + E.Message);
+        ShowMessage('Erro ao atualizar as informações do Médico: ' + E.Message);
       end;
 
 end;

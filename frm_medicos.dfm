@@ -17,19 +17,17 @@ object medicos: Tmedicos
   object pn_cad_pac: TPanel
     Left = 0
     Top = 0
-    Width = 1285
-    Height = 680
+    Width = 1301
+    Height = 719
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
-    Constraints.MaxHeight = 680
-    Constraints.MaxWidth = 1285
+    Constraints.MaxHeight = 719
+    Constraints.MaxWidth = 1301
     Constraints.MinHeight = 680
     Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -650
-    ExplicitTop = -381
     object pn_titulo: TPanel
       Left = 0
       Top = 0
@@ -168,6 +166,14 @@ object medicos: Tmedicos
           Visible = True
         end>
     end
+    object SearchBox1: TSearchBox
+      Left = 440
+      Top = 424
+      Width = 121
+      Height = 21
+      TabOrder = 2
+      Text = 'SearchBox1'
+    end
   end
   object query_medicos: TFDQuery
     Active = True
@@ -179,7 +185,7 @@ object medicos: Tmedicos
   end
   object ds_medicos: TDataSource
     DataSet = query_medicos
-    Left = 952
+    Left = 912
     Top = 472
   end
 end

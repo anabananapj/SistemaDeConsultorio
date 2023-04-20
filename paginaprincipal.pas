@@ -18,8 +18,8 @@ type
     img_logo: TImage;
     img_not: TImage;
     img_menu: TImage;
-    img_med: TImage;
-    img_pac: TImage;
+    btn_med: TImage;
+    btn_pac: TImage;
     pn_principal: TPanel;
     CalendarView1: TCalendarView;
     btn_agendar: TPanel;
@@ -29,13 +29,16 @@ type
     btn_cad_pacientes: TPanel;
     btn_cad_funcionarios: TPanel;
     pn_formularios: TPanel;
+    btn_func: TImage;
+    Panel1: TPanel;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
     procedure btn_cad_funcionariosClick(Sender: TObject);
     procedure btn_agendarClick(Sender: TObject);
-    procedure img_pacClick(Sender: TObject);
-    procedure img_medClick(Sender: TObject);
+    procedure btn_medClick(Sender: TObject);
+    procedure btn_pacClick(Sender: TObject);
+    procedure btn_funcClick(Sender: TObject);
 
 
 
@@ -55,7 +58,8 @@ implementation
 {$R *.dfm}
 
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
-  frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos;
+  frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos,
+  frm_funcionarios;
 
 { Tfrm_telaprincipal }
 
@@ -119,7 +123,19 @@ closeform;
 
 end;
 
-      {funcao close_form}
+procedure Tfrm_telaprincipal.btn_funcClick(Sender: TObject);
+begin
+closeform;
+
+  frm_func := tfrm_func.create(self);
+  frm_func.parent := pn_formularios;
+  pn_principal.hide;
+
+  frm_func.show;
+
+end;
+
+{funcao close_form}
 
 procedure Tfrm_telaprincipal.closeform;
 var
@@ -140,7 +156,7 @@ end;
 
   {botão para voltar para o menu principal}
 
-procedure Tfrm_telaprincipal.img_medClick(Sender: TObject);
+procedure Tfrm_telaprincipal.btn_medClick(Sender: TObject);
 begin
 closeform;
 
@@ -152,21 +168,21 @@ closeform;
 
 end;
 
-procedure Tfrm_telaprincipal.img_menuClick(Sender: TObject);
-begin
-closeform;
-  pn_principal.show;
-end;
-
-procedure Tfrm_telaprincipal.img_pacClick(Sender: TObject);
+procedure Tfrm_telaprincipal.btn_pacClick(Sender: TObject);
 begin
 closeform;
 
-  pacientes := Tpacientes.create(self);
+  pacientes := tpacientes.create(self);
   pacientes.parent := pn_formularios;
   pn_principal.hide;
 
   pacientes.show;
+end;
+
+procedure Tfrm_telaprincipal.img_menuClick(Sender: TObject);
+begin
+closeform;
+  pn_principal.show;
 end;
 
 end.

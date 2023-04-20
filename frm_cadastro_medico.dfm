@@ -61,7 +61,7 @@ object cadastro_medico: Tcadastro_medico
       Left = 37
       Top = 377
       Width = 147
-      Height = 36
+      Height = 39
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -410,11 +410,11 @@ object cadastro_medico: Tcadastro_medico
       Cursor = crHandPoint
       BevelOuter = bvNone
       Caption = 'Concluir'
-      Color = 25600
+      Color = 5489806
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -24
-      Font.Name = 'Corbel'
+      Font.Name = 'Century Gothic'
       Font.Style = [fsBold]
       ParentBackground = False
       ParentFont = False
