@@ -25,7 +25,6 @@ type
     lb_bairro: TLabel;
     lb_cidade: TLabel;
     lb_estado: TLabel;
-    lb_profissao: TLabel;
     lb_telefone: TLabel;
     edt_nome: TEdit;
     edt_sexo: TRadioGroup;
@@ -38,7 +37,6 @@ type
     edt_bairro: TEdit;
     edt_cidade: TEdit;
     edt_estado: TEdit;
-    edt_profissao: TEdit;
     btn_concluir: TPanel;
     data_nasc: TDatePicker;
     edt_telefone: TEdit;
@@ -80,8 +78,8 @@ begin
 
   {INSERT TABELA MÉDICOS}
 
-  VALUES := 'VALUES (:crm_med, :nome_med, :sexo_med, ' + QuotedStr(Nasc) + ', :cpf_med, :rg_med, :telefone_med, :especialidade_med, :formacao_med, :cep, :rua, :numero_casa, :bairro, :cidade, :estado)';
-  query_cad_med.SQL.Add('INSERT INTO medicos (crm_med, nome_med, sexo_med, nascimento_med, cpf_med, rg_med, telefone_med, especialidade_med, formacao_med, cep, rua, numero_casa, bairro, cidade, estado)' + VALUES + '');
+  VALUES := 'VALUES (:crm_med, :nome_med, :sexo_med, ' + QuotedStr(Nasc) + ', :cpf_med, :rg_med, :telefone_med, :especialidade_med, :formacao_med, :cep, :rua, :numero_casa, :bairro, :cidade, :estado, :email_med)';
+  query_cad_med.SQL.Add('INSERT INTO medicos (crm_med, nome_med, sexo_med, nascimento_med, cpf_med, rg_med, telefone_med, especialidade_med, formacao_med, cep, rua, numero_casa, bairro, cidade, estado, email_med)' + VALUES + '');
 
   query_cad_med.ParamByName('crm_med').Value := edt_crm.Text;
   query_cad_med.ParamByName('nome_med').Value := edt_nome.Text;
@@ -104,6 +102,7 @@ begin
   query_cad_med.params.ParamByName('bairro').Value := edt_bairro.Text;
   query_cad_med.params.ParamByName('cidade').Value := edt_cidade.Text;
   query_cad_med.params.ParamByName('estado').Value := edt_estado.Text;
+  query_cad_med.params.ParamByName('email_med').Value := edt_email.Text;
 
   {INSERT TABELA USUARIOS}
 

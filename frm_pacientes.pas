@@ -18,11 +18,24 @@ type
     query_pacientes: TFDQuery;
     ds_pacientes: TDataSource;
     procedure grid_pacientesDblClick(Sender: TObject);
+
+
   private
     { Private declarations }
+
+    FDataSource: TDataSource;
+
   public
     { Public declarations }
+     constructor Create(AOwner: TComponent); override;
+     destructor Destroy; override;
+
+      function GetDataSource: TDataSource;
+    procedure SetDataSource(ADataSource: TDataSource);
+
+    property DataSource: TDataSource read GetDataSource write SetDataSource;
   end;
+
 
 var
   pacientes: Tpacientes;
@@ -33,37 +46,68 @@ implementation
 
 uses uDTModuleConnection, frm_editar;
 
+
+
+{ Tpacientes }
+
+constructor Tpacientes.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  FDataSource := TDataSource.Create(Self);
+  FDataSource.DataSet := query_pacientes;
+  grid_pacientes.DataSource := FDataSource;
+end;
+
+destructor Tpacientes.Destroy;
+begin
+  FDataSource.Free;
+  inherited Destroy;
+end;
+
+function Tpacientes.GetDataSource: TDataSource;
+begin
+  Result := FDataSource;
+end;
+
+procedure Tpacientes.SetDataSource(ADataSource: TDataSource);
+begin
+  FDataSource := ADataSource;
+  grid_pacientes.DataSource := FDataSource;
+end;
+
+
+
+
 procedure Tpacientes.grid_pacientesDblClick(Sender: TObject);
 var
-  id_pac: integer;
+  EditForm: Teditar_pacientes;
 begin
-
- if not grid_pacientes.SelectedRows.CurrentRowSelected then
-    Exit;
-
-     id_pac := query_pacientes.FieldByName('id_pac').AsInteger;
-
-
-  with TEditar_paciente.Create(nil) do
+  if not FDataSource.DataSet.IsEmpty then
   begin
+    EditForm := Teditar_pacientes.Create(Self);
     try
-      edt_nome.Text    := query_pacientes.FieldByName('nome_pac').AsString;
+      EditForm.edt_nome.Text      := FDataSource.DataSet.FieldByName('nome_pac').AsString;
+      EditForm.edt_telefone.Text  := FDataSource.DataSet.FieldByName('telefone_pac').AsString;
+      EditForm.edt_cpf.Text       := FDataSource.DataSet.FieldByName('cpf_pac').AsString;
+      EditForm.edt_rg.Text        := FDataSource.DataSet.FieldByName('rg_pac').AsString;
+      EditForm.edt_email.Text     := FDataSource.DataSet.FieldByName('email_pac').AsString;
+      EditForm.edt_profissao.Text := FDataSource.DataSet.FieldByName('profissao').AsString;
+      EditForm.edt_cep.Text       := FDataSource.DataSet.FieldByName('cep').AsString;
+      EditForm.edt_rua.Text       := FDataSource.DataSet.FieldByName('rua').AsString;
+      EditForm.edt_bairro.Text    := FDataSource.DataSet.FieldByName('bairro').AsString;
+      EditForm.edt_numero.Text    := FDataSource.DataSet.FieldByName('numero_casa').AsString;
+      EditForm.edt_estado.Text    := FDataSource.DataSet.FieldByName('estado').AsString;
+      EditForm.edt_cidade.Text    := FDataSource.DataSet.FieldByName('cidade').AsString;
+      
 
-
-      if ShowModal = mrOK then
-      begin
-
-        query_pacientes.Edit;
-        query_pacientes.FieldByName('nome_pac').AsString := edt_nome.Text;
-
-        query_pacientes.Post;
-        query_pacientes.ApplyUpdates(-1);
-      end;
+      EditForm.ShowModal;
     finally
-      Free;
+      EditForm.Free;
     end;
   end;
 end;
+
+
 
 
 end.

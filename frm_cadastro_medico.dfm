@@ -61,7 +61,7 @@ object cadastro_medico: Tcadastro_medico
       Left = 37
       Top = 377
       Width = 147
-      Height = 39
+      Height = 36
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -187,19 +187,6 @@ object cadastro_medico: Tcadastro_medico
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object lb_profissao: TLabel
-      Left = 781
-      Top = 187
-      Width = 101
-      Height = 27
-      Caption = 'Profiss'#227'o:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -21
-      Font.Name = 'Yu Gothic'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
     object lb_telefone: TLabel
       Left = 1028
       Top = 111
@@ -214,7 +201,7 @@ object cadastro_medico: Tcadastro_medico
       ParentFont = False
     end
     object lb_crm: TLabel
-      Left = 1028
+      Left = 781
       Top = 187
       Width = 56
       Height = 27
@@ -415,19 +402,6 @@ object cadastro_medico: Tcadastro_medico
       ParentFont = False
       TabOrder = 10
     end
-    object edt_profissao: TEdit
-      Left = 781
-      Top = 220
-      Width = 233
-      Height = 27
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 11
-    end
     object btn_concluir: TPanel
       Left = 35
       Top = 552
@@ -444,7 +418,7 @@ object cadastro_medico: Tcadastro_medico
       Font.Style = [fsBold]
       ParentBackground = False
       ParentFont = False
-      TabOrder = 12
+      TabOrder = 11
       OnClick = btn_concluirClick
     end
     object data_nasc: TDatePicker
@@ -459,7 +433,7 @@ object cadastro_medico: Tcadastro_medico
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
-      TabOrder = 13
+      TabOrder = 12
     end
     object edt_telefone: TEdit
       Left = 1028
@@ -472,10 +446,10 @@ object cadastro_medico: Tcadastro_medico
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 14
+      TabOrder = 13
     end
     object edt_crm: TEdit
-      Left = 1028
+      Left = 781
       Top = 220
       Width = 212
       Height = 27
@@ -485,7 +459,7 @@ object cadastro_medico: Tcadastro_medico
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 15
+      TabOrder = 14
     end
     object edt_especialidade: TEdit
       Left = 40
@@ -498,7 +472,7 @@ object cadastro_medico: Tcadastro_medico
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 16
+      TabOrder = 15
     end
     object edt_formacao: TEdit
       Left = 330
@@ -511,7 +485,7 @@ object cadastro_medico: Tcadastro_medico
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 17
+      TabOrder = 16
     end
     object Panel1: TPanel
       Left = 0
@@ -527,7 +501,7 @@ object cadastro_medico: Tcadastro_medico
       Font.Style = [fsBold]
       ParentBackground = False
       ParentFont = False
-      TabOrder = 18
+      TabOrder = 17
     end
     object edt_senha: TEdit
       Left = 622
@@ -542,7 +516,7 @@ object cadastro_medico: Tcadastro_medico
       MaxLength = 8
       ParentFont = False
       PasswordChar = '*'
-      TabOrder = 19
+      TabOrder = 18
     end
   end
   object query_cad_med: TFDQuery

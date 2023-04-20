@@ -32,7 +32,6 @@ object pacientes: Tpacientes
     Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -8
     object pn_titulo: TPanel
       Left = 0
       Top = 0
@@ -165,12 +164,12 @@ object pacientes: Tpacientes
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from pacientes')
-    Left = 1096
-    Top = 440
+    Left = 872
+    Top = 472
   end
   object ds_pacientes: TDataSource
     DataSet = query_pacientes
-    Left = 1040
-    Top = 440
+    Left = 952
+    Top = 472
   end
 end

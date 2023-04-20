@@ -48,8 +48,8 @@
     object lb_saúde: TLabel
       Left = 51
       Top = 2
-      Width = 106
-      Height = 42
+      Width = 92
+      Height = 40
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -250,6 +250,7 @@
         360A28FEEF953F171E48D063554A8C3F5D88304E0AE2545A5115FD600AF7EED5
         7A793E097EFE65286C11F06EA32041FF45C0B2A7C6088F261BFD6461022708C7
         F55151DDC0B5FC2CBA8ED78F7A598142773C17C70000000049454E44AE426082}
+      OnClick = img_medClick
     end
     object img_pac: TImage
       Left = 17

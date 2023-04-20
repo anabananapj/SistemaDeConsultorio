@@ -129,6 +129,14 @@
             <Form>frm_consulta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frm_pacientes.pas">
+            <Form>pacientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frm_editar.pas">
+            <Form>editar_pacientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
