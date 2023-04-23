@@ -23,6 +23,8 @@ type
     edt_login: TEdit;
     query_login: TFDQuery;
     btn_entrar: TPanel;
+    Image2: TImage;
+    Image3: TImage;
     procedure FormResize(Sender: TObject);
     procedure btn_entrarClick(Sender: TObject);
 
@@ -52,11 +54,12 @@ uses paginaprincipal, uDTModuleConnection, frm_Cadastro_Paciente;
 Procedure CentralizarPanel(AForm: TForm; APanel: TPanel);
 begin
   APanel.Left := (AForm.ClientWidth div 2) - (APanel.Width div 2);
-  APanel.Top := (AForm.ClientHeight div 3) - (APanel.Height div 3);
+  APanel.Top := (AForm.ClientHeight div 2) - (APanel.Height div 2);
 
   APanel.Update;
   AForm.Update;
 end;
+
 
 
   { login }

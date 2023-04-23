@@ -45,7 +45,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDTModuleConnection, frm_editar, frm_editar_pac;
+uses uDTModuleConnection, frm_editar;
 
 
 

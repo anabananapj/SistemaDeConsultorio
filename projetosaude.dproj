@@ -153,6 +153,10 @@
             <Form>editar_pacientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frm_consultas.pas">
+            <Form>consultas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

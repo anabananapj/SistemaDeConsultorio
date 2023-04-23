@@ -14,7 +14,8 @@ uses
   frm_editar_func in 'frm_editar_func.pas' {funcionarios},
   frm_funcionarios in 'frm_funcionarios.pas' {frm_func},
   frm_medicos in 'frm_medicos.pas' {medicos},
-  frm_editar in 'frm_editar.pas' {editar_pacientes};
+  frm_editar in 'frm_editar.pas' {editar_pacientes},
+  frm_consultas in 'frm_consultas.pas' {consultas};
 
 {$R *.res}
 
@@ -34,5 +35,6 @@ begin
   Application.CreateForm(Tfrm_func, frm_func);
   Application.CreateForm(Tmedicos, medicos);
   Application.CreateForm(Teditar_pacientes, editar_pacientes);
+  Application.CreateForm(Tconsultas, consultas);
   Application.Run;
 end.

@@ -59,7 +59,7 @@ implementation
 
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
   frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos,
-  frm_funcionarios;
+  frm_funcionarios, frm_consultas;
 
 { Tfrm_telaprincipal }
 
@@ -72,11 +72,11 @@ procedure Tfrm_telaprincipal.btn_agendarClick(Sender: TObject);
 begin
 closeform;
 
-  frm_consulta := Tfrm_consulta.create(self);
-  frm_consulta.parent := pn_formularios;
+  consultas := tconsultas.create(self);
+  consultas.parent := pn_formularios;
   pn_principal.hide;
 
-  frm_consulta.show;
+  consultas.show;
 
 end;
 

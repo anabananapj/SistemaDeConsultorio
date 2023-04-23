@@ -48,8 +48,8 @@
     object lb_saúde: TLabel
       Left = 51
       Top = 2
-      Width = 106
-      Height = 42
+      Width = 92
+      Height = 40
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -406,8 +406,8 @@
       TodayColor = 10245654
     end
     object btn_agendar: TPanel
-      Left = 24
-      Top = 17
+      Left = 23
+      Top = 18
       Width = 217
       Height = 41
       Cursor = crHandPoint
@@ -440,7 +440,7 @@
       object lb_cadastros: TLabel
         Left = 73
         Top = 15
-        Width = 113
+        Width = 115
         Height = 33
         Caption = 'Cadastros'
         Font.Charset = ANSI_CHARSET
@@ -451,7 +451,7 @@
         ParentFont = False
       end
       object btn_cad_medicos: TPanel
-        Left = 48
+        Left = 49
         Top = 64
         Width = 161
         Height = 33
@@ -470,7 +470,7 @@
         OnClick = btn_cad_medicosClick
       end
       object btn_cad_pacientes: TPanel
-        Left = 48
+        Left = 49
         Top = 103
         Width = 161
         Height = 33
@@ -489,7 +489,7 @@
         OnClick = btn_cad_pacientesClick
       end
       object btn_cad_funcionarios: TPanel
-        Left = 48
+        Left = 49
         Top = 142
         Width = 161
         Height = 33
@@ -509,8 +509,8 @@
       end
     end
     object Panel1: TPanel
-      Left = 24
-      Top = 360
+      Left = 23
+      Top = 361
       Width = 217
       Height = 41
       Cursor = crHandPoint
