@@ -45,7 +45,7 @@ object consultas: Tconsultas
       ParentFont = False
       TabOrder = 0
     end
-    object grid_pacientes: TDBGrid
+    object grid_consultas: TDBGrid
       Left = 0
       Top = 48
       Width = 1285
@@ -63,6 +63,7 @@ object consultas: Tconsultas
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnDblClick = grid_consultasDblClick
       Columns = <
         item
           Expanded = False

@@ -1,14 +1,16 @@
 ﻿object frm_telaprincipal: Tfrm_telaprincipal
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
   Caption = '+Sa'#250'de '
-  ClientHeight = 729
-  ClientWidth = 1350
+  ClientHeight = 700
+  ClientWidth = 1344
   Color = clBtnFace
   Constraints.MaxHeight = 768
   Constraints.MaxWidth = 1366
-  Constraints.MinHeight = 768
-  Constraints.MinWidth = 1366
+  Constraints.MinHeight = 729
+  Constraints.MinWidth = 1350
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -36,7 +38,7 @@
   object pn_topo: TPanel
     Left = 0
     Top = 0
-    Width = 1350
+    Width = 1344
     Height = 49
     Align = alTop
     BevelOuter = bvNone
@@ -45,11 +47,12 @@
     Constraints.MaxWidth = 1350
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 1350
     object lb_saúde: TLabel
-      Left = 51
-      Top = 2
-      Width = 92
-      Height = 40
+      Left = 71
+      Top = 1
+      Width = 106
+      Height = 42
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -83,12 +86,47 @@
         1A18E8DE0212EA97064F5AD3BA88575A9BF13C565923C64B2069067DC6D35864
         4D41BA006D8F641E4F866A340000000049454E44AE426082}
     end
+    object btn_fechar: TImage
+      Left = 1309
+      Top = 10
+      Width = 31
+      Height = 33
+      Cursor = crHandPoint
+      Picture.Data = {
+        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+        0020080300000044A48AC6000000017352474201D9C92C7F0000000970485973
+        00000EC400000EC401952B0E1B000000DE504C5445000000E63946E63946E639
+        46E63946E63946E63946E63946E63946E63946E63946E63946E63946E63946E6
+        3946E63946E63946E63946E63946E63946E63946E63946E63946E63946E63946
+        E63946E63946E63946E63946E63946E63946E63946E86973E8616BE63946E86A
+        73EDEAE9E97F87E99298E75964E63946EDEBEAE97F86E99197E7545EE63946E6
+        3946E97E86E99097E86F78E63946E86F77E63946E97E85EDE9E9E86E77E63946
+        E99096E63946E98087E63946E63946E63946E63946E7545FE63946E63946E639
+        46E63946E63946E63946E63946E63946E63946BF0C14020000004A74524E5300
+        1F4C6261491A35A4E6FFE19D2822B9FEFDAD185FF2EC4875FB5A4323F3179AFF
+        FFA5FFFFFFFFFF7CFFFFFFFFD920FFFFFF15FF33FFFFFF41FF31FF11E0D19CFF
+        72FC1B8AE310FA32447745EEFE000001824944415478DA9593DB4B024114C6CF
+        CCEEB88A6E4259666ED285200A2C244812E9CF4E24094222ECF6E0434517BA53
+        4449A5A00E69BB735977D68DE8BC0CE73BBFE57C73CE2C823F02FD0F402CBABF
+        00865D93D8D73030E2FDD266DF7C4002B5946631F4A200939D8ECF5C1C3D7980
+        C4B7BF6E13F8D1052CB7A3D2257C2781380D1CC1F8AD008C08F73F218CC9D388
+        3E7060EE99E52904C8696BF540BB674AE68C0311EE34A9111ABA81D90EA1E16B
+        A6CCD71990BD143DD37D42A3A849A8792E94C56307C061E96AA14528101A3F95
+        C2D2A1036886EB7BB941C0447537CFEE3B801E7285955702347AE1030891B9ED
+        CF7C674E45ACEE39404817A9D52374ACD720347922945C955DB37824E6C0FCCD
+        7409157358DBE573D83C10730076BF741FAC1A53D6773860EA7C97D3A99A72E6
+        51452C6BB41DB8AC8D6DB9CD4CBB19502FA0B2FB6092F863A85E44A5C18B82A9
+        BE9F28E22DF00090A66A9782560205800CFA1CBCCB3CC665F001F62063E48ACF
+        47C31557557FBD1CD601E3AA57FAE7CF1B103F0CCB612138029C840000000049
+        454E44AE426082}
+      OnClick = btn_fecharClick
+    end
   end
   object pn_esquerda: TPanel
     Left = 0
     Top = 49
     Width = 65
-    Height = 680
+    Height = 651
     Align = alLeft
     BevelOuter = bvNone
     Color = 2431253
@@ -96,6 +134,9 @@
     Constraints.MaxWidth = 65
     ParentBackground = False
     TabOrder = 1
+    ExplicitLeft = -16
+    ExplicitTop = 64
+    ExplicitHeight = 680
     object img_not: TImage
       Left = 17
       Top = 55
@@ -184,6 +225,8 @@
         FA451BFF6570D1B62E60CEC5518BB6B50F60C0D2854D79E3C90000000049454E
         44AE426082}
       OnClick = img_menuClick
+      OnMouseEnter = img_menuMouseEnter
+      OnMouseLeave = img_menuMouseLeave
     end
     object btn_med: TImage
       Left = 14
@@ -251,6 +294,8 @@
         7A793E097EFE65286C11F06EA32041FF45C0B2A7C6088F261BFD6461022708C7
         F55151DDC0B5FC2CBA8ED78F7A598142773C17C70000000049454E44AE426082}
       OnClick = btn_medClick
+      OnMouseEnter = btn_medMouseEnter
+      OnMouseLeave = btn_medMouseLeave
     end
     object btn_pac: TImage
       Left = 17
@@ -303,6 +348,8 @@
         0B355DD80CEFFE4F601465903CB45E5CBEA54917CCEDD2FE01CCE8151987727B
         6B0000000049454E44AE426082}
       OnClick = btn_pacClick
+      OnMouseEnter = btn_pacMouseEnter
+      OnMouseLeave = btn_pacMouseLeave
     end
     object btn_func: TImage
       Left = 17
@@ -363,6 +410,8 @@
         BACF882CC7995E0943837EF21045CF151894D301DDCC17FC0B4DE19ED3000644
         0F0000000049454E44AE426082}
       OnClick = btn_funcClick
+      OnMouseEnter = btn_funcMouseEnter
+      OnMouseLeave = btn_funcMouseLeave
     end
   end
   object pn_principal: TPanel
@@ -379,6 +428,8 @@
     Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 2
+    ExplicitLeft = 61
+    ExplicitTop = 50
     object CalendarView1: TCalendarView
       Left = 263
       Top = 0
@@ -428,7 +479,7 @@
     end
     object pn_cadastros: TPanel
       Left = 0
-      Top = 416
+      Top = 405
       Width = 263
       Height = 265
       BevelOuter = bvNone
@@ -440,7 +491,7 @@
       object lb_cadastros: TLabel
         Left = 73
         Top = 15
-        Width = 115
+        Width = 113
         Height = 33
         Caption = 'Cadastros'
         Font.Charset = ANSI_CHARSET
@@ -510,13 +561,13 @@
     end
     object Panel1: TPanel
       Left = 23
-      Top = 361
+      Top = 345
       Width = 217
       Height = 41
       Cursor = crHandPoint
       BevelOuter = bvNone
       Caption = 'Ver Consultas'
-      Color = 8149067
+      Color = 7504709
       Constraints.MaxHeight = 41
       Constraints.MaxWidth = 263
       Font.Charset = ANSI_CHARSET
@@ -528,6 +579,78 @@
       ParentFont = False
       TabOrder = 3
       OnClick = btn_agendarClick
+    end
+    object lb_funcionarios: TPanel
+      Left = 4
+      Top = 189
+      Width = 107
+      Height = 25
+      BevelOuter = bvNone
+      Caption = 'Funcion'#225'rios'
+      Color = clActiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 4
+      Visible = False
+    end
+    object lb_pacientes: TPanel
+      Left = 4
+      Top = 149
+      Width = 107
+      Height = 21
+      BevelOuter = bvNone
+      Caption = 'Pacientes'
+      Color = clActiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 5
+      Visible = False
+    end
+    object lb_medicos: TPanel
+      Left = 4
+      Top = 103
+      Width = 107
+      Height = 19
+      BevelOuter = bvNone
+      Caption = 'M'#233'dicos'
+      Color = clActiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 6
+      Visible = False
+    end
+    object lb_menu: TPanel
+      Left = 4
+      Top = 18
+      Width = 73
+      Height = 25
+      BevelOuter = bvNone
+      Caption = 'Menu'
+      Color = clActiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 7
+      Visible = False
     end
   end
 end

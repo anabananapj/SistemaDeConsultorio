@@ -249,9 +249,6 @@ object cadastro_funcionario: Tcadastro_funcionario
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 472
-      ExplicitTop = 229
-      ExplicitWidth = 1266
     end
     object data_nasc: TDatePicker
       Left = 216

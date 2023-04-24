@@ -31,6 +31,11 @@ type
     pn_formularios: TPanel;
     btn_func: TImage;
     Panel1: TPanel;
+    lb_funcionarios: TPanel;
+    lb_pacientes: TPanel;
+    lb_medicos: TPanel;
+    lb_menu: TPanel;
+    btn_fechar: TImage;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
@@ -39,6 +44,16 @@ type
     procedure btn_medClick(Sender: TObject);
     procedure btn_pacClick(Sender: TObject);
     procedure btn_funcClick(Sender: TObject);
+    procedure btn_pacMouseEnter(Sender: TObject);
+    procedure btn_pacMouseLeave(Sender: TObject);
+    procedure btn_funcMouseEnter(Sender: TObject);
+    procedure btn_funcMouseLeave(Sender: TObject);
+    procedure btn_medMouseEnter(Sender: TObject);
+    procedure btn_medMouseLeave(Sender: TObject);
+    procedure img_menuMouseEnter(Sender: TObject);
+    procedure img_menuMouseLeave(Sender: TObject);
+    procedure btn_fecharClick(Sender: TObject);
+
 
 
 
@@ -123,6 +138,11 @@ closeform;
 
 end;
 
+procedure Tfrm_telaprincipal.btn_fecharClick(Sender: TObject);
+begin
+close;
+end;
+
 procedure Tfrm_telaprincipal.btn_funcClick(Sender: TObject);
 begin
 closeform;
@@ -133,6 +153,16 @@ closeform;
 
   frm_func.show;
 
+end;
+
+procedure Tfrm_telaprincipal.btn_funcMouseEnter(Sender: TObject);
+begin
+  lb_funcionarios.Visible := True;
+end;
+
+procedure Tfrm_telaprincipal.btn_funcMouseLeave(Sender: TObject);
+begin
+  lb_funcionarios.Visible := False;
 end;
 
 {funcao close_form}
@@ -168,6 +198,16 @@ closeform;
 
 end;
 
+procedure Tfrm_telaprincipal.btn_medMouseEnter(Sender: TObject);
+begin
+  lb_medicos.Visible := True;
+end;
+
+procedure Tfrm_telaprincipal.btn_medMouseLeave(Sender: TObject);
+begin
+  lb_medicos.Visible := False;
+end;
+
 procedure Tfrm_telaprincipal.btn_pacClick(Sender: TObject);
 begin
 closeform;
@@ -179,10 +219,34 @@ closeform;
   pacientes.show;
 end;
 
+
+
+procedure Tfrm_telaprincipal.btn_pacMouseEnter(Sender: TObject);
+begin
+  lb_pacientes.Visible := True;
+end;
+
+procedure Tfrm_telaprincipal.btn_pacMouseLeave(Sender: TObject);
+begin
+  lb_pacientes.Visible := False;
+end;
+
 procedure Tfrm_telaprincipal.img_menuClick(Sender: TObject);
 begin
 closeform;
   pn_principal.show;
+end;
+
+
+
+procedure Tfrm_telaprincipal.img_menuMouseEnter(Sender: TObject);
+begin
+  lb_menu.Visible := True;
+end;
+
+procedure Tfrm_telaprincipal.img_menuMouseLeave(Sender: TObject);
+begin
+  lb_menu.Visible := False;
 end;
 
 end.

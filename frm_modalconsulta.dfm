@@ -3,7 +3,7 @@ object frm_modalconsultas: Tfrm_modalconsultas
   Top = 0
   BorderStyle = bsNone
   Caption = 'frm_modalconsultas'
-  ClientHeight = 694
+  ClientHeight = 759
   ClientWidth = 767
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,20 +12,176 @@ object frm_modalconsultas: Tfrm_modalconsultas
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object pn_editar: TPanel
     Left = 0
     Top = 0
     Width = 767
-    Height = 694
+    Height = 759
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 771
-    ExplicitHeight = 488
+    ExplicitHeight = 694
+    object lb_nome: TLabel
+      Left = 53
+      Top = 63
+      Width = 148
+      Height = 25
+      Caption = 'Nome Completo:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_telefone: TLabel
+      Left = 525
+      Top = 63
+      Width = 77
+      Height = 25
+      Caption = 'Telefone:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_cpf: TLabel
+      Left = 53
+      Top = 123
+      Width = 36
+      Height = 25
+      Caption = 'CPF:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_rg: TLabel
+      Left = 349
+      Top = 123
+      Width = 29
+      Height = 25
+      Caption = 'RG:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_email: TLabel
+      Left = 53
+      Top = 184
+      Width = 59
+      Height = 25
+      Caption = 'E-mail:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_profissao: TLabel
+      Left = 349
+      Top = 184
+      Width = 81
+      Height = 25
+      Caption = 'Profiss'#227'o:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_cep: TLabel
+      Left = 53
+      Top = 254
+      Width = 37
+      Height = 25
+      Caption = 'CEP:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_rua: TLabel
+      Left = 227
+      Top = 254
+      Width = 37
+      Height = 25
+      Caption = 'Rua:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_numero: TLabel
+      Left = 519
+      Top = 254
+      Width = 75
+      Height = 25
+      Caption = 'N'#250'mero:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_cidade: TLabel
+      Left = 53
+      Top = 324
+      Width = 63
+      Height = 25
+      Caption = 'Cidade:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_bairro: TLabel
+      Left = 227
+      Top = 324
+      Width = 55
+      Height = 25
+      Caption = 'Bairro:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_estado: TLabel
+      Left = 519
+      Top = 324
+      Width = 61
+      Height = 25
+      Caption = 'Estado:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
     object pn_titulo: TPanel
       Left = 0
       Top = 0
@@ -33,17 +189,16 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Height = 49
       Align = alTop
       BevelOuter = bvNone
-      Caption = 'Editar M'#233'dicos'
-      Color = -1
+      Caption = 'Consulta em Andamento'
+      Color = 12701617
       Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
+      Font.Color = clBlack
       Font.Height = -21
       Font.Name = 'Gadugi'
       Font.Style = [fsBold]
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 763
       object btn_fechar: TImage
         Left = 717
         Top = 8
@@ -77,11 +232,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
           BE9F28E22DF00090A66A9782560205800CFA1CBCCB3CC665F001F62063E48ACF
           47C31557557FBD1CD601E3AA57FAE7CF1B103F0CCB612138029C840000000049
           454E44AE426082}
+        OnClick = btn_fecharClick
       end
     end
     object Panel1: TPanel
       Left = 276
-      Top = 632
+      Top = 696
       Width = 185
       Height = 41
       Cursor = crHandPoint
@@ -97,5 +253,171 @@ object frm_modalconsultas: Tfrm_modalconsultas
       ParentFont = False
       TabOrder = 1
     end
+    object edt_nome: TEdit
+      Left = 53
+      Top = 94
+      Width = 466
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+    end
+    object edt_telefone: TEdit
+      Left = 525
+      Top = 94
+      Width = 212
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+    end
+    object edt_cpf: TEdit
+      Left = 53
+      Top = 150
+      Width = 286
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+    end
+    object edt_rg: TEdit
+      Left = 349
+      Top = 150
+      Width = 233
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+    end
+    object edt_email: TEdit
+      Left = 53
+      Top = 213
+      Width = 284
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+    end
+    object edt_profissao: TEdit
+      Left = 349
+      Top = 213
+      Width = 233
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+    end
+    object edt_cep: TEdit
+      Left = 53
+      Top = 281
+      Width = 168
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 8
+    end
+    object edt_rua: TEdit
+      Left = 227
+      Top = 281
+      Width = 286
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 9
+    end
+    object edt_numero: TEdit
+      Left = 519
+      Top = 281
+      Width = 164
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+    end
+    object edt_cidade: TEdit
+      Left = 52
+      Top = 347
+      Width = 169
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 11
+    end
+    object edt_bairro: TEdit
+      Left = 227
+      Top = 347
+      Width = 286
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 12
+    end
+    object edt_estado: TEdit
+      Left = 519
+      Top = 347
+      Width = 164
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 13
+    end
+  end
+  object query_consultas: TFDQuery
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'SELECT *'
+      'FROM pacientes'
+      'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac'
+      'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med')
+    Left = 448
+    Top = 408
   end
 end

@@ -28,8 +28,6 @@ object frm_func: Tfrm_func
     Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -650
-    ExplicitTop = -381
     object pn_titulo: TPanel
       Left = 0
       Top = 0
