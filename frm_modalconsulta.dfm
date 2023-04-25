@@ -25,7 +25,6 @@ object frm_modalconsultas: Tfrm_modalconsultas
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 694
     object lb_nome: TLabel
       Left = 53
       Top = 63

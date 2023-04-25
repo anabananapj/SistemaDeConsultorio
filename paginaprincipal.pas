@@ -53,6 +53,7 @@ type
     procedure img_menuMouseEnter(Sender: TObject);
     procedure img_menuMouseLeave(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
+    procedure lb_menuClick(Sender: TObject);
 
 
 
@@ -247,6 +248,12 @@ end;
 procedure Tfrm_telaprincipal.img_menuMouseLeave(Sender: TObject);
 begin
   lb_menu.Visible := False;
+end;
+
+procedure Tfrm_telaprincipal.lb_menuClick(Sender: TObject);
+begin
+  lb_menu.Parent := nil;
+  lb_menu.BringToFront;
 end;
 
 end.

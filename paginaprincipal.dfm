@@ -23,15 +23,15 @@
   object pn_formularios: TPanel
     Left = 65
     Top = 49
-    Width = 1285
-    Height = 680
+    Width = 1279
+    Height = 651
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
     Constraints.MaxHeight = 680
     Constraints.MaxWidth = 1285
-    Constraints.MinHeight = 680
-    Constraints.MinWidth = 1285
+    Constraints.MinHeight = 651
+    Constraints.MinWidth = 1279
     ParentBackground = False
     TabOrder = 3
   end
@@ -47,12 +47,11 @@
     Constraints.MaxWidth = 1350
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1350
     object lb_saúde: TLabel
       Left = 71
       Top = 1
-      Width = 106
-      Height = 42
+      Width = 92
+      Height = 40
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -134,9 +133,6 @@
     Constraints.MaxWidth = 65
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -16
-    ExplicitTop = 64
-    ExplicitHeight = 680
     object img_not: TImage
       Left = 17
       Top = 55
@@ -417,19 +413,17 @@
   object pn_principal: TPanel
     Left = 65
     Top = 49
-    Width = 1285
-    Height = 680
+    Width = 1279
+    Height = 651
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
     Constraints.MaxHeight = 680
     Constraints.MaxWidth = 1285
-    Constraints.MinHeight = 680
-    Constraints.MinWidth = 1285
+    Constraints.MinHeight = 651
+    Constraints.MinWidth = 1279
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 61
-    ExplicitTop = 50
     object CalendarView1: TCalendarView
       Left = 263
       Top = 0
@@ -580,77 +574,78 @@
       TabOrder = 3
       OnClick = btn_agendarClick
     end
-    object lb_funcionarios: TPanel
-      Left = 4
-      Top = 189
-      Width = 107
-      Height = 25
-      BevelOuter = bvNone
-      Caption = 'Funcion'#225'rios'
-      Color = clActiveCaption
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -16
-      Font.Name = 'Century Gothic'
-      Font.Style = [fsBold]
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 4
-      Visible = False
-    end
-    object lb_pacientes: TPanel
-      Left = 4
-      Top = 149
-      Width = 107
-      Height = 21
-      BevelOuter = bvNone
-      Caption = 'Pacientes'
-      Color = clActiveCaption
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -16
-      Font.Name = 'Century Gothic'
-      Font.Style = [fsBold]
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 5
-      Visible = False
-    end
-    object lb_medicos: TPanel
-      Left = 4
-      Top = 103
-      Width = 107
-      Height = 19
-      BevelOuter = bvNone
-      Caption = 'M'#233'dicos'
-      Color = clActiveCaption
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -16
-      Font.Name = 'Century Gothic'
-      Font.Style = [fsBold]
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 6
-      Visible = False
-    end
-    object lb_menu: TPanel
-      Left = 4
-      Top = 18
-      Width = 73
-      Height = 25
-      BevelOuter = bvNone
-      Caption = 'Menu'
-      Color = clActiveCaption
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -16
-      Font.Name = 'Century Gothic'
-      Font.Style = [fsBold]
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 7
-      Visible = False
-    end
+  end
+  object lb_menu: TPanel
+    Left = 57
+    Top = 66
+    Width = 73
+    Height = 25
+    BevelOuter = bvNone
+    Caption = 'Menu'
+    Color = clActiveCaption
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 4
+    Visible = False
+    OnClick = lb_menuClick
+  end
+  object lb_funcionarios: TPanel
+    Left = 57
+    Top = 237
+    Width = 107
+    Height = 25
+    BevelOuter = bvNone
+    Caption = 'Funcion'#225'rios'
+    Color = clActiveCaption
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 5
+    Visible = False
+  end
+  object lb_medicos: TPanel
+    Left = 57
+    Top = 151
+    Width = 107
+    Height = 19
+    BevelOuter = bvNone
+    Caption = 'M'#233'dicos'
+    Color = clActiveCaption
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 6
+    Visible = False
+  end
+  object lb_pacientes: TPanel
+    Left = 57
+    Top = 197
+    Width = 107
+    Height = 21
+    BevelOuter = bvNone
+    Caption = 'Pacientes'
+    Color = clActiveCaption
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 7
+    Visible = False
   end
 end

@@ -15,26 +15,28 @@ uses
   frm_funcionarios in 'frm_funcionarios.pas' {frm_func},
   frm_medicos in 'frm_medicos.pas' {medicos},
   frm_editar in 'frm_editar.pas' {editar_pacientes},
-  frm_consultas in 'frm_consultas.pas' {consultas};
+  frm_consultas in 'frm_consultas.pas' {consultas},
+  frm_modalconsulta in 'frm_modalconsulta.pas' {frm_modalconsultas};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(Tfrm_login, frm_login);
-  Application.CreateForm(Tfrm_telaprincipal, frm_telaprincipal);
   Application.CreateForm(TDTConnection, DTConnection);
+  Application.CreateForm(TFrm_login, Frm_login);
+  Application.CreateForm(Tfrm_telaprincipal, frm_telaprincipal);
+  Application.CreateForm(Tcadastro_paciente, cadastro_paciente);
   Application.CreateForm(Tcadastro_medico, cadastro_medico);
   Application.CreateForm(Tcadastro_funcionario, cadastro_funcionario);
   Application.CreateForm(Tfrm_consulta, frm_consulta);
   Application.CreateForm(Tpacientes, pacientes);
-  Application.CreateForm(Tcadastro_paciente, cadastro_paciente);
   Application.CreateForm(Teditar_med, editar_med);
   Application.CreateForm(Tfuncionarios, funcionarios);
   Application.CreateForm(Tfrm_func, frm_func);
   Application.CreateForm(Tmedicos, medicos);
   Application.CreateForm(Teditar_pacientes, editar_pacientes);
   Application.CreateForm(Tconsultas, consultas);
+  Application.CreateForm(Tfrm_modalconsultas, frm_modalconsultas);
   Application.Run;
 end.
