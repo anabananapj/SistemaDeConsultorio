@@ -83,6 +83,7 @@ procedure Teditar_med.Panel1Click(Sender: TObject);
 
       medicos.GetDataSource.DataSet.Refresh;
       ModalResult := mrOk;
+      messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
     except
       on E: Exception do
       begin

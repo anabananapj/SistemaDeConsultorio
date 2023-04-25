@@ -3,8 +3,8 @@ object frm_modalconsultas: Tfrm_modalconsultas
   Top = 0
   BorderStyle = bsNone
   Caption = 'frm_modalconsultas'
-  ClientHeight = 759
-  ClientWidth = 767
+  ClientHeight = 772
+  ClientWidth = 899
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,32 +18,19 @@ object frm_modalconsultas: Tfrm_modalconsultas
   object pn_editar: TPanel
     Left = 0
     Top = 0
-    Width = 767
-    Height = 759
+    Width = 899
+    Height = 772
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
     object lb_nome: TLabel
-      Left = 53
-      Top = 63
-      Width = 148
-      Height = 25
-      Caption = 'Nome Completo:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -19
-      Font.Name = 'Malgun Gothic'
-      Font.Style = []
-      ParentFont = False
-    end
-    object lb_telefone: TLabel
-      Left = 525
+      Left = 13
       Top = 63
       Width = 77
       Height = 25
-      Caption = 'Telefone:'
+      Caption = 'Paciente:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -51,12 +38,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Font.Style = []
       ParentFont = False
     end
-    object lb_cpf: TLabel
-      Left = 53
-      Top = 123
-      Width = 36
+    object lb_nascimento: TLabel
+      Left = 13
+      Top = 112
+      Width = 107
       Height = 25
-      Caption = 'CPF:'
+      Caption = 'Nascimento:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -64,12 +51,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Font.Style = []
       ParentFont = False
     end
-    object lb_rg: TLabel
-      Left = 349
-      Top = 123
-      Width = 29
+    object lb_queixaprincipal: TLabel
+      Left = 13
+      Top = 210
+      Width = 145
       Height = 25
-      Caption = 'RG:'
+      Caption = 'Queixa Principal:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -77,12 +64,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Font.Style = []
       ParentFont = False
     end
-    object lb_email: TLabel
-      Left = 53
-      Top = 184
-      Width = 59
+    object lb_historia: TLabel
+      Left = 13
+      Top = 306
+      Width = 232
       Height = 25
-      Caption = 'E-mail:'
+      Caption = 'Hist'#243'ria da Mol'#233'stia Atual:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -90,12 +77,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Font.Style = []
       ParentFont = False
     end
-    object lb_profissao: TLabel
-      Left = 349
-      Top = 184
-      Width = 81
+    object lb_antecedentes: TLabel
+      Left = 13
+      Top = 433
+      Width = 121
       Height = 25
-      Caption = 'Profiss'#227'o:'
+      Caption = 'Antecedentes:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -103,12 +90,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Font.Style = []
       ParentFont = False
     end
-    object lb_cep: TLabel
-      Left = 53
-      Top = 254
-      Width = 37
+    object lb_receita: TLabel
+      Left = 13
+      Top = 527
+      Width = 67
       Height = 25
-      Caption = 'CEP:'
+      Caption = 'Receita:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -116,12 +103,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Font.Style = []
       ParentFont = False
     end
-    object lb_rua: TLabel
-      Left = 227
-      Top = 254
-      Width = 37
+    object lb_medico: TLabel
+      Left = 313
+      Top = 111
+      Width = 137
       Height = 25
-      Caption = 'Rua:'
+      Caption = 'CRM M'#233'dico(a):'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -129,51 +116,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       Font.Style = []
       ParentFont = False
     end
-    object lb_numero: TLabel
-      Left = 519
-      Top = 254
-      Width = 75
+    object Label1: TLabel
+      Left = 313
+      Top = 63
+      Width = 116
       Height = 25
-      Caption = 'N'#250'mero:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -19
-      Font.Name = 'Malgun Gothic'
-      Font.Style = []
-      ParentFont = False
-    end
-    object lb_cidade: TLabel
-      Left = 53
-      Top = 324
-      Width = 63
-      Height = 25
-      Caption = 'Cidade:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -19
-      Font.Name = 'Malgun Gothic'
-      Font.Style = []
-      ParentFont = False
-    end
-    object lb_bairro: TLabel
-      Left = 227
-      Top = 324
-      Width = 55
-      Height = 25
-      Caption = 'Bairro:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -19
-      Font.Name = 'Malgun Gothic'
-      Font.Style = []
-      ParentFont = False
-    end
-    object lb_estado: TLabel
-      Left = 519
-      Top = 324
-      Width = 61
-      Height = 25
-      Caption = 'Estado:'
+      Caption = 'CPF Paciente:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -184,7 +132,7 @@ object frm_modalconsultas: Tfrm_modalconsultas
     object pn_titulo: TPanel
       Left = 0
       Top = 0
-      Width = 767
+      Width = 899
       Height = 49
       Align = alTop
       BevelOuter = bvNone
@@ -199,8 +147,8 @@ object frm_modalconsultas: Tfrm_modalconsultas
       ParentFont = False
       TabOrder = 0
       object btn_fechar: TImage
-        Left = 717
-        Top = 8
+        Left = 859
+        Top = 10
         Width = 31
         Height = 33
         Cursor = crHandPoint
@@ -234,9 +182,9 @@ object frm_modalconsultas: Tfrm_modalconsultas
         OnClick = btn_fecharClick
       end
     end
-    object Panel1: TPanel
-      Left = 276
-      Top = 696
+    object btn_concluir: TPanel
+      Left = 349
+      Top = 712
       Width = 185
       Height = 41
       Cursor = crHandPoint
@@ -253,10 +201,11 @@ object frm_modalconsultas: Tfrm_modalconsultas
       TabOrder = 1
     end
     object edt_nome: TEdit
-      Left = 53
-      Top = 94
-      Width = 466
+      Left = 13
+      Top = 87
+      Width = 286
       Height = 27
+      Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -265,11 +214,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       ParentFont = False
       TabOrder = 2
     end
-    object edt_telefone: TEdit
-      Left = 525
-      Top = 94
-      Width = 212
+    object edt_nasc: TEdit
+      Left = 13
+      Top = 135
+      Width = 286
       Height = 27
+      Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -278,115 +228,145 @@ object frm_modalconsultas: Tfrm_modalconsultas
       ParentFont = False
       TabOrder = 3
     end
-    object edt_cpf: TEdit
-      Left = 53
-      Top = 150
-      Width = 286
-      Height = 27
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
+    object pn_timer: TPanel
+      Left = 675
+      Top = 81
+      Width = 185
+      Height = 81
+      BevelOuter = bvNone
+      Color = 14200751
+      ParentBackground = False
       TabOrder = 4
+      object lb_tempo: TLabel
+        Left = 31
+        Top = 30
+        Width = 126
+        Height = 25
+        Caption = '00:00:00.000'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
     end
-    object edt_rg: TEdit
-      Left = 349
-      Top = 150
-      Width = 233
-      Height = 27
+    object memo_quixaprincipal: TMemo
+      Left = 13
+      Top = 240
+      Width = 452
+      Height = 49
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 5
     end
-    object edt_email: TEdit
-      Left = 53
-      Top = 213
-      Width = 284
-      Height = 27
+    object btn_comecar: TPanel
+      Left = 675
+      Top = 168
+      Width = 185
+      Height = 33
+      Cursor = crHandPoint
+      BevelOuter = bvNone
+      Caption = 'Iniciar Consulta'
+      Color = 9890035
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 6
+      OnClick = btn_comecarClick
     end
-    object edt_profissao: TEdit
-      Left = 349
-      Top = 213
-      Width = 233
-      Height = 27
+    object btn_encerrar: TPanel
+      Left = 675
+      Top = 168
+      Width = 185
+      Height = 33
+      Cursor = crHandPoint
+      BevelOuter = bvNone
+      Caption = 'Encerrar Consulta'
+      Color = 6447820
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 7
+      Visible = False
+      OnClick = btn_encerrarClick
     end
-    object edt_cep: TEdit
-      Left = 53
-      Top = 281
-      Width = 168
-      Height = 27
+    object pn_concluido: TPanel
+      Left = 675
+      Top = 207
+      Width = 185
+      Height = 33
+      BevelOuter = bvNone
+      Caption = 'Consulta Conclu'#237'da!'
+      Color = 8634992
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 8
+      Visible = False
+      OnClick = btn_encerrarClick
     end
-    object edt_rua: TEdit
-      Left = 227
-      Top = 281
-      Width = 286
-      Height = 27
+    object memo_historia: TMemo
+      Left = 13
+      Top = 337
+      Width = 452
+      Height = 80
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 9
     end
-    object edt_numero: TEdit
-      Left = 519
-      Top = 281
-      Width = 164
-      Height = 27
+    object memo_antecedentes: TMemo
+      Left = 13
+      Top = 461
+      Width = 452
+      Height = 49
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 10
     end
-    object edt_cidade: TEdit
-      Left = 52
-      Top = 347
-      Width = 169
-      Height = 27
+    object memo_receita: TMemo
+      Left = 13
+      Top = 556
+      Width = 452
+      Height = 49
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 11
     end
-    object edt_bairro: TEdit
-      Left = 227
-      Top = 347
+    object edt_medico: TEdit
+      Left = 313
+      Top = 135
       Width = 286
       Height = 27
+      Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -395,11 +375,12 @@ object frm_modalconsultas: Tfrm_modalconsultas
       ParentFont = False
       TabOrder = 12
     end
-    object edt_estado: TEdit
-      Left = 519
-      Top = 347
-      Width = 164
+    object edt_cpfpac: TEdit
+      Left = 313
+      Top = 87
+      Width = 286
       Height = 27
+      Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -416,7 +397,20 @@ object frm_modalconsultas: Tfrm_modalconsultas
       'FROM pacientes'
       'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac'
       'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med')
-    Left = 448
-    Top = 408
+    Left = 39
+    Top = 4
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 105
+    Top = 4
+  end
+  object query_prontuarios: TFDQuery
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from prontuarios')
+    Left = 175
+    Top = 4
   end
 end

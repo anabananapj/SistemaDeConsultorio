@@ -53,7 +53,7 @@ object pacientes: Tpacientes
       Left = 0
       Top = 48
       Width = 1285
-      Height = 632
+      Height = 593
       DataSource = ds_pacientes
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText

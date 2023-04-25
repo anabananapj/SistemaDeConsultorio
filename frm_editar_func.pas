@@ -83,7 +83,9 @@ begin
 
       frm_func.GetDataSource.DataSet.Refresh;
       ModalResult := mrOk;
+      messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
     except
+
       on E: Exception do
       begin
         ShowMessage('Erro ao atualizar as informações do Funcionário: ' + E.Message);

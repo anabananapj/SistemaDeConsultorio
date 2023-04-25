@@ -49,7 +49,7 @@ object consultas: Tconsultas
       Left = 0
       Top = 48
       Width = 1285
-      Height = 632
+      Height = 593
       DataSource = ds_consultas
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText

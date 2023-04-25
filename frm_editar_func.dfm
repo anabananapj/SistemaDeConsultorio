@@ -23,10 +23,6 @@ object funcionarios: Tfuncionarios
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -112
-    ExplicitTop = -156
-    ExplicitWidth = 747
-    ExplicitHeight = 455
     object lb_bairro: TLabel
       Left = 211
       Top = 316
@@ -200,7 +196,6 @@ object funcionarios: Tfuncionarios
       ParentBackground = False
       ParentFont = False
       TabOrder = 12
-      ExplicitWidth = 747
       object btn_fechar: TImage
         Left = 707
         Top = 8

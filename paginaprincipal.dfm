@@ -48,10 +48,10 @@
     ParentBackground = False
     TabOrder = 0
     object lb_saúde: TLabel
-      Left = 71
+      Left = 55
       Top = 1
-      Width = 92
-      Height = 40
+      Width = 106
+      Height = 42
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET

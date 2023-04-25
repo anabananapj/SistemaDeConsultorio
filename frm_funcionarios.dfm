@@ -49,7 +49,7 @@ object frm_func: Tfrm_func
       Left = 0
       Top = 48
       Width = 1285
-      Height = 632
+      Height = 601
       DataSource = ds_funcionarios
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
