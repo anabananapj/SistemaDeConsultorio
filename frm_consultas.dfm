@@ -127,13 +127,12 @@ object consultas: Tconsultas
     end
   end
   object query_consultas: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'SELECT *'
       'FROM pacientes'
       'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac'
-      'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med')
+      'INNER JOIN medicos ON consultas.crm_med = medicos.crm_med')
     Left = 560
     Top = 336
   end

@@ -41,6 +41,7 @@ type
     Label1: TLabel;
     edt_cpfpac: TEdit;
     query_prontuarios: TFDQuery;
+    query_consultas: TFDQuery;
     procedure btn_fecharClick(Sender: TObject);
     procedure btn_comecarClick(Sender: TObject);
     procedure btn_encerrarClick(Sender: TObject);
@@ -63,7 +64,7 @@ implementation
 
 {$R *.dfm}
 
-uses frm_consultas, uDTModuleConnection, login, DataModule;
+uses frm_consultas, uDTModuleConnection, login;
 
 procedure Tfrm_modalconsultas.btn_comecarClick(Sender: TObject);
 begin
@@ -90,12 +91,15 @@ begin
 
   query_prontuarios := TFDQuery.Create(nil);
   try
-    query_prontuarios.Connection := datamodule1.fdconnection1;
+    query_prontuarios.Connection := dtconnection.fdconnection1;
     query_prontuarios.SQL.Add('INSERT INTO prontuarios (cpf_pac, crm_med, duracao_cons) VALUES (:cpf_pac, :crm_med, :duracao_cons)');
     query_prontuarios.Params.ParamByName('cpf_pac').Value := edt_cpfpac.Text;
     query_prontuarios.Params.ParamByName('crm_med').Value := edt_medico.Text;
     query_prontuarios.Params.ParamByName('duracao_cons').Value := tempo_decorrido;
     query_prontuarios.ExecSQL;
+    query_consultas.Edit;
+    query_prontuarios.Params.ParamByName('status_cons').Value := tempo_decorrido;
+
   finally
     query_prontuarios.Free;
   end;

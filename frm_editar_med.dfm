@@ -412,7 +412,7 @@ object editar_med: Teditar_med
     Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
-      'select * from medicos')
+      'select * from medicos where id_med = id_med')
     Left = 631
     Top = 197
   end

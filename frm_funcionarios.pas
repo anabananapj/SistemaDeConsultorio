@@ -40,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses frm_editar_func, uDTModuleConnection, DataModule;
+uses frm_editar_func, uDTModuleConnection;
 
 constructor Tfrm_func.Create(AOwner: TComponent);
 begin
@@ -74,10 +74,13 @@ end;
 procedure Tfrm_func.grid_funcionariosDblClick(Sender: TObject);
 var
   EditForm: Tfuncionarios;
+  id_func: integer;
 begin
   if not FDataSource.DataSet.IsEmpty then
   begin
+    id_func := FDataSource.DataSet.FieldByName('id_func').AsInteger;
     EditForm := Tfuncionarios.Create(Self);
+
     try
       EditForm.edt_nome.Text      := FDataSource.DataSet.FieldByName('nome_func').AsString;
       EditForm.edt_telefone.Text  := FDataSource.DataSet.FieldByName('telefone_func').AsString;

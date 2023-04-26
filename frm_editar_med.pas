@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.Imaging.pngimage;
+  FireDAC.Comp.Client, Vcl.Imaging.pngimage, Datasnap.Provider;
 
 type
   Teditar_med = class(TForm)
@@ -43,10 +43,13 @@ type
     btn_fechar: TImage;
     procedure Panel1Click(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
+
   private
     { Private declarations }
+
   public
     { Public declarations }
+
   end;
 
 var
@@ -63,36 +66,57 @@ begin
 close;
 end;
 
+
+
 procedure Teditar_med.Panel1Click(Sender: TObject);
- begin
-    try
-      query_medicos.Edit;
-      query_medicos.FieldByName('nome_med').AsString := edt_nome.Text;
-      query_medicos.FieldByName('telefone_med').AsString := edt_telefone.Text;
-      query_medicos.FieldByName('cpf_med').AsString := edt_cpf.Text;
-      query_medicos.FieldByName('rg_med').AsString := edt_rg.Text;
-      query_medicos.FieldByName('email_med').AsString := edt_email.Text;
-      query_medicos.FieldByName('especialidade_med').AsString := edt_especialidade.Text;
-      query_medicos.FieldByName('cep').AsString := edt_cep.Text;
-      query_medicos.FieldByName('rua').AsString := edt_rua.Text;
-      query_medicos.FieldByName('bairro').AsString := edt_bairro.Text;
-      query_medicos.FieldByName('numero_casa').AsString := edt_numero.Text;
-      query_medicos.FieldByName('estado').AsString := edt_estado.Text;
-      query_medicos.FieldByName('cidade').AsString := edt_cidade.Text;
-      query_medicos.Post;
+var
+  sql: string;
+begin
+  try
+    sql := 'UPDATE medicos SET ' +
+           'nome_med = :nome_med, ' +
+           'telefone_med = :telefone_med, ' +
+           'cpf_med = :cpf_med, ' +
+           'rg_med = :rg_med, ' +
+           'email_med = :email_med, ' +
+           'especialidade_med = :especialidade_med, ' +
+           'cep = :cep, ' +
+           'rua = :rua, ' +
+           'bairro = :bairro, ' +
+           'numero_casa = :numero_casa, ' +
+           'estado = :estado, ' +
+           'cidade = :cidade ' +
+           'WHERE id_med = :id_med';
 
-      medicos.GetDataSource.DataSet.Refresh;
-      ModalResult := mrOk;
-      messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
-    except
-      on E: Exception do
-      begin
-        ShowMessage('Erro ao atualizar as informações do Médico: ' + E.Message);
-      end;
+    query_medicos.SQL.Text := sql;
 
+    query_medicos.Params.ParamByName('id_med').AsInteger := medicos.GetDataSource.DataSet.FieldByName('id_med').AsInteger;
+    query_medicos.Params.ParamByName('nome_med').AsString := edt_nome.Text;
+    query_medicos.Params.ParamByName('telefone_med').AsString := edt_telefone.Text;
+    query_medicos.Params.ParamByName('cpf_med').AsString := edt_cpf.Text;
+    query_medicos.Params.ParamByName('rg_med').AsString := edt_rg.Text;
+    query_medicos.Params.ParamByName('email_med').AsString := edt_email.Text;
+    query_medicos.Params.ParamByName('especialidade_med').AsString := edt_especialidade.Text;
+    query_medicos.Params.ParamByName('cep').AsString := edt_cep.Text;
+    query_medicos.Params.ParamByName('rua').AsString := edt_rua.Text;
+    query_medicos.Params.ParamByName('bairro').AsString := edt_bairro.Text;
+    query_medicos.Params.ParamByName('numero_casa').AsString := edt_numero.Text;
+    query_medicos.Params.ParamByName('estado').AsString := edt_estado.Text;
+    query_medicos.Params.ParamByName('cidade').AsString := edt_cidade.Text;
+
+
+    query_medicos.ExecSQL;
+
+    medicos.GetDataSource.DataSet.Refresh;
+    ModalResult := mrOk;
+    messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao atualizar as informações do Médico: ' + E.Message);
+    end;
+  end;
 end;
-end;
-
 
 
 

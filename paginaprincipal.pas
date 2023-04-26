@@ -30,7 +30,7 @@ type
     btn_cad_funcionarios: TPanel;
     pn_formularios: TPanel;
     btn_func: TImage;
-    Panel1: TPanel;
+    btn_verconsultas: TPanel;
     lb_funcionarios: TPanel;
     lb_pacientes: TPanel;
     lb_medicos: TPanel;
@@ -54,6 +54,7 @@ type
     procedure img_menuMouseLeave(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
     procedure lb_menuClick(Sender: TObject);
+    procedure btn_verconsultasClick(Sender: TObject);
 
 
 
@@ -88,11 +89,11 @@ procedure Tfrm_telaprincipal.btn_agendarClick(Sender: TObject);
 begin
 closeform;
 
-  consultas := tconsultas.create(self);
-  consultas.parent := pn_formularios;
+  frm_consulta := tfrm_consulta.create(self);
+  frm_consulta.parent := pn_formularios;
   pn_principal.hide;
 
-  consultas.show;
+  frm_consulta.show;
 
 end;
 
@@ -230,6 +231,17 @@ end;
 procedure Tfrm_telaprincipal.btn_pacMouseLeave(Sender: TObject);
 begin
   lb_pacientes.Visible := False;
+end;
+
+procedure Tfrm_telaprincipal.btn_verconsultasClick(Sender: TObject);
+begin
+closeform;
+
+  consultas := tconsultas.create(self);
+  consultas.parent := pn_formularios;
+  pn_principal.hide;
+
+  consultas.show;
 end;
 
 procedure Tfrm_telaprincipal.img_menuClick(Sender: TObject);

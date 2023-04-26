@@ -17,18 +17,19 @@ type
     grid_medicos: TDBGrid;
     query_medicos: TFDQuery;
     ds_medicos: TDataSource;
-    SearchBox1: TSearchBox;
     procedure grid_medicosDblClick(Sender: TObject);
  private
     { Private declarations }
-     FDataSource: TDataSource;
+
+      FDataSource: TDataSource;
   public
     { Public declarations }
+
      constructor Create(AOwner: TComponent); override;
      destructor Destroy; override;
 
      function GetDataSource: TDataSource;
-    procedure SetDataSource(ADataSource: TDataSource);
+     procedure SetDataSource(ADataSource: TDataSource);
   end;
 
 var
@@ -38,7 +39,7 @@ implementation
 
 {$R *.dfm}
 
-uses frm_editar_med, uDTModuleConnection, DataModule;
+uses frm_editar_med, uDTModuleConnection;
 
 constructor Tmedicos.Create(AOwner: TComponent);
 begin
@@ -70,9 +71,11 @@ end;
 procedure Tmedicos.grid_medicosDblClick(Sender: TObject);
 var
   EditForm: Teditar_med;
+  id_med: Integer;
 begin
   if not FDataSource.DataSet.IsEmpty then
   begin
+    id_med := FDataSource.DataSet.FieldByName('id_med').AsInteger;
     EditForm := Teditar_med.Create(Self);
     try
       EditForm.edt_nome.Text          := FDataSource.DataSet.FieldByName('nome_med').AsString;
@@ -93,8 +96,9 @@ begin
     finally
       EditForm.Free;
     end;
+
+
   end;
 end;
-
 
 end.

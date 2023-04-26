@@ -166,16 +166,9 @@ object medicos: Tmedicos
           Visible = True
         end>
     end
-    object SearchBox1: TSearchBox
-      Left = 440
-      Top = 424
-      Width = 121
-      Height = 21
-      TabOrder = 2
-      Text = 'SearchBox1'
-    end
   end
   object query_medicos: TFDQuery
+    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from medicos')

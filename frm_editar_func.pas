@@ -64,34 +64,52 @@ close;
 end;
 
 procedure Tfuncionarios.Panel1Click(Sender: TObject);
+var
+  sql: string;
 begin
-    try
-      query_funcionarios.Edit;
-      query_funcionarios.FieldByName('nome_func').AsString := edt_nome.Text;
-      query_funcionarios.FieldByName('telefone_func').AsString := edt_telefone.Text;
-      query_funcionarios.FieldByName('cpf_func').AsString := edt_cpf.Text;
-      query_funcionarios.FieldByName('rg_func').AsString := edt_rg.Text;
-      query_funcionarios.FieldByName('email_func').AsString := edt_email.Text;
-      query_funcionarios.FieldByName('cargo_func').AsString := edt_cargo.Text;
-      query_funcionarios.FieldByName('cep').AsString := edt_cep.Text;
-      query_funcionarios.FieldByName('rua').AsString := edt_rua.Text;
-      query_funcionarios.FieldByName('bairro').AsString := edt_bairro.Text;
-      query_funcionarios.FieldByName('numero_casa').AsString := edt_numero.Text;
-      query_funcionarios.FieldByName('estado').AsString := edt_estado.Text;
-      query_funcionarios.FieldByName('cidade').AsString := edt_cidade.Text;
-      query_funcionarios.Post;
+  try
+    sql := 'UPDATE funcionarios SET ' +
+           'nome_func = :nome_func, ' +
+           'telefone_func = :telefone_func, ' +
+           'cpf_func = :cpf_func, ' +
+           'rg_func = :rg_func, ' +
+           'email_func = :email_func, ' +
+           'cargo_func = :cargo_func, ' +
+           'cep = :cep, ' +
+           'rua = :rua, ' +
+           'bairro = :bairro, ' +
+           'numero_casa = :numero_casa, ' +
+           'estado = :estado, ' +
+           'cidade = :cidade ' +
+           'WHERE id_func = :id_func';
 
-      frm_func.GetDataSource.DataSet.Refresh;
-      ModalResult := mrOk;
-      messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
-    except
+    query_funcionarios.SQL.Text := sql;
 
-      on E: Exception do
-      begin
-        ShowMessage('Erro ao atualizar as informações do Funcionário: ' + E.Message);
-      end;
+    query_funcionarios.Params.ParamByName('id_func').AsInteger := frm_func.GetDataSource.DataSet.FieldByName('id_func').AsInteger;
+    query_funcionarios.Params.ParamByName('nome_func').AsString := edt_nome.Text;
+    query_funcionarios.Params.ParamByName('telefone_func').AsString := edt_telefone.Text;
+    query_funcionarios.Params.ParamByName('cpf_func').AsString := edt_cpf.Text;
+    query_funcionarios.Params.ParamByName('rg_func').AsString := edt_rg.Text;
+    query_funcionarios.Params.ParamByName('email_func').AsString := edt_email.Text;
+    query_funcionarios.Params.ParamByName('cargo_func').AsString := edt_cargo.Text;
+    query_funcionarios.Params.ParamByName('cep').AsString := edt_cep.Text;
+    query_funcionarios.Params.ParamByName('rua').AsString := edt_rua.Text;
+    query_funcionarios.Params.ParamByName('bairro').AsString := edt_bairro.Text;
+    query_funcionarios.Params.ParamByName('numero_casa').AsString := edt_numero.Text;
+    query_funcionarios.Params.ParamByName('estado').AsString := edt_estado.Text;
+    query_funcionarios.Params.ParamByName('cidade').AsString := edt_cidade.Text;
 
-end;
+    query_funcionarios.ExecSQL;
+
+    frm_func.GetDataSource.DataSet.Refresh;
+    ModalResult := mrOk;
+    messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao atualizar as informações do Funcionário: ' + E.Message);
+    end;
+  end;
 end;
 
 end.

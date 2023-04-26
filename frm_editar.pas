@@ -65,33 +65,53 @@ close;
 end;
 
 procedure Teditar_pacientes.Panel1Click(Sender: TObject);
- begin
-    try
-      query_pacientes.Edit;
-      query_pacientes.FieldByName('nome_pac').AsString := edt_nome.Text;
-      query_pacientes.FieldByName('telefone_pac').AsString := edt_telefone.Text;
-      query_pacientes.FieldByName('cpf_pac').AsString := edt_cpf.Text;
-      query_pacientes.FieldByName('rg_pac').AsString := edt_rg.Text;
-      query_pacientes.FieldByName('email_pac').AsString := edt_email.Text;
-      query_pacientes.FieldByName('profissao').AsString := edt_profissao.Text;
-      query_pacientes.FieldByName('cep').AsString := edt_cep.Text;
-      query_pacientes.FieldByName('rua').AsString := edt_rua.Text;
-      query_pacientes.FieldByName('bairro').AsString := edt_bairro.Text;
-      query_pacientes.FieldByName('numero_casa').AsString := edt_numero.Text;
-      query_pacientes.FieldByName('estado').AsString := edt_estado.Text;
-      query_pacientes.FieldByName('cidade').AsString := edt_cidade.Text;
-      query_pacientes.Post;
+var
+  sql: string;
+begin
+  try
+    sql := 'UPDATE pacientes SET ' +
+           'nome_pac = :nome_pac, ' +
+           'telefone_pac = :telefone_pac, ' +
+           'cpf_pac = :cpf_pac, ' +
+           'rg_pac = :rg_pac, ' +
+           'email_pac = :email_pac, ' +
+           'profissao = :profissao, ' +
+           'cep = :cep, ' +
+           'rua = :rua, ' +
+           'bairro = :bairro, ' +
+           'numero_casa = :numero_casa, ' +
+           'estado = :estado, ' +
+           'cidade = :cidade ' +
+           'WHERE id_pac = :id_pac';
 
-      pacientes.GetDataSource.DataSet.Refresh;
-      ModalResult := mrOk;
-      messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
-    except
-      on E: Exception do
-      begin
-        ShowMessage('Erro ao atualizar as informações do paciente: ' + E.Message);
-      end;
+    query_pacientes.SQL.Text := sql;
 
+    query_pacientes.Params.ParamByName('id_pac').AsInteger := pacientes.GetDataSource.DataSet.FieldByName('id_pac').AsInteger;
+    query_pacientes.Params.ParamByName('nome_pac').AsString := edt_nome.Text;
+    query_pacientes.Params.ParamByName('telefone_pac').AsString := edt_telefone.Text;
+    query_pacientes.Params.ParamByName('cpf_pac').AsString := edt_cpf.Text;
+    query_pacientes.Params.ParamByName('rg_pac').AsString := edt_rg.Text;
+    query_pacientes.Params.ParamByName('email_pac').AsString := edt_email.Text;
+    query_pacientes.Params.ParamByName('profissao').AsString := edt_profissao.Text;
+    query_pacientes.Params.ParamByName('cep').AsString := edt_cep.Text;
+    query_pacientes.Params.ParamByName('rua').AsString := edt_rua.Text;
+    query_pacientes.Params.ParamByName('bairro').AsString := edt_bairro.Text;
+    query_pacientes.Params.ParamByName('numero_casa').AsString := edt_numero.Text;
+    query_pacientes.Params.ParamByName('estado').AsString := edt_estado.Text;
+    query_pacientes.Params.ParamByName('cidade').AsString := edt_cidade.Text;
+
+    query_pacientes.ExecSQL;
+
+    pacientes.GetDataSource.DataSet.Refresh;
+    ModalResult := mrOk;
+    messagedlg('Sucesso!', mtConfirmation, [mbOK], 0);
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao atualizar as informações do Paciente: ' + E.Message);
+    end;
+  end;
 end;
-end;
+
 
 end.
