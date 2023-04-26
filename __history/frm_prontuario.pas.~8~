@@ -1,0 +1,63 @@
+unit frm_prontuario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  Tfrm_pront = class(TForm)
+    pn_editar: TPanel;
+    lb_nome: TLabel;
+    lb_nascimento: TLabel;
+    lb_queixaprincipal: TLabel;
+    lb_historia: TLabel;
+    lb_antecedentes: TLabel;
+    lb_receita: TLabel;
+    lb_medico: TLabel;
+    Label1: TLabel;
+    pn_titulo: TPanel;
+    btn_fechar: TImage;
+    btn_concluir: TPanel;
+    edt_nome: TEdit;
+    edt_nasc: TEdit;
+    pn_timer: TPanel;
+    lb_tempo: TLabel;
+    memo_quixaprincipal: TMemo;
+    btn_comecar: TPanel;
+    btn_encerrar: TPanel;
+    pn_concluido: TPanel;
+    memo_historia: TMemo;
+    memo_antecedentes: TMemo;
+    memo_receita: TMemo;
+    edt_medico: TEdit;
+    edt_cpfpac: TEdit;
+    Timer1: TTimer;
+    query_prontuarios: TFDQuery;
+    procedure btn_fecharClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+      tempo: Ttime;
+    agora: integer;
+  end;
+
+var
+  frm_pront: Tfrm_pront;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrm_pront.btn_fecharClick(Sender: TObject);
+begin
+close;
+end;
+
+end.

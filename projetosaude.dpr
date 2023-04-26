@@ -16,7 +16,8 @@ uses
   frm_medicos in 'frm_medicos.pas' {medicos},
   frm_editar in 'frm_editar.pas' {editar_pacientes},
   frm_consultas in 'frm_consultas.pas' {consultas},
-  frm_modalconsulta in 'frm_modalconsulta.pas' {frm_modalconsultas};
+  frm_modalconsulta in 'frm_modalconsulta.pas' {frm_modalconsultas},
+  DataModule in 'DataModule.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
@@ -38,5 +39,8 @@ begin
   Application.CreateForm(Teditar_pacientes, editar_pacientes);
   Application.CreateForm(Tconsultas, consultas);
   Application.CreateForm(Tfrm_modalconsultas, frm_modalconsultas);
+  Application.CreateForm(Tfrm_modalconsultas, frm_modalconsultas);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

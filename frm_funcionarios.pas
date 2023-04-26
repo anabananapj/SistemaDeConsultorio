@@ -40,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses frm_editar_func, uDTModuleConnection;
+uses frm_editar_func, uDTModuleConnection, DataModule;
 
 constructor Tfrm_func.Create(AOwner: TComponent);
 begin

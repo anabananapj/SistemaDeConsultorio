@@ -61,7 +61,7 @@ object cadastro_medico: Tcadastro_medico
       Left = 37
       Top = 377
       Width = 147
-      Height = 39
+      Height = 36
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -520,6 +520,7 @@ object cadastro_medico: Tcadastro_medico
     end
   end
   object query_cad_med: TFDQuery
+    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from medicos')
@@ -527,6 +528,7 @@ object cadastro_medico: Tcadastro_medico
     Top = 624
   end
   object query_cad_user: TFDQuery
+    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from usuarios')

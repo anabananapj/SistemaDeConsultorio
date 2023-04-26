@@ -134,7 +134,7 @@ object consultas: Tconsultas
       'FROM pacientes'
       'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac'
       'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med')
-    Left = 576
+    Left = 560
     Top = 336
   end
   object ds_consultas: TDataSource

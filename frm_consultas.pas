@@ -61,13 +61,14 @@ end;
 
 procedure Tconsultas.grid_consultasDblClick(Sender: TObject);
 var
-  EditForm: Tfrm_modalconsultas;
+  EditForm: tfrm_modalconsultas;
 begin
   if not FDataSource.DataSet.IsEmpty then
   begin
-    EditForm := Tfrm_modalconsultas.Create(Self);
+    EditForm := tfrm_modalconsultas.Create(Self);
     try
      EditForm.edt_nome.Text         := FDataSource.DataSet.FieldByName('nome_pac').AsString;
+      EditForm.edt_cpfpac.Text      := FDataSource.DataSet.FieldByName('cpf_pac').AsString;
      EditForm.edt_nasc.Text         := FDataSource.DataSet.FieldByName('nascimento_pac').AsString;
      EditForm.edt_medico.Text       := FDataSource.DataSet.FieldByName('crm_med').AsString;
 

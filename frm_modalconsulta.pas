@@ -18,7 +18,6 @@ type
     pn_titulo: TPanel;
     btn_fechar: TImage;
     btn_concluir: TPanel;
-    query_consultas: TFDQuery;
     lb_nome: TLabel;
     edt_nome: TEdit;
     edt_nasc: TEdit;
@@ -31,7 +30,6 @@ type
     btn_comecar: TPanel;
     btn_encerrar: TPanel;
     pn_concluido: TPanel;
-    query_prontuarios: TFDQuery;
     lb_historia: TLabel;
     memo_historia: TMemo;
     lb_antecedentes: TLabel;
@@ -42,6 +40,7 @@ type
     edt_medico: TEdit;
     Label1: TLabel;
     edt_cpfpac: TEdit;
+    query_prontuarios: TFDQuery;
     procedure btn_fecharClick(Sender: TObject);
     procedure btn_comecarClick(Sender: TObject);
     procedure btn_encerrarClick(Sender: TObject);
@@ -64,7 +63,7 @@ implementation
 
 {$R *.dfm}
 
-uses frm_consultas, uDTModuleConnection;
+uses frm_consultas, uDTModuleConnection, login, DataModule;
 
 procedure Tfrm_modalconsultas.btn_comecarClick(Sender: TObject);
 begin
@@ -75,28 +74,35 @@ begin
   btn_encerrar.Visible := true;
 end;
 
+
+
+
 procedure Tfrm_modalconsultas.btn_encerrarClick(Sender: TObject);
 var
-  tempo_decorrido : double;
+  tempo_decorrido: TDateTime;
   query_prontuarios: TFDQuery;
-begin
-  timer1.Enabled := false;
-  pn_concluido.Visible := true;
 
-  tempo_decorrido := (gettickcount - agora) * onemillisecond / 1000;
+begin
+  timer1.Enabled := False;
+  pn_concluido.Visible := True;
+
+  tempo_decorrido := (GetTickCount - agora) * OneMilliSecond / 1000;
 
   query_prontuarios := TFDQuery.Create(nil);
   try
-    //query_prontuarios.Connection := uDTModuleConnection.DTConnection;
+    query_prontuarios.Connection := datamodule1.fdconnection1;
     query_prontuarios.SQL.Add('INSERT INTO prontuarios (cpf_pac, crm_med, duracao_cons) VALUES (:cpf_pac, :crm_med, :duracao_cons)');
-    query_prontuarios.Params.ParamByName('cpf_pac').Value        := edt_cpfpac.text;
-    query_prontuarios.Params.ParamByName('crm_med').Value        := edt_medico.text;
-    query_prontuarios.Params.ParamByName('duracao_cons').Value   := tempo_decorrido;
+    query_prontuarios.Params.ParamByName('cpf_pac').Value := edt_cpfpac.Text;
+    query_prontuarios.Params.ParamByName('crm_med').Value := edt_medico.Text;
+    query_prontuarios.Params.ParamByName('duracao_cons').Value := tempo_decorrido;
     query_prontuarios.ExecSQL;
   finally
     query_prontuarios.Free;
   end;
 end;
+
+
+
 
 
 

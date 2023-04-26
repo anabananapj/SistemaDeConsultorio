@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses frm_editar_med, uDTModuleConnection;
+uses frm_editar_med, uDTModuleConnection, DataModule;
 
 constructor Tmedicos.Create(AOwner: TComponent);
 begin

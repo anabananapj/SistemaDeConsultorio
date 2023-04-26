@@ -176,11 +176,10 @@ object medicos: Tmedicos
     end
   end
   object query_medicos: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from medicos')
-    Left = 872
+    Left = 848
     Top = 472
   end
   object ds_medicos: TDataSource

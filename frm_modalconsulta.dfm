@@ -240,8 +240,8 @@ object frm_modalconsultas: Tfrm_modalconsultas
       object lb_tempo: TLabel
         Left = 31
         Top = 30
-        Width = 126
-        Height = 25
+        Width = 128
+        Height = 24
         Caption = '00:00:00.000'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -390,16 +390,6 @@ object frm_modalconsultas: Tfrm_modalconsultas
       TabOrder = 13
     end
   end
-  object query_consultas: TFDQuery
-    Connection = DTConnection.FDConnection1
-    SQL.Strings = (
-      'SELECT *'
-      'FROM pacientes'
-      'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac'
-      'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med')
-    Left = 39
-    Top = 4
-  end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
@@ -407,10 +397,11 @@ object frm_modalconsultas: Tfrm_modalconsultas
     Top = 4
   end
   object query_prontuarios: TFDQuery
+    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from prontuarios')
-    Left = 175
-    Top = 4
+    Left = 40
+    Top = 8
   end
 end

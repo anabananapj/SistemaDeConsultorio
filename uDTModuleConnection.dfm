@@ -10,7 +10,7 @@ object DTConnection: TDTConnection
       'Server=bdteste.rpinfo.com.br'
       'DriverID=PG')
     Connected = True
-    Left = 40
+    Left = 48
     Top = 16
   end
   object DriverLink: TFDPhysPgDriverLink
