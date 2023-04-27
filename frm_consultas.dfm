@@ -3,8 +3,8 @@ object consultas: Tconsultas
   Top = 0
   BorderStyle = bsNone
   Caption = 'consultas'
-  ClientHeight = 680
-  ClientWidth = 1285
+  ClientHeight = 719
+  ClientWidth = 1301
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,21 +17,17 @@ object consultas: Tconsultas
   object pn_cad_pac: TPanel
     Left = 0
     Top = 0
-    Width = 1285
-    Height = 680
+    Width = 1301
+    Height = 719
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
-    Constraints.MaxHeight = 680
-    Constraints.MaxWidth = 1285
-    Constraints.MinHeight = 680
-    Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 0
     object pn_titulo: TPanel
       Left = 0
       Top = 0
-      Width = 1285
+      Width = 1301
       Height = 49
       BevelOuter = bvNone
       Caption = 'Consultas Agendadas'
@@ -48,8 +44,8 @@ object consultas: Tconsultas
     object grid_consultas: TDBGrid
       Left = 0
       Top = 48
-      Width = 1285
-      Height = 593
+      Width = 1301
+      Height = 671
       DataSource = ds_consultas
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText

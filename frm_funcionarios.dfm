@@ -3,8 +3,8 @@ object frm_func: Tfrm_func
   Top = 0
   BorderStyle = bsNone
   Caption = 'frm_func'
-  ClientHeight = 680
-  ClientWidth = 1285
+  ClientHeight = 719
+  ClientWidth = 1301
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,22 +17,21 @@ object frm_func: Tfrm_func
   object pn_cad_pac: TPanel
     Left = 0
     Top = 0
-    Width = 1285
-    Height = 680
+    Width = 1301
+    Height = 719
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
-    Constraints.MaxHeight = 680
-    Constraints.MaxWidth = 1285
-    Constraints.MinHeight = 680
-    Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 1366
+    ExplicitHeight = 609
     object pn_titulo: TPanel
       Left = 0
       Top = 0
-      Width = 1285
+      Width = 1301
       Height = 49
+      Align = alTop
       BevelOuter = bvNone
       Caption = 'Funcion'#225'rios'
       Color = -1
@@ -48,8 +47,8 @@ object frm_func: Tfrm_func
     object grid_funcionarios: TDBGrid
       Left = 0
       Top = 48
-      Width = 1285
-      Height = 601
+      Width = 1373
+      Height = 671
       DataSource = ds_funcionarios
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText

@@ -25,8 +25,10 @@ type
     btn_entrar: TPanel;
     Image2: TImage;
     Image3: TImage;
+    btn_fechar: TImage;
     procedure FormResize(Sender: TObject);
     procedure btn_entrarClick(Sender: TObject);
+    procedure btn_fecharClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -54,7 +56,7 @@ uses paginaprincipal, uDTModuleConnection, frm_Cadastro_Paciente;
 Procedure CentralizarPanel(AForm: TForm; APanel: TPanel);
 begin
   APanel.Left := (AForm.ClientWidth div 2) - (APanel.Width div 2);
-  APanel.Top := (AForm.ClientHeight div 2) - (APanel.Height div 2);
+  APanel.Top := (AForm.ClientHeight div 3) - (APanel.Height div 3);
 
   APanel.Update;
   AForm.Update;
@@ -93,6 +95,11 @@ edt_senha.clear;
 
 end;
 
+
+procedure Tfrm_login.btn_fecharClick(Sender: TObject);
+begin
+close;
+end;
 
 procedure Tfrm_login.FormResize(Sender: TObject);
 begin

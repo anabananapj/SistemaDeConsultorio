@@ -31,8 +31,9 @@ object medicos: Tmedicos
     object pn_titulo: TPanel
       Left = 0
       Top = 0
-      Width = 1285
+      Width = 1301
       Height = 49
+      Align = alTop
       BevelOuter = bvNone
       Caption = 'M'#233'dicos'
       Color = -1
@@ -48,8 +49,8 @@ object medicos: Tmedicos
     object grid_medicos: TDBGrid
       Left = 0
       Top = 48
-      Width = 1285
-      Height = 593
+      Width = 1301
+      Height = 671
       DataSource = ds_medicos
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText

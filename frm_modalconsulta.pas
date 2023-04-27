@@ -107,10 +107,6 @@ end;
 
 
 
-
-
-
-
 procedure Tfrm_modalconsultas.btn_fecharClick(Sender: TObject);
 begin
 close;

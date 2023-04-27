@@ -3,13 +3,9 @@ object pacientes: Tpacientes
   Top = 0
   BorderStyle = bsNone
   Caption = 'pacientes'
-  ClientHeight = 680
-  ClientWidth = 1285
+  ClientHeight = 719
+  ClientWidth = 1301
   Color = clBtnFace
-  Constraints.MaxHeight = 766
-  Constraints.MaxWidth = 1366
-  Constraints.MinHeight = 680
-  Constraints.MinWidth = 1285
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,22 +17,19 @@ object pacientes: Tpacientes
   object pn_cad_pac: TPanel
     Left = 0
     Top = 0
-    Width = 1285
-    Height = 680
+    Width = 1301
+    Height = 719
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
-    Constraints.MaxHeight = 680
-    Constraints.MaxWidth = 1285
-    Constraints.MinHeight = 680
-    Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 0
     object pn_titulo: TPanel
       Left = 0
       Top = 0
-      Width = 1285
+      Width = 1301
       Height = 49
+      Align = alTop
       BevelOuter = bvNone
       Caption = 'Pacientes'
       Color = -1
@@ -52,8 +45,8 @@ object pacientes: Tpacientes
     object grid_pacientes: TDBGrid
       Left = 0
       Top = 48
-      Width = 1285
-      Height = 593
+      Width = 1301
+      Height = 671
       DataSource = ds_pacientes
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
