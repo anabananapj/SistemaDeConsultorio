@@ -17,14 +17,11 @@ type
     pn_editar: TPanel;
     pn_titulo: TPanel;
     btn_fechar: TImage;
-    btn_concluir: TPanel;
     lb_nome: TLabel;
     edt_nome: TEdit;
-    edt_nasc: TEdit;
-    lb_nascimento: TLabel;
     Timer1: TTimer;
     pn_timer: TPanel;
-    memo_quixaprincipal: TMemo;
+    memo_qp: TMemo;
     lb_queixaprincipal: TLabel;
     lb_tempo: TLabel;
     btn_comecar: TPanel;
@@ -42,6 +39,14 @@ type
     edt_cpfpac: TEdit;
     query_prontuarios: TFDQuery;
     query_consultas: TFDQuery;
+    edt_nomemed: TEdit;
+    Label2: TLabel;
+    lb_observacoes: TLabel;
+    memo_observacoes: TMemo;
+    edt_hora: TEdit;
+    edt_data: TEdit;
+    lb_hora: TLabel;
+    lb_data: TLabel;
     procedure btn_fecharClick(Sender: TObject);
     procedure btn_comecarClick(Sender: TObject);
     procedure btn_encerrarClick(Sender: TObject);
@@ -82,29 +87,48 @@ procedure Tfrm_modalconsultas.btn_encerrarClick(Sender: TObject);
 var
   tempo_decorrido: TDateTime;
   query_prontuarios: TFDQuery;
-
+  VALUES: string;
 begin
   timer1.Enabled := False;
   pn_concluido.Visible := True;
-
   tempo_decorrido := (GetTickCount - agora) * OneMilliSecond / 1000;
-
   query_prontuarios := TFDQuery.Create(nil);
   try
     query_prontuarios.Connection := dtconnection.fdconnection1;
-    query_prontuarios.SQL.Add('INSERT INTO prontuarios (cpf_pac, crm_med, duracao_cons) VALUES (:cpf_pac, :crm_med, :duracao_cons)');
-    query_prontuarios.Params.ParamByName('cpf_pac').Value := edt_cpfpac.Text;
-    query_prontuarios.Params.ParamByName('crm_med').Value := edt_medico.Text;
-    query_prontuarios.Params.ParamByName('duracao_cons').Value := tempo_decorrido;
+    VALUES:= 'VALUES (:cpf_pac, :crm_med, :duracao_cons, :queixa_principal, :hist_atual, :antecedentes, :receita, :observacoes, :hora_cons, :data_cons)';
+    query_prontuarios.SQL.Add('INSERT INTO prontuarios (cpf_pac, crm_med, duracao_cons, queixa_principal, hist_atual, antecedentes, receita, observacoes, hora_cons, data_cons)' + VALUES + '');
+
+    query_prontuarios.Params.ParamByName('cpf_pac').Value           := edt_cpfpac.Text;
+    query_prontuarios.Params.ParamByName('crm_med').Value           := edt_medico.Text;
+    query_prontuarios.Params.ParamByName('hora_cons').astime        := StrToTime(edt_hora.Text);
+    query_prontuarios.Params.ParamByName('data_cons').asdate        := StrToDate(edt_data.Text);
+    query_prontuarios.Params.ParamByName('queixa_principal').Value  := memo_qp.Text;
+    query_prontuarios.Params.ParamByName('hist_atual').Value        := memo_historia.Text;
+    query_prontuarios.Params.ParamByName('antecedentes').Value      := memo_antecedentes.Text;
+    query_prontuarios.Params.ParamByName('receita').Value           := memo_receita.Text;
+    query_prontuarios.Params.ParamByName('observacoes').Value       := memo_observacoes.Text;
+    query_prontuarios.Params.ParamByName('duracao_cons').AsTime     := tempo_decorrido;
     query_prontuarios.ExecSQL;
-    query_consultas.Edit;
-    query_prontuarios.Params.ParamByName('status_cons').Value := tempo_decorrido;
 
-  finally
-    query_prontuarios.Free;
+    query_consultas.Close;
+    query_consultas.Params.Clear;
+    query_consultas.SQL.Text := 'UPDATE consultas SET status_cons = :status_cons WHERE id_consulta = :id_consulta';
+    query_consultas.Params.ParamByName('status_cons').Value := 'Concluída';
+    query_consultas.Params.ParamByName('id_consulta').AsInteger := consultas.GetDataSource.DataSet.FieldByName('id_consulta').AsInteger;
+    query_consultas.ExecSQL;
+
+    consultas.GetDataSource.DataSet.Refresh;
+
+    messagedlg('Consulta Concluída com Sucesso!', mtConfirmation, [mbOK], 0);
+    Close;
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao concluir a Consulta.: ' + E.Message);
+    end;
   end;
+  query_prontuarios.Free;
 end;
-
 
 
 procedure Tfrm_modalconsultas.btn_fecharClick(Sender: TObject);
@@ -117,6 +141,12 @@ end;
 procedure Tfrm_modalconsultas.FormCreate(Sender: TObject);
 begin
   self.doublebuffered := true;
+
+  // Preenche o TEdit com a data atual
+  edt_data.Text := DateToStr(Date);
+
+  // Preenche o TEdit com a hora atual
+  edt_hora.Text := TimeToStr(Time);
 end;
 
 procedure Tfrm_modalconsultas.Timer1Timer(Sender: TObject);

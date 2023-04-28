@@ -3,13 +3,9 @@ object cadastro_paciente: Tcadastro_paciente
   Top = 0
   BorderStyle = bsNone
   Caption = 'cadastro_paciente'
-  ClientHeight = 680
-  ClientWidth = 1285
+  ClientHeight = 768
+  ClientWidth = 1301
   Color = clBtnFace
-  Constraints.MaxHeight = 680
-  Constraints.MaxWidth = 1285
-  Constraints.MinHeight = 680
-  Constraints.MinWidth = 1285
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,17 +17,15 @@ object cadastro_paciente: Tcadastro_paciente
   object pn_cad_pac: TPanel
     Left = 0
     Top = 0
-    Width = 1285
-    Height = 680
+    Width = 1301
+    Height = 768
     Align = alClient
     BevelOuter = bvNone
     Color = 3416861
-    Constraints.MaxHeight = 680
-    Constraints.MaxWidth = 1285
-    Constraints.MinHeight = 680
-    Constraints.MinWidth = 1285
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 1285
+    ExplicitHeight = 680
     object lb_cpf: TLabel
       Left = 573
       Top = 95
@@ -62,7 +56,7 @@ object cadastro_paciente: Tcadastro_paciente
       Left = 99
       Top = 337
       Width = 147
-      Height = 39
+      Height = 36
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -98,8 +92,8 @@ object cadastro_paciente: Tcadastro_paciente
       ParentFont = False
     end
     object lb_rua: TLabel
-      Left = 273
-      Top = 379
+      Left = 98
+      Top = 441
       Width = 46
       Height = 27
       Caption = 'Rua:'
@@ -111,8 +105,8 @@ object cadastro_paciente: Tcadastro_paciente
       ParentFont = False
     end
     object lb_numero: TLabel
-      Left = 565
-      Top = 379
+      Left = 390
+      Top = 441
       Width = 86
       Height = 27
       Caption = 'N'#250'mero:'
@@ -151,7 +145,7 @@ object cadastro_paciente: Tcadastro_paciente
     end
     object lb_bairro: TLabel
       Left = 273
-      Top = 449
+      Top = 498
       Width = 67
       Height = 27
       Caption = 'Bairro:'
@@ -164,7 +158,7 @@ object cadastro_paciente: Tcadastro_paciente
     end
     object lb_cidade: TLabel
       Left = 98
-      Top = 449
+      Top = 498
       Width = 77
       Height = 27
       Caption = 'Cidade:'
@@ -177,7 +171,7 @@ object cadastro_paciente: Tcadastro_paciente
     end
     object lb_estado: TLabel
       Left = 565
-      Top = 445
+      Top = 498
       Width = 76
       Height = 27
       Caption = 'Estado:'
@@ -313,8 +307,8 @@ object cadastro_paciente: Tcadastro_paciente
       TabOrder = 10
     end
     object edt_rua: TEdit
-      Left = 273
-      Top = 408
+      Left = 98
+      Top = 465
       Width = 286
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -326,8 +320,8 @@ object cadastro_paciente: Tcadastro_paciente
       TabOrder = 11
     end
     object edt_numero: TEdit
-      Left = 565
-      Top = 408
+      Left = 390
+      Top = 465
       Width = 164
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -353,7 +347,7 @@ object cadastro_paciente: Tcadastro_paciente
     end
     object edt_bairro: TEdit
       Left = 273
-      Top = 474
+      Top = 522
       Width = 286
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -366,7 +360,7 @@ object cadastro_paciente: Tcadastro_paciente
     end
     object edt_cidade: TEdit
       Left = 98
-      Top = 474
+      Top = 522
       Width = 169
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -379,7 +373,7 @@ object cadastro_paciente: Tcadastro_paciente
     end
     object edt_estado: TEdit
       Left = 565
-      Top = 474
+      Top = 522
       Width = 164
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -431,7 +425,7 @@ object cadastro_paciente: Tcadastro_paciente
     end
     object btn_concluir: TPanel
       Left = 98
-      Top = 560
+      Top = 584
       Width = 185
       Height = 41
       Cursor = crHandPoint
@@ -478,7 +472,7 @@ object cadastro_paciente: Tcadastro_paciente
     object Panel1: TPanel
       Left = 0
       Top = 0
-      Width = 1285
+      Width = 1301
       Height = 49
       Caption = 'Cadastrar Paciente'
       Color = clWhite
@@ -491,8 +485,24 @@ object cadastro_paciente: Tcadastro_paciente
       ParentFont = False
       TabOrder = 17
     end
+    object btn_buscar: TButton
+      Left = 273
+      Top = 409
+      Width = 75
+      Height = 25
+      Caption = 'Buscar'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Corbel'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 18
+      OnClick = btn_buscarClick
+    end
   end
   object query_cad_pac: TFDQuery
+    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from pacientes')

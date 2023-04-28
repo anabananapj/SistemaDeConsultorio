@@ -94,6 +94,7 @@ begin
       EditForm.edt_numero.Text    := FDataSource.DataSet.FieldByName('numero_casa').AsString;
       EditForm.edt_estado.Text    := FDataSource.DataSet.FieldByName('estado').AsString;
       EditForm.edt_cidade.Text    := FDataSource.DataSet.FieldByName('cidade').AsString;
+      query_funcionarios.open;
 
 
       EditForm.ShowModal;

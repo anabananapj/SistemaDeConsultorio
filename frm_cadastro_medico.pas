@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXPickers, Vcl.StdCtrls,
   Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, IdHTTP, System.JSON,
   FireDAC.Comp.Client;
 
 type
@@ -51,10 +51,13 @@ type
     Label1: TLabel;
     edt_senha: TEdit;
     query_cad_user: TFDQuery;
+    btn_buscar: TButton;
     procedure btn_concluirClick(Sender: TObject);
+    procedure btn_buscarClick(Sender: TObject);
   private
     { Private declarations }
      procedure LimparFormulario;
+     procedure PreencherCampos(const CEP: string; var cidade, estado, bairro, rua: string);
   public
     { Public declarations }
   end;
@@ -68,10 +71,24 @@ implementation
 
 uses uDTModuleConnection;
 
+procedure Tcadastro_medico.btn_buscarClick(Sender: TObject);
+var
+  cep, cidade, estado, bairro, rua: string;
+begin
+  cep := edt_cep.Text;
+  PreencherCampos(cep, cidade, estado, bairro, rua);
+  edt_cidade.Text := cidade;
+  edt_estado.Text := estado;
+  edt_bairro.Text := bairro;
+  edt_rua.Text    := rua;
+end;
+
+
 procedure Tcadastro_medico.btn_concluirClick(Sender: TObject);
 var
 VALUES, Sexo, Nasc : String;
 begin
+  query_cad_user.open;
   query_cad_med.Close;
   query_cad_med.SQL.Clear;
   Nasc := FormatDateTime('yyyy-mm-dd', data_nasc.Date);
@@ -103,6 +120,7 @@ begin
   query_cad_med.params.ParamByName('cidade').Value := edt_cidade.Text;
   query_cad_med.params.ParamByName('estado').Value := edt_estado.Text;
   query_cad_med.params.ParamByName('email_med').Value := edt_email.Text;
+  query_cad_med.open;
 
   {INSERT TABELA USUARIOS}
 
@@ -113,6 +131,7 @@ begin
   query_cad_user.params.ParamByName('cpf_ident').Value := edt_crm.Text;
   query_cad_user.params.ParamByName('senha').Value := edt_senha.Text;
   query_cad_user.params.ParamByName('nivel_de_acesso').Value := 'Médico';
+
 
 
   if (edt_nome.Text <> '') then begin
@@ -154,5 +173,32 @@ end;
 
 
 
+
+procedure Tcadastro_medico.PreencherCampos(const CEP: string; var cidade,
+  estado, bairro, rua: string);
+var
+  IdHTTP1: TIdHTTP;
+  jsonResponse: string;
+  json: TJSONObject;
+begin
+  IdHTTP1 := TIdHTTP.Create(nil);
+  try
+    jsonResponse := IdHTTP1.Get('https://api.postmon.com.br/v1/cep/'+CEP);
+    json := TJSONObject.ParseJSONValue(jsonResponse) as TJSONObject;
+    try
+      cidade := json.GetValue('cidade').Value;
+      estado := json.GetValue('estado').Value;
+      bairro := json.GetValue('bairro').Value;
+      rua := json.GetValue('logradouro').Value;
+    finally
+      json.Free;
+    end;
+  finally
+    IdHTTP1.Free;
+  end;
+
+
+
+end;
 
 end.

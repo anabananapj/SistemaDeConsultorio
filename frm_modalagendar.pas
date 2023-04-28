@@ -25,6 +25,7 @@ type
     edt_cpf: TDBEdit;
     edt_nome: TDBEdit;
     query_consultas: TFDQuery;
+    Label1: TLabel;
     procedure btn_agendarClick(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -50,16 +51,18 @@ procedure Tagendar.btn_agendarClick(Sender: TObject);
 var
   sql: string;
 begin
+query_consultas.open;
   try
     sql := 'INSERT INTO consultas (nome_med, cpf_pac, hora_cons, data_cons, status_cons) VALUES (:nome_med, :cpf_pac, :hora_cons, :data_cons, :status_cons) ';
 
     query_consultas.SQL.Text := sql;
 
-    query_consultas.Params.ParamByName('nome_med').value    := cm_medicos.Text;
-    query_consultas.Params.ParamByName('cpf_pac').value     := edt_cpf.Text;
-    query_consultas.Params.ParamByName('data_cons').value   := data_cons.date;
-    query_consultas.Params.ParamByName('hora_cons').value   := hora_cons.time;
-    query_consultas.Params.ParamByName('status_cons').value := 'Pendente';
+    query_consultas.Params.ParamByName('nome_med').value     := cm_medicos.Text;
+    query_consultas.Params.ParamByName('cpf_pac').value      := edt_cpf.Text;
+    query_consultas.Params.ParamByName('data_cons').asdate   := data_cons.date;
+    query_consultas.Params.ParamByName('hora_cons').astime   := hora_cons.time;
+    query_consultas.Params.ParamByName('status_cons').value  := 'Pendente';
+
 
 
 
@@ -110,8 +113,5 @@ carregarcombobox;
 end;
 
 end.
-
-
-
 
 end.

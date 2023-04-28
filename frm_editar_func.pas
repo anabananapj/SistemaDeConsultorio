@@ -67,6 +67,7 @@ procedure Tfuncionarios.Panel1Click(Sender: TObject);
 var
   sql: string;
 begin
+    query_funcionarios.open;
   try
     sql := 'UPDATE funcionarios SET ' +
            'nome_func = :nome_func, ' +
@@ -98,6 +99,7 @@ begin
     query_funcionarios.Params.ParamByName('numero_casa').AsString := edt_numero.Text;
     query_funcionarios.Params.ParamByName('estado').AsString := edt_estado.Text;
     query_funcionarios.Params.ParamByName('cidade').AsString := edt_cidade.Text;
+
 
     query_funcionarios.ExecSQL;
 

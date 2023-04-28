@@ -100,6 +100,7 @@ begin
     query_pacientes.Params.ParamByName('estado').AsString := edt_estado.Text;
     query_pacientes.Params.ParamByName('cidade').AsString := edt_cidade.Text;
 
+
     query_pacientes.ExecSQL;
 
     pacientes.GetDataSource.DataSet.Refresh;

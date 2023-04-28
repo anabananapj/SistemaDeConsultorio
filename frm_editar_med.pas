@@ -72,6 +72,7 @@ procedure Teditar_med.Panel1Click(Sender: TObject);
 var
   sql: string;
 begin
+    query_medicos.Open;
   try
     sql := 'UPDATE medicos SET ' +
            'nome_med = :nome_med, ' +

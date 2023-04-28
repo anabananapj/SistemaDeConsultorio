@@ -70,6 +70,7 @@ procedure Tfrm_consulta.grid_agendarDblClick(Sender: TObject);
 var
   EditForm: tagendar;
 begin
+query_pacientes.open;
   if not FDataSource.DataSet.IsEmpty then
   begin
     EditForm := tagendar.Create(Self);
@@ -77,6 +78,7 @@ begin
 
      EditForm.edt_nome.Text := FDataSource.DataSet.FieldByName('nome_pac').AsString;
      EditForm.edt_cpf.Text  := FDataSource.DataSet.FieldByName('cpf_pac').AsString;
+
 
       EditForm.ShowModal;
     finally

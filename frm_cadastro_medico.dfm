@@ -61,7 +61,7 @@ object cadastro_medico: Tcadastro_medico
       Left = 37
       Top = 377
       Width = 147
-      Height = 39
+      Height = 36
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -97,8 +97,8 @@ object cadastro_medico: Tcadastro_medico
       ParentFont = False
     end
     object lb_rua: TLabel
-      Left = 211
-      Top = 422
+      Left = 37
+      Top = 482
       Width = 46
       Height = 27
       Caption = 'Rua:'
@@ -110,8 +110,8 @@ object cadastro_medico: Tcadastro_medico
       ParentFont = False
     end
     object lb_numero: TLabel
-      Left = 719
-      Top = 422
+      Left = 545
+      Top = 482
       Width = 86
       Height = 27
       Caption = 'N'#250'mero:'
@@ -149,8 +149,8 @@ object cadastro_medico: Tcadastro_medico
       ParentFont = False
     end
     object lb_bairro: TLabel
-      Left = 519
-      Top = 422
+      Left = 345
+      Top = 482
       Width = 67
       Height = 27
       Caption = 'Bairro:'
@@ -162,8 +162,8 @@ object cadastro_medico: Tcadastro_medico
       ParentFont = False
     end
     object lb_cidade: TLabel
-      Left = 827
-      Top = 422
+      Left = 653
+      Top = 482
       Width = 77
       Height = 27
       Caption = 'Cidade:'
@@ -175,8 +175,8 @@ object cadastro_medico: Tcadastro_medico
       ParentFont = False
     end
     object lb_estado: TLabel
-      Left = 1053
-      Top = 422
+      Left = 879
+      Top = 482
       Width = 76
       Height = 27
       Caption = 'Estado:'
@@ -325,8 +325,8 @@ object cadastro_medico: Tcadastro_medico
       TabOrder = 5
     end
     object edt_rua: TEdit
-      Left = 209
-      Top = 455
+      Left = 35
+      Top = 515
       Width = 304
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -338,8 +338,8 @@ object cadastro_medico: Tcadastro_medico
       TabOrder = 6
     end
     object edt_numero: TEdit
-      Left = 719
-      Top = 455
+      Left = 545
+      Top = 515
       Width = 102
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -364,8 +364,8 @@ object cadastro_medico: Tcadastro_medico
       TabOrder = 4
     end
     object edt_bairro: TEdit
-      Left = 519
-      Top = 455
+      Left = 345
+      Top = 515
       Width = 194
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -377,8 +377,8 @@ object cadastro_medico: Tcadastro_medico
       TabOrder = 8
     end
     object edt_cidade: TEdit
-      Left = 827
-      Top = 455
+      Left = 653
+      Top = 515
       Width = 220
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -390,8 +390,8 @@ object cadastro_medico: Tcadastro_medico
       TabOrder = 9
     end
     object edt_estado: TEdit
-      Left = 1053
-      Top = 455
+      Left = 879
+      Top = 515
       Width = 187
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -403,8 +403,8 @@ object cadastro_medico: Tcadastro_medico
       TabOrder = 10
     end
     object btn_concluir: TPanel
-      Left = 35
-      Top = 552
+      Left = 33
+      Top = 560
       Width = 185
       Height = 41
       Cursor = crHandPoint
@@ -518,9 +518,23 @@ object cadastro_medico: Tcadastro_medico
       PasswordChar = '*'
       TabOrder = 18
     end
+    object btn_buscar: TButton
+      Left = 209
+      Top = 455
+      Width = 75
+      Height = 25
+      Caption = 'Buscar'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Corbel'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 19
+      OnClick = btn_buscarClick
+    end
   end
   object query_cad_med: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from medicos')

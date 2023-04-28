@@ -24,8 +24,6 @@ object frm_func: Tfrm_func
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1366
-    ExplicitHeight = 609
     object pn_titulo: TPanel
       Left = 0
       Top = 0

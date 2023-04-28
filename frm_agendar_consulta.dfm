@@ -24,8 +24,6 @@ object frm_consulta: Tfrm_consulta
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 32
-    ExplicitTop = 24
     object pn_agendar: TPanel
       Left = 0
       Top = 0
@@ -133,7 +131,7 @@ object frm_consulta: Tfrm_consulta
   end
   object dt_pacientes: TDataSource
     DataSet = query_pacientes
-    Left = 120
+    Left = 136
     Top = 8
   end
 end

@@ -1,0 +1,452 @@
+object cadastro_funcionario: Tcadastro_funcionario
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'cadastro_funcionario'
+  ClientHeight = 668
+  ClientWidth = 1366
+  Color = clBtnFace
+  Constraints.MaxHeight = 768
+  Constraints.MaxWidth = 1366
+  Constraints.MinHeight = 668
+  Constraints.MinWidth = 1266
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pn_cad_pac: TPanel
+    Left = 0
+    Top = 0
+    Width = 1366
+    Height = 668
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 3416861
+    Constraints.MaxHeight = 668
+    Constraints.MaxWidth = 1366
+    Constraints.MinHeight = 668
+    Constraints.MinWidth = 1366
+    ParentBackground = False
+    TabOrder = 0
+    object lb_bairro: TLabel
+      Left = 225
+      Top = 481
+      Width = 67
+      Height = 27
+      Caption = 'Bairro:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_cep: TLabel
+      Left = 51
+      Top = 375
+      Width = 50
+      Height = 27
+      Caption = 'CEP:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_cidade: TLabel
+      Left = 50
+      Top = 481
+      Width = 77
+      Height = 27
+      Caption = 'Cidade:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_cpf: TLabel
+      Left = 525
+      Top = 94
+      Width = 49
+      Height = 27
+      Caption = 'CPF:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_email: TLabel
+      Left = 437
+      Top = 170
+      Width = 72
+      Height = 27
+      Caption = 'E-mail:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_endereco: TLabel
+      Left = 51
+      Top = 329
+      Width = 147
+      Height = 36
+      Caption = 'Endere'#231'o'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -32
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+    end
+    object lb_estado: TLabel
+      Left = 517
+      Top = 481
+      Width = 76
+      Height = 27
+      Caption = 'Estado:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_nascimento: TLabel
+      Left = 216
+      Top = 170
+      Width = 212
+      Height = 27
+      Caption = 'Data de Nascimento:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_nome: TLabel
+      Left = 53
+      Top = 94
+      Width = 168
+      Height = 27
+      Caption = 'Nome Completo:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_numero: TLabel
+      Left = 342
+      Top = 428
+      Width = 86
+      Height = 27
+      Caption = 'N'#250'mero:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_cargo: TLabel
+      Left = 50
+      Top = 247
+      Width = 65
+      Height = 27
+      Caption = 'Cargo:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_rg: TLabel
+      Left = 817
+      Top = 94
+      Width = 37
+      Height = 27
+      Caption = 'RG:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_rua: TLabel
+      Left = 50
+      Top = 428
+      Width = 46
+      Height = 27
+      Caption = 'Rua:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lb_telefone: TLabel
+      Left = 289
+      Top = 247
+      Width = 93
+      Height = 27
+      Caption = 'Telefone:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object btn_concluir: TPanel
+      Left = 50
+      Top = 552
+      Width = 185
+      Height = 41
+      Cursor = crHandPoint
+      BevelOuter = bvNone
+      Caption = 'Concluir'
+      Color = 5489806
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btn_concluirClick
+    end
+    object Panel1: TPanel
+      Left = 0
+      Top = 0
+      Width = 1366
+      Height = 49
+      Align = alTop
+      Caption = 'Cadastrar Funcion'#225'rio'
+      Color = clWhite
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 1
+    end
+    object data_nasc: TDatePicker
+      Left = 216
+      Top = 196
+      Width = 212
+      Height = 27
+      Date = 45018.000000000000000000
+      DateFormat = 'dd/MM/yyyy'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      TabOrder = 2
+    end
+    object edt_bairro: TEdit
+      Left = 225
+      Top = 506
+      Width = 286
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+    end
+    object edt_cep: TEdit
+      Left = 51
+      Top = 400
+      Width = 168
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+    end
+    object edt_cidade: TEdit
+      Left = 50
+      Top = 506
+      Width = 169
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+    end
+    object edt_cpf: TEdit
+      Left = 525
+      Top = 120
+      Width = 286
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+    end
+    object edt_email: TEdit
+      Left = 437
+      Top = 196
+      Width = 287
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+    end
+    object edt_estado: TEdit
+      Left = 517
+      Top = 506
+      Width = 164
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 8
+    end
+    object edt_nome: TEdit
+      Left = 53
+      Top = 120
+      Width = 466
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 9
+    end
+    object edt_numero: TEdit
+      Left = 342
+      Top = 453
+      Width = 164
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+    end
+    object edt_cargo: TEdit
+      Left = 51
+      Top = 276
+      Width = 233
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 11
+    end
+    object edt_rg: TEdit
+      Left = 817
+      Top = 120
+      Width = 233
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 12
+    end
+    object edt_rua: TEdit
+      Left = 50
+      Top = 453
+      Width = 286
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 13
+    end
+    object edt_sexo: TRadioGroup
+      Left = 54
+      Top = 163
+      Width = 144
+      Height = 67
+      Caption = 'Sexo'
+      Color = clWhite
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clCream
+      Font.Height = -16
+      Font.Name = 'Yu Gothic'
+      Font.Style = []
+      Items.Strings = (
+        'Feminino'
+        'Masculino')
+      ParentBackground = False
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 14
+    end
+    object edt_telefone: TEdit
+      Left = 291
+      Top = 276
+      Width = 212
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 15
+    end
+  end
+  object query_cad_func: TFDQuery
+    Active = True
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from funcionarios')
+    Left = 904
+    Top = 256
+  end
+end

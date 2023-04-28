@@ -82,6 +82,7 @@ var
   EditForm: Teditar_pacientes;
   id_pac: integer;
 begin
+query_pacientes.open;
   if not FDataSource.DataSet.IsEmpty then
   begin
     id_pac := FDataSource.DataSet.FieldByName('id_pac').AsInteger;
@@ -99,6 +100,7 @@ begin
       EditForm.edt_numero.Text    := FDataSource.DataSet.FieldByName('numero_casa').AsString;
       EditForm.edt_estado.Text    := FDataSource.DataSet.FieldByName('estado').AsString;
       EditForm.edt_cidade.Text    := FDataSource.DataSet.FieldByName('cidade').AsString;
+
       
 
       EditForm.ShowModal;

@@ -34,7 +34,7 @@ object cadastro_funcionario: Tcadastro_funcionario
     TabOrder = 0
     object lb_bairro: TLabel
       Left = 225
-      Top = 441
+      Top = 481
       Width = 67
       Height = 27
       Caption = 'Bairro:'
@@ -60,7 +60,7 @@ object cadastro_funcionario: Tcadastro_funcionario
     end
     object lb_cidade: TLabel
       Left = 50
-      Top = 441
+      Top = 481
       Width = 77
       Height = 27
       Caption = 'Cidade:'
@@ -101,7 +101,7 @@ object cadastro_funcionario: Tcadastro_funcionario
       Left = 51
       Top = 329
       Width = 147
-      Height = 39
+      Height = 36
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -112,7 +112,7 @@ object cadastro_funcionario: Tcadastro_funcionario
     end
     object lb_estado: TLabel
       Left = 517
-      Top = 441
+      Top = 481
       Width = 76
       Height = 27
       Caption = 'Estado:'
@@ -150,8 +150,8 @@ object cadastro_funcionario: Tcadastro_funcionario
       ParentFont = False
     end
     object lb_numero: TLabel
-      Left = 517
-      Top = 375
+      Left = 342
+      Top = 428
       Width = 86
       Height = 27
       Caption = 'N'#250'mero:'
@@ -189,8 +189,8 @@ object cadastro_funcionario: Tcadastro_funcionario
       ParentFont = False
     end
     object lb_rua: TLabel
-      Left = 225
-      Top = 375
+      Left = 50
+      Top = 428
       Width = 46
       Height = 27
       Caption = 'Rua:'
@@ -216,7 +216,7 @@ object cadastro_funcionario: Tcadastro_funcionario
     end
     object btn_concluir: TPanel
       Left = 50
-      Top = 552
+      Top = 568
       Width = 185
       Height = 41
       Cursor = crHandPoint
@@ -266,7 +266,7 @@ object cadastro_funcionario: Tcadastro_funcionario
     end
     object edt_bairro: TEdit
       Left = 225
-      Top = 466
+      Top = 506
       Width = 286
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -292,7 +292,7 @@ object cadastro_funcionario: Tcadastro_funcionario
     end
     object edt_cidade: TEdit
       Left = 50
-      Top = 466
+      Top = 506
       Width = 169
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -331,7 +331,7 @@ object cadastro_funcionario: Tcadastro_funcionario
     end
     object edt_estado: TEdit
       Left = 517
-      Top = 466
+      Top = 506
       Width = 164
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -356,8 +356,8 @@ object cadastro_funcionario: Tcadastro_funcionario
       TabOrder = 9
     end
     object edt_numero: TEdit
-      Left = 517
-      Top = 400
+      Left = 342
+      Top = 453
       Width = 164
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -395,8 +395,8 @@ object cadastro_funcionario: Tcadastro_funcionario
       TabOrder = 12
     end
     object edt_rua: TEdit
-      Left = 225
-      Top = 400
+      Left = 50
+      Top = 453
       Width = 286
       Height = 27
       Font.Charset = ANSI_CHARSET
@@ -440,8 +440,24 @@ object cadastro_funcionario: Tcadastro_funcionario
       ParentFont = False
       TabOrder = 15
     end
+    object btn_buscar: TButton
+      Left = 225
+      Top = 401
+      Width = 75
+      Height = 25
+      Caption = 'Buscar'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Corbel'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 16
+      OnClick = btn_buscarClick
+    end
   end
   object query_cad_func: TFDQuery
+    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from funcionarios')
