@@ -120,7 +120,7 @@ begin
   query_cad_med.params.ParamByName('cidade').Value := edt_cidade.Text;
   query_cad_med.params.ParamByName('estado').Value := edt_estado.Text;
   query_cad_med.params.ParamByName('email_med').Value := edt_email.Text;
-  query_cad_med.open;
+
 
   {INSERT TABELA USUARIOS}
 

@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.Imaging.pngimage, Datasnap.Provider;
+  FireDAC.Comp.Client, Vcl.Imaging.pngimage, Datasnap.Provider, IdHTTP, System.JSON;
 
 type
   Teditar_med = class(TForm)
@@ -41,14 +41,17 @@ type
     Panel1: TPanel;
     query_medicos: TFDQuery;
     btn_fechar: TImage;
+    btn_buscar: TButton;
     procedure Panel1Click(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
+    procedure btn_buscarClick(Sender: TObject);
 
   private
     { Private declarations }
 
   public
     { Public declarations }
+     procedure PreencherCampos(const CEP: string; var cidade, estado, bairro, rua: string);
 
   end;
 
@@ -60,6 +63,20 @@ implementation
 {$R *.dfm}
 
 uses frm_medicos;
+
+procedure Teditar_med.btn_buscarClick(Sender: TObject);
+var
+  cep, cidade, estado, bairro, rua: string;
+begin
+  cep := edt_cep.Text;
+  PreencherCampos(cep, cidade, estado, bairro, rua);
+  edt_cidade.Text := cidade;
+  edt_estado.Text := estado;
+  edt_bairro.Text := bairro;
+  edt_rua.Text    := rua;
+end;
+
+
 
 procedure Teditar_med.btn_fecharClick(Sender: TObject);
 begin
@@ -120,5 +137,29 @@ begin
 end;
 
 
+
+procedure Teditar_med.PreencherCampos(const CEP: string; var cidade, estado,
+  bairro, rua: string);
+var
+  IdHTTP1: TIdHTTP;
+  jsonResponse: string;
+  json: TJSONObject;
+begin
+  IdHTTP1 := TIdHTTP.Create(nil);
+  try
+    jsonResponse := IdHTTP1.Get('https://api.postmon.com.br/v1/cep/'+CEP);
+    json := TJSONObject.ParseJSONValue(jsonResponse) as TJSONObject;
+    try
+      cidade := json.GetValue('cidade').Value;
+      estado := json.GetValue('estado').Value;
+      bairro := json.GetValue('bairro').Value;
+      rua := json.GetValue('logradouro').Value;
+    finally
+      json.Free;
+    end;
+  finally
+    IdHTTP1.Free;
+  end;
+end;
 
 end.

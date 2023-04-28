@@ -24,8 +24,6 @@ object cadastro_paciente: Tcadastro_paciente
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1285
-    ExplicitHeight = 680
     object lb_cpf: TLabel
       Left = 573
       Top = 95
@@ -56,7 +54,7 @@ object cadastro_paciente: Tcadastro_paciente
       Left = 99
       Top = 337
       Width = 147
-      Height = 36
+      Height = 39
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite

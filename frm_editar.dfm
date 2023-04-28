@@ -408,6 +408,21 @@ object editar_pacientes: Teditar_pacientes
       TabOrder = 13
       OnClick = Panel1Click
     end
+    object btn_buscar: TButton
+      Left = 130
+      Top = 242
+      Width = 75
+      Height = 25
+      Caption = 'Buscar'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Corbel'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 14
+      OnClick = btn_buscarClick
+    end
   end
   object query_pacientes: TFDQuery
     Active = True

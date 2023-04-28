@@ -16,12 +16,10 @@ type
     pn_esquerda: TPanel;
     lb_saúde: TLabel;
     img_logo: TImage;
-    img_not: TImage;
     img_menu: TImage;
     btn_med: TImage;
     btn_pac: TImage;
     pn_principal: TPanel;
-    CalendarView1: TCalendarView;
     btn_agendar: TPanel;
     pn_cadastros: TPanel;
     lb_cadastros: TLabel;
@@ -36,6 +34,9 @@ type
     lb_medicos: TPanel;
     lb_menu: TPanel;
     btn_fechar: TImage;
+    CalendarView1: TCalendarView;
+    btn_pront: TImage;
+    lb_pront: TPanel;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
@@ -55,7 +56,9 @@ type
     procedure btn_fecharClick(Sender: TObject);
     procedure lb_menuClick(Sender: TObject);
     procedure btn_verconsultasClick(Sender: TObject);
-
+    procedure FormShow(Sender: TObject);
+    procedure btn_prontMouseEnter(Sender: TObject);
+    procedure btn_prontMouseLeave(Sender: TObject);
 
 
 
@@ -186,7 +189,29 @@ begin
 
 end;
 
-  {botão para voltar para o menu principal}
+    // nivel de acesso
+
+  procedure Tfrm_telaprincipal.FormShow(Sender: TObject);
+begin
+    if nivelAcesso = 'Médico' then begin
+    btn_agendar.Visible := False;
+    pn_cadastros.Visible := False;
+    btn_func.Visible := False;
+    btn_pront.Visible := True;
+  end
+  else begin
+    btn_agendar.Visible := True;
+    pn_cadastros.Visible := True;
+    btn_verconsultas.Visible := False;
+    btn_pront.Visible := False;
+  end;
+end;
+
+//
+
+
+
+{botão para voltar para o menu principal}
 
 procedure Tfrm_telaprincipal.btn_medClick(Sender: TObject);
 begin
@@ -233,6 +258,17 @@ begin
   lb_pacientes.Visible := False;
 end;
 
+
+procedure Tfrm_telaprincipal.btn_prontMouseEnter(Sender: TObject);
+begin
+  lb_pront.Visible := True;
+end;
+
+procedure Tfrm_telaprincipal.btn_prontMouseLeave(Sender: TObject);
+begin
+  lb_pront.Visible := False;
+end;
+
 procedure Tfrm_telaprincipal.btn_verconsultasClick(Sender: TObject);
 begin
 closeform;
@@ -267,5 +303,6 @@ begin
   lb_menu.Parent := nil;
   lb_menu.BringToFront;
 end;
+
 
 end.

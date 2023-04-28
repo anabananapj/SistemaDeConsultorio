@@ -17,7 +17,9 @@ uses
   frm_editar in 'frm_editar.pas' {editar_pacientes},
   frm_consultas in 'frm_consultas.pas' {consultas},
   frm_modalconsulta in 'frm_modalconsulta.pas' {frm_modalconsultas},
-  frm_modalagendar in 'frm_modalagendar.pas' {agendar};
+  frm_modalagendar in 'frm_modalagendar.pas' {agendar},
+  frm_pront_pac in 'frm_pront_pac.pas' {frm_pront},
+  frm_pront_gerais in 'frm_pront_gerais.pas' {Form1};
 
 {$R *.res}
 
@@ -41,5 +43,7 @@ begin
   Application.CreateForm(Tfrm_modalconsultas, frm_modalconsultas);
   Application.CreateForm(Tfrm_modalconsultas, frm_modalconsultas);
   Application.CreateForm(Tagendar, agendar);
+  Application.CreateForm(Tfrm_pront, frm_pront);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

@@ -42,6 +42,7 @@ type
 var
   frm_login: Tfrm_login;
   userlogado: integer;
+  nivelAcesso: string;
 
 implementation
 
@@ -62,21 +63,22 @@ begin
   AForm.Update;
 end;
 
-
-
   { login }
 
 
 procedure Tfrm_login.btn_entrarClick(Sender: TObject);
 begin
+
   query_login.SQL.Clear;
   query_login.SQL.Text := 'SELECT * FROM usuarios WHERE cpf_ident = :paramcpf and senha = :paramsenha ';
-  query_login.ParamByName('paramcpf').Value := edt_login.Text;
+  query_login.ParamByName('paramcpf').Value   := edt_login.Text;
   query_login.ParamByName('paramsenha').Value := edt_Senha.text;
   query_login.Open;
 
 
 if query_login.RecordCount > 0 then begin
+  userlogado := query_login.FieldByName('cpf_ident').AsInteger;       // guarda o usuário que está logado
+  nivelAcesso := query_login.FieldByName('nivel_de_acesso').AsString; // carrega o nível de acesso do usuário
 
   userlogado := query_login.FieldByName('cpf_ident').AsInteger;
 

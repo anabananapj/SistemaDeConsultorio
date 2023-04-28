@@ -55,10 +55,10 @@ object frm_func: Tfrm_func
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Charset = ANSI_CHARSET
       TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
+      TitleFont.Height = -16
+      TitleFont.Name = 'Century Gothic'
       TitleFont.Style = []
       OnDblClick = grid_funcionariosDblClick
       Columns = <

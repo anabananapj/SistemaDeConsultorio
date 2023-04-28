@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
   Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, IdHTTP, System.JSON,
   FireDAC.Comp.Client;
 
 type
@@ -41,12 +41,15 @@ type
     edt_telefone: TEdit;
     Panel1: TPanel;
     query_funcionarios: TFDQuery;
+    btn_buscar: TButton;
     procedure btn_fecharClick(Sender: TObject);
     procedure Panel1Click(Sender: TObject);
+    procedure btn_buscarClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+     procedure PreencherCampos(const CEP: string; var cidade, estado, bairro, rua: string);
   end;
 
 var
@@ -57,6 +60,19 @@ implementation
 {$R *.dfm}
 
 uses uDTModuleConnection, frm_funcionarios;
+
+procedure Tfuncionarios.btn_buscarClick(Sender: TObject);
+var
+  cep, cidade, estado, bairro, rua: string;
+begin
+  cep := edt_cep.Text;
+  PreencherCampos(cep, cidade, estado, bairro, rua);
+  edt_cidade.Text := cidade;
+  edt_estado.Text := estado;
+  edt_bairro.Text := bairro;
+  edt_rua.Text    := rua;
+end;
+
 
 procedure Tfuncionarios.btn_fecharClick(Sender: TObject);
 begin
@@ -113,5 +129,30 @@ begin
     end;
   end;
 end;
+
+procedure Tfuncionarios.PreencherCampos(const CEP: string; var cidade, estado,
+  bairro, rua: string);
+var
+  IdHTTP1: TIdHTTP;
+  jsonResponse: string;
+  json: TJSONObject;
+begin
+  IdHTTP1 := TIdHTTP.Create(nil);
+  try
+    jsonResponse := IdHTTP1.Get('https://api.postmon.com.br/v1/cep/'+CEP);
+    json := TJSONObject.ParseJSONValue(jsonResponse) as TJSONObject;
+    try
+      cidade := json.GetValue('cidade').Value;
+      estado := json.GetValue('estado').Value;
+      bairro := json.GetValue('bairro').Value;
+      rua := json.GetValue('logradouro').Value;
+    finally
+      json.Free;
+    end;
+  finally
+    IdHTTP1.Free;
+  end;
+end;
+
 
 end.

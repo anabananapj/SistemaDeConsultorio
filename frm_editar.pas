@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, IdHTTP, System.JSON,
   FireDAC.Comp.Client, Vcl.Imaging.pngimage;
 
 type
@@ -42,12 +42,15 @@ type
     Panel1: TPanel;
     query_pacientes: TFDQuery;
     btn_fechar: TImage;
+    btn_buscar: TButton;
     procedure Panel1Click(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
+    procedure btn_buscarClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+      procedure PreencherCampos(const CEP: string; var cidade, estado, bairro, rua: string);
   end;
 
 var
@@ -59,6 +62,19 @@ implementation
 
 uses  uDTModuleConnection, frm_pacientes;
 
+procedure Teditar_pacientes.btn_buscarClick(Sender: TObject);
+var
+  cep, cidade, estado, bairro, rua: string;
+begin
+  cep := edt_cep.Text;
+  PreencherCampos(cep, cidade, estado, bairro, rua);
+  edt_cidade.Text := cidade;
+  edt_estado.Text := estado;
+  edt_bairro.Text := bairro;
+  edt_rua.Text    := rua;
+end;
+
+
 procedure Teditar_pacientes.btn_fecharClick(Sender: TObject);
 begin
 close;
@@ -68,6 +84,7 @@ procedure Teditar_pacientes.Panel1Click(Sender: TObject);
 var
   sql: string;
 begin
+ query_pacientes.open;
   try
     sql := 'UPDATE pacientes SET ' +
            'nome_pac = :nome_pac, ' +
@@ -111,6 +128,31 @@ begin
     begin
       ShowMessage('Erro ao atualizar as informações do Paciente: ' + E.Message);
     end;
+  end;
+end;
+
+
+procedure Teditar_pacientes.PreencherCampos(const CEP: string; var cidade,
+  estado, bairro, rua: string);
+var
+  IdHTTP1: TIdHTTP;
+  jsonResponse: string;
+  json: TJSONObject;
+begin
+  IdHTTP1 := TIdHTTP.Create(nil);
+  try
+    jsonResponse := IdHTTP1.Get('https://api.postmon.com.br/v1/cep/'+CEP);
+    json := TJSONObject.ParseJSONValue(jsonResponse) as TJSONObject;
+    try
+      cidade := json.GetValue('cidade').Value;
+      estado := json.GetValue('estado').Value;
+      bairro := json.GetValue('bairro').Value;
+      rua := json.GetValue('logradouro').Value;
+    finally
+      json.Free;
+    end;
+  finally
+    IdHTTP1.Free;
   end;
 end;
 
