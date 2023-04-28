@@ -504,7 +504,7 @@
     end
     object btn_verconsultas: TPanel
       Left = 23
-      Top = 18
+      Top = 65
       Width = 217
       Height = 41
       Cursor = crHandPoint

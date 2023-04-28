@@ -24,8 +24,6 @@ object frm_pront: Tfrm_pront
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1305
-    ExplicitHeight = 760
     object pn_agendar: TPanel
       Left = 0
       Top = 0

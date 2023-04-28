@@ -193,21 +193,34 @@ end;
 
   procedure Tfrm_telaprincipal.FormShow(Sender: TObject);
 begin
+
     if nivelAcesso = 'Médico' then begin
     btn_agendar.Visible := False;
     pn_cadastros.Visible := False;
     btn_func.Visible := False;
     btn_pront.Visible := True;
-  end
-  else begin
+    end
+
+    else if nivelAcesso = 'Admin' then begin
+    btn_agendar.Visible := True;
+    pn_cadastros.Visible := True;
+    btn_verconsultas.Visible := True;
+    btn_pront.Visible := True;
+    btn_func.Visible := True;
+
+    end
+
+    else begin
     btn_agendar.Visible := True;
     pn_cadastros.Visible := True;
     btn_verconsultas.Visible := False;
     btn_pront.Visible := False;
-  end;
+
+
+    end;
 end;
 
-//
+    ///////////////////////////////////
 
 
 

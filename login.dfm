@@ -2979,7 +2979,7 @@
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      Text = '963'
+      Text = '111'
       TextHint = 'senha'
     end
     object edt_login: TEdit
@@ -2994,7 +2994,7 @@
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Text = '963'
+      Text = '111'
       TextHint = 'CPF ou CRM'
     end
     object btn_entrar: TPanel
