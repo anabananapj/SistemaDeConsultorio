@@ -17,9 +17,13 @@ type
     query_consultas: TFDQuery;
     ds_consultas: TDataSource;
     procedure grid_consultasDblClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
      FDataSource: TDataSource;
+     procedure MedicoLogado;
+     procedure todasConsultas;
+
   public
     { Public declarations }
 
@@ -27,18 +31,20 @@ type
      destructor Destroy; override;
 
      function GetDataSource: TDataSource;
-    procedure SetDataSource(ADataSource: TDataSource);
+     procedure SetDataSource(ADataSource: TDataSource);
+
 
   end;
 
 var
   consultas: Tconsultas;
 
+
 implementation
 
 {$R *.dfm}
 
-uses uDTModuleConnection, frm_modalconsulta;
+uses uDTModuleConnection, frm_modalconsulta, login;
 
 constructor Tconsultas.Create(AOwner: TComponent);
 begin
@@ -54,41 +60,70 @@ begin
   inherited Destroy;
 end;
 
+
 function Tconsultas.GetDataSource: TDataSource;
 begin
-  Result := FDataSource;
+  Result := FDataSource
 end;
 
 procedure Tconsultas.grid_consultasDblClick(Sender: TObject);
 var
   EditForm: tfrm_modalconsultas;
 begin
-  query_consultas.open;
   if not FDataSource.DataSet.IsEmpty then
   begin
     EditForm := tfrm_modalconsultas.Create(Self);
     try
-     EditForm.edt_nome.Text     := FDataSource.DataSet.FieldByName('nome_pac').AsString;
-     EditForm.edt_cpfpac.Text   := FDataSource.DataSet.FieldByName('cpf_pac').AsString;
-     EditForm.edt_medico.Text   := FDataSource.DataSet.FieldByName('crm_med').AsString;
-     EditForm.edt_nomemed.Text  := FDataSource.DataSet.FieldByName('nome_med').AsString;
-
-
-     query_consultas.open;
-
-     EditForm.ShowModal;
+      EditForm.edt_nome.Text     := FDataSource.DataSet.FieldByName('nome_pac').AsString;
+      EditForm.edt_cpfpac.Text   := FDataSource.DataSet.FieldByName('cpf_pac').AsString;
+      EditForm.edt_medico.Text   := FDataSource.DataSet.FieldByName('crm_med').AsString;
+      EditForm.edt_nomemed.Text  := FDataSource.DataSet.FieldByName('nome_med').AsString;
+      EditForm.ShowModal;
     finally
       EditForm.Free;
     end;
   end;
 end;
 
+procedure Tconsultas.FormCreate(Sender: TObject);
+begin
+  FDataSource.DataSet := query_consultas;
+  if (nivelAcesso = 'Admin') or (nivelAcesso = 'Recepcionista') then
+    TodasConsultas
+  else
+    MedicoLogado;
+end;
 
+
+procedure Tconsultas.MedicoLogado;
+begin
+  query_consultas.SQL.Text := 'SELECT * ' +
+                              'FROM pacientes ' +
+                              'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac ' +
+                              'INNER JOIN medicos ON consultas.cpf_med = medicos.cpf_med ' +
+                              'WHERE status_cons = ''Pendente'' ' +
+                              'AND medicos.cpf_med = :cpf_med';
+
+  query_consultas.Params.ParamByName('cpf_med').Value := userlogado;
+  query_consultas.Open;
+
+end;
 
 procedure Tconsultas.SetDataSource(ADataSource: TDataSource);
 begin
   FDataSource := ADataSource;
   grid_consultas.DataSource := FDataSource;
+end;
+
+
+procedure Tconsultas.TodasConsultas;
+begin
+  query_consultas.SQL.Text := 'SELECT * ' +
+                              'FROM pacientes ' +
+                              'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac ' +
+                              'INNER JOIN medicos ON consultas.cpf_med = medicos.cpf_med ' +
+                              'WHERE status_cons = ''Pendente''';
+  query_consultas.Open;
 end;
 
 end.

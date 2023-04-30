@@ -41,8 +41,8 @@ type
 
 var
   frm_login: Tfrm_login;
-  userlogado: integer;
-  nivelAcesso: string;
+  userlogado: String;
+  nivelAcesso: String;
 
 implementation
 
@@ -77,10 +77,9 @@ begin
 
 
 if query_login.RecordCount > 0 then begin
-  userlogado := query_login.FieldByName('cpf_ident').AsInteger;       // guarda o usuário que está logado
-  nivelAcesso := query_login.FieldByName('nivel_de_acesso').AsString; // carrega o nível de acesso do usuário
 
-  userlogado := query_login.FieldByName('cpf_ident').AsInteger;
+  userlogado  := query_login.FieldByName('cpf_ident').AsString;       // guarda o usuário que está logado
+  nivelAcesso := query_login.FieldByName('nivel_de_acesso').AsString; // carrega o nível de acesso do usuário
 
 
   frm_login.hide;

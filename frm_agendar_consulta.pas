@@ -69,6 +69,7 @@ end;
 procedure Tfrm_consulta.grid_agendarDblClick(Sender: TObject);
 var
   EditForm: tagendar;
+  cpf_med : String;
 begin
 query_pacientes.open;
   if not FDataSource.DataSet.IsEmpty then

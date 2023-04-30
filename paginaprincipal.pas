@@ -37,6 +37,8 @@ type
     CalendarView1: TCalendarView;
     btn_pront: TImage;
     lb_pront: TPanel;
+    Image1: TImage;
+    lb_gerenciamento: TPanel;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
@@ -59,6 +61,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure btn_prontMouseEnter(Sender: TObject);
     procedure btn_prontMouseLeave(Sender: TObject);
+    procedure btn_prontClick(Sender: TObject);
+    procedure Image1MouseEnter(Sender: TObject);
+    procedure Image1MouseLeave(Sender: TObject);
 
 
 
@@ -79,7 +84,7 @@ implementation
 
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
   frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos,
-  frm_funcionarios, frm_consultas;
+  frm_funcionarios, frm_consultas, frm_pront_pac;
 
 { Tfrm_telaprincipal }
 
@@ -205,6 +210,7 @@ begin
     btn_agendar.Visible := True;
     pn_cadastros.Visible := True;
     btn_verconsultas.Visible := True;
+    btn_verconsultas.Top := 65;
     btn_pront.Visible := True;
     btn_func.Visible := True;
 
@@ -218,9 +224,20 @@ begin
 
 
     end;
+
 end;
 
-    ///////////////////////////////////
+    procedure Tfrm_telaprincipal.Image1MouseEnter(Sender: TObject);
+begin
+  lb_gerenciamento.Visible := True;
+end;
+
+procedure Tfrm_telaprincipal.Image1MouseLeave(Sender: TObject);
+begin
+    lb_gerenciamento.Visible := False;
+end;
+
+///////////////////////////////////
 
 
 
@@ -271,6 +288,19 @@ begin
   lb_pacientes.Visible := False;
 end;
 
+
+
+
+procedure Tfrm_telaprincipal.btn_prontClick(Sender: TObject);
+begin
+closeform;
+
+  frm_pront := tfrm_pront.create(self);
+  frm_pront.parent := pn_formularios;
+  pn_principal.hide;
+
+  frm_pront.show;
+end;
 
 procedure Tfrm_telaprincipal.btn_prontMouseEnter(Sender: TObject);
 begin

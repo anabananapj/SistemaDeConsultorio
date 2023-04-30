@@ -23,12 +23,9 @@ object frm_modalconsultas: Tfrm_modalconsultas
     Height = 738
     Align = alClient
     BevelOuter = bvNone
-    Color = 3416861
+    Color = 3551781
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = -64
-    ExplicitHeight = 772
     object lb_nome: TLabel
       Left = 13
       Top = 63
@@ -459,7 +456,7 @@ object frm_modalconsultas: Tfrm_modalconsultas
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    Left = 17
+    Left = 33
     Top = 4
   end
   object query_prontuarios: TFDQuery

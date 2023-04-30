@@ -12,6 +12,7 @@ object consultas: Tconsultas
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pn_cad_pac: TPanel
@@ -45,7 +46,7 @@ object consultas: Tconsultas
       Left = 0
       Top = 48
       Width = 1301
-      Height = 671
+      Height = 649
       DataSource = ds_consultas
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -123,20 +124,19 @@ object consultas: Tconsultas
     end
   end
   object query_consultas: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'SELECT *'
       'FROM pacientes'
       'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac'
-      'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med'
+      'INNER JOIN medicos ON consultas.cpf_med = medicos.cpf_med'
       'WHERE status_cons = '#39'Pendente'#39)
-    Left = 560
-    Top = 336
+    Left = 64
+    Top = 8
   end
   object ds_consultas: TDataSource
     DataSet = query_consultas
-    Left = 648
-    Top = 336
+    Left = 128
+    Top = 8
   end
 end

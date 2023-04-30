@@ -11,7 +11,6 @@ type
   Tfrm_pront = class(TForm)
     pn_cad_pac: TPanel;
     pn_agendar: TPanel;
-    grid_agendar: TDBGrid;
   private
     { Private declarations }
   public

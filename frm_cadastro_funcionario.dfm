@@ -214,6 +214,19 @@ object cadastro_funcionario: Tcadastro_funcionario
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label1: TLabel
+      Left = 507
+      Top = 243
+      Width = 199
+      Height = 27
+      Caption = 'Senha para Acesso:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Yu Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btn_concluir: TPanel
       Left = 50
       Top = 568
@@ -455,6 +468,21 @@ object cadastro_funcionario: Tcadastro_funcionario
       TabOrder = 16
       OnClick = btn_buscarClick
     end
+    object edt_senha: TEdit
+      Left = 509
+      Top = 276
+      Width = 199
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      MaxLength = 8
+      ParentFont = False
+      PasswordChar = '*'
+      TabOrder = 17
+    end
   end
   object query_cad_func: TFDQuery
     Active = True
@@ -463,5 +491,12 @@ object cadastro_funcionario: Tcadastro_funcionario
       'select * from funcionarios')
     Left = 904
     Top = 256
+  end
+  object query_cad_user: TFDQuery
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 1008
+    Top = 264
   end
 end

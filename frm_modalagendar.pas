@@ -29,6 +29,7 @@ type
     procedure btn_agendarClick(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure cm_medicosChange(Sender: TObject);
 
   private
     { Private declarations }
@@ -40,6 +41,7 @@ type
 
 var
   agendar: Tagendar;
+  cpf_med: string;
 
 implementation
 
@@ -53,11 +55,13 @@ var
 begin
 query_consultas.open;
   try
-    sql := 'INSERT INTO consultas (nome_med, cpf_pac, hora_cons, data_cons, status_cons) VALUES (:nome_med, :cpf_pac, :hora_cons, :data_cons, :status_cons) ';
+    sql := 'INSERT INTO consultas (cpf_med, nome_med, cpf_pac, hora_cons, data_cons, status_cons) VALUES (:cpf_med, :nome_med, :cpf_pac, :hora_cons, :data_cons, :status_cons) ';
 
     query_consultas.SQL.Text := sql;
 
+
     query_consultas.Params.ParamByName('nome_med').value     := cm_medicos.Text;
+    query_consultas.Params.ParamByName('cpf_med').Value      := cpf_med;
     query_consultas.Params.ParamByName('cpf_pac').value      := edt_cpf.Text;
     query_consultas.Params.ParamByName('data_cons').asdate   := data_cons.date;
     query_consultas.Params.ParamByName('hora_cons').astime   := hora_cons.time;
@@ -105,8 +109,25 @@ begin
   query_medicos.Next;
 
   end;
+end;
+
+end;
+
+procedure Tagendar.cm_medicosChange(Sender: TObject);
+begin
+
+  if cm_medicos.ItemIndex >= 0 then
+  begin
+    query_medicos.Close;
+    query_medicos.SQL.Text := 'SELECT cpf_med FROM medicos WHERE nome_med = :nome_med';
+    query_medicos.Params.ParamByName('nome_med').Value := cm_medicos.Items[cm_medicos.ItemIndex];
+    query_medicos.Open;
+
+    if not query_medicos.IsEmpty then
+      cpf_med := query_medicos.FieldByName('cpf_med').AsString;
   end;
 end;
+
 procedure Tagendar.FormCreate(Sender: TObject);
 begin
 carregarcombobox;

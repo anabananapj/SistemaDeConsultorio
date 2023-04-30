@@ -2928,8 +2928,8 @@
     object lb_saúde: TLabel
       Left = 173
       Top = 136
-      Width = 194
-      Height = 78
+      Width = 176
+      Height = 72
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -2971,22 +2971,23 @@
       Left = 120
       Top = 296
       Width = 241
-      Height = 27
+      Height = 24
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Century Gothic'
       Font.Style = []
       ParentFont = False
+      PasswordChar = '*'
       TabOrder = 1
-      Text = '111'
+      Text = '105'
       TextHint = 'senha'
     end
     object edt_login: TEdit
       Left = 120
       Top = 261
       Width = 241
-      Height = 27
+      Height = 24
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -2994,7 +2995,7 @@
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Text = '111'
+      Text = '105'
       TextHint = 'CPF ou CRM'
     end
     object btn_entrar: TPanel

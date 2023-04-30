@@ -45,6 +45,9 @@ type
     lb_telefone: TLabel;
     query_cad_func: TFDQuery;
     btn_buscar: TButton;
+    query_cad_user: TFDQuery;
+    Label1: TLabel;
+    edt_senha: TEdit;
     procedure btn_concluirClick(Sender: TObject);
     procedure btn_buscarClick(Sender: TObject);
   private
@@ -111,9 +114,20 @@ begin
   query_cad_func.params.ParamByName('estado').Value := edt_estado.Text;
   query_cad_func.params.ParamByName('email_func').Value := edt_email.Text;
 
+    {INSERT TABELA USUARIOS}
+
+  query_cad_user.Close;
+  query_cad_user.SQL.Clear;
+  query_cad_user.SQL.Add('INSERT INTO usuarios (cpf_ident, senha, nivel_de_acesso) VALUES (:cpf_ident, :senha, :nivel_de_acesso)');
+
+  query_cad_user.params.ParamByName('cpf_ident').Value := edt_cpf.Text;
+  query_cad_user.params.ParamByName('senha').Value := edt_senha.Text;
+  query_cad_user.params.ParamByName('nivel_de_acesso').Value := 'Recepcionista';
+
 
   if (edt_nome.Text <> '') then begin
     query_cad_func.ExecSQL;
+    query_cad_user .ExecSQL;
     if query_cad_func.RecordCount > 0 then begin
 
      messagedlg('Algo Deu Errado!', mtError, [mbOK], 0);
