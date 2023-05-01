@@ -74,14 +74,48 @@ uses uDTModuleConnection;
 procedure Tcadastro_medico.btn_buscarClick(Sender: TObject);
 var
   cep, cidade, estado, bairro, rua: string;
+  IdHTTP1: TIdHTTP;
+  jsonResponse: string;
+  json: TJSONObject;
 begin
   cep := edt_cep.Text;
-  PreencherCampos(cep, cidade, estado, bairro, rua);
-  edt_cidade.Text := cidade;
-  edt_estado.Text := estado;
-  edt_bairro.Text := bairro;
-  edt_rua.Text    := rua;
+
+  IdHTTP1 := TIdHTTP.Create(nil);
+  try
+    try
+      jsonResponse := IdHTTP1.Get('https://api.postmon.com.br/v1/cep/' + cep);
+      json := TJSONObject.ParseJSONValue(jsonResponse) as TJSONObject;
+      try
+        cidade := json.GetValue('cidade').Value;
+        estado := json.GetValue('estado').Value;
+        bairro := json.GetValue('bairro').Value;
+        rua := json.GetValue('logradouro').Value;
+
+        edt_cidade.Text := cidade;
+        edt_estado.Text := estado;
+        edt_bairro.Text := bairro;
+        edt_rua.Text := rua;
+      finally
+        json.Free;
+      end;
+    except
+      on E: EIdHTTPProtocolException do
+      begin
+        if E.ErrorCode = 404 then
+        begin
+         MessageDlg('CEP não Encontrado!', mtError, [mbOK], 0);
+        end
+        else
+        begin
+          ShowMessage('Ocorreu um erro ao buscar o CEP: ' + E.Message);
+        end;
+      end;
+    end;
+  finally
+    IdHTTP1.Free;
+  end;
 end;
+
 
 
 procedure Tcadastro_medico.btn_concluirClick(Sender: TObject);

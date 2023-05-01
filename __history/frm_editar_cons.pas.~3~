@@ -1,0 +1,54 @@
+unit frm_editar_cons;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls;
+
+type
+  Tfrm_editarcons = class(TForm)
+    pn_editar: TPanel;
+    lb_bairro: TLabel;
+    lb_cep: TLabel;
+    lb_cidade: TLabel;
+    lb_cpf: TLabel;
+    lb_email: TLabel;
+    lb_estado: TLabel;
+    lb_nome: TLabel;
+    lb_numero: TLabel;
+    lb_cargo: TLabel;
+    lb_rg: TLabel;
+    lb_rua: TLabel;
+    lb_telefone: TLabel;
+    pn_titulo: TPanel;
+    btn_fechar: TImage;
+    edt_bairro: TEdit;
+    edt_cep: TEdit;
+    edt_cidade: TEdit;
+    edt_cpf: TEdit;
+    edt_email: TEdit;
+    edt_estado: TEdit;
+    edt_nome: TEdit;
+    edt_numero: TEdit;
+    edt_cargo: TEdit;
+    edt_rg: TEdit;
+    edt_rua: TEdit;
+    edt_telefone: TEdit;
+    Panel1: TPanel;
+    btn_buscar: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_editarcons: Tfrm_editarcons;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -8,7 +8,8 @@ uses
   Vcl.StdCtrls, Vcl.Imaging.pngimage, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.PG,
-  FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
+  FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
+  Vcl.Menus;
 
 type
   Tfrm_telaprincipal = class(TForm)
@@ -64,6 +65,9 @@ type
     procedure btn_prontClick(Sender: TObject);
     procedure Image1MouseEnter(Sender: TObject);
     procedure Image1MouseLeave(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+
+
 
 
 
@@ -84,7 +88,7 @@ implementation
 
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
   frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos,
-  frm_funcionarios, frm_consultas, frm_pront_pac;
+  frm_funcionarios, frm_consultas, frm_pront_pac, frm_gerenciamento_cons;
 
 { Tfrm_telaprincipal }
 
@@ -194,7 +198,9 @@ begin
 
 end;
 
-    // nivel de acesso
+
+
+// nivel de acesso
 
   procedure Tfrm_telaprincipal.FormShow(Sender: TObject);
 begin
@@ -227,7 +233,22 @@ begin
 
 end;
 
-    procedure Tfrm_telaprincipal.Image1MouseEnter(Sender: TObject);
+
+
+
+procedure Tfrm_telaprincipal.Image1Click(Sender: TObject);
+begin
+closeform;
+
+  frm_gerenciamento := tfrm_gerenciamento.create(self);
+  frm_gerenciamento.parent := pn_formularios;
+  pn_principal.hide;
+
+  frm_gerenciamento.show;
+
+end;
+
+procedure Tfrm_telaprincipal.Image1MouseEnter(Sender: TObject);
 begin
   lb_gerenciamento.Visible := True;
 end;
@@ -237,7 +258,7 @@ begin
     lb_gerenciamento.Visible := False;
 end;
 
-///////////////////////////////////
+
 
 
 
@@ -346,6 +367,8 @@ begin
   lb_menu.Parent := nil;
   lb_menu.BringToFront;
 end;
+
+
 
 
 end.
