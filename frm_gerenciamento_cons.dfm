@@ -24,7 +24,6 @@ object frm_gerenciamento: Tfrm_gerenciamento
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1372
     object pn_titulo: TPanel
       Left = 0
       Top = 0
@@ -62,6 +61,7 @@ object frm_gerenciamento: Tfrm_gerenciamento
       TitleFont.Height = -16
       TitleFont.Name = 'Century Gothic'
       TitleFont.Style = []
+      OnDblClick = grid_consultasDblClick
       Columns = <
         item
           Expanded = False

@@ -3,8 +3,8 @@ object frm_editarcons: Tfrm_editarcons
   Top = 0
   BorderStyle = bsNone
   Caption = 'frm_editarcons'
-  ClientHeight = 456
-  ClientWidth = 761
+  ClientHeight = 518
+  ClientWidth = 732
   Color = 3416861
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,24 +12,100 @@ object frm_editarcons: Tfrm_editarcons
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object pn_editar: TPanel
     Left = 0
     Top = 0
-    Width = 761
-    Height = 456
+    Width = 732
+    Height = 518
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -111
-    ExplicitTop = -120
-    ExplicitWidth = 762
-    ExplicitHeight = 458
+    ExplicitWidth = 736
+    object lb_med: TLabel
+      Left = 93
+      Top = 60
+      Width = 67
+      Height = 25
+      Caption = 'M'#233'dico:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_pac: TLabel
+      Left = 93
+      Top = 116
+      Width = 77
+      Height = 25
+      Caption = 'Paciente:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_cpf: TLabel
+      Left = 389
+      Top = 116
+      Width = 36
+      Height = 25
+      Caption = 'CPF:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_crm: TLabel
+      Left = 389
+      Top = 60
+      Width = 45
+      Height = 25
+      Caption = 'CRM:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_data: TLabel
+      Left = 218
+      Top = 180
+      Width = 45
+      Height = 25
+      Caption = 'Data:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_hora: TLabel
+      Left = 491
+      Top = 180
+      Width = 46
+      Height = 25
+      Caption = 'Hora:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
     object pn_titulo: TPanel
       Left = 0
       Top = 0
-      Width = 761
+      Width = 732
       Height = 49
       Align = alTop
       BevelOuter = bvNone
@@ -43,10 +119,10 @@ object frm_editarcons: Tfrm_editarcons
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 762
+      ExplicitWidth = 736
       object btn_fechar: TImage
-        Left = 715
-        Top = 8
+        Left = 691
+        Top = 16
         Width = 30
         Height = 33
         Cursor = crHandPoint
@@ -79,6 +155,131 @@ object frm_editarcons: Tfrm_editarcons
           454E44AE426082}
         OnClick = btn_fecharClick
       end
+    end
+    object edt_med: TEdit
+      Left = 93
+      Top = 87
+      Width = 284
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+    object edt_pac: TEdit
+      Left = 93
+      Top = 143
+      Width = 286
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+    end
+    object edt_cpf: TEdit
+      Left = 389
+      Top = 143
+      Width = 233
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+    end
+    object edt_crm: TEdit
+      Left = 389
+      Top = 87
+      Width = 233
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+    end
+    object btn_salvar: TPanel
+      Left = 262
+      Top = 264
+      Width = 185
+      Height = 41
+      Cursor = crHandPoint
+      BevelOuter = bvNone
+      Caption = 'Salvar'
+      Color = 5489806
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 5
+    end
+    object btn_cancelar: TPanel
+      Left = 262
+      Top = 454
+      Width = 185
+      Height = 41
+      Cursor = crHandPoint
+      BevelOuter = bvNone
+      Caption = 'Cancelar'
+      Color = 3421412
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 6
+    end
+    object memo_cancelamento: TMemo
+      Left = 168
+      Top = 339
+      Width = 369
+      Height = 89
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = '@Yu Gothic UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+    end
+    object data_cons: TDatePicker
+      Left = 168
+      Top = 207
+      Date = 45048.000000000000000000
+      DateFormat = 'dd/MM/yyyy'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      TabOrder = 8
+    end
+    object hora_cons: TTimePicker
+      Left = 441
+      Top = 207
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      TabOrder = 9
+      Time = 45048.582068726850000000
+      TimeFormat = 'hh:mm'
     end
   end
 end

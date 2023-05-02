@@ -169,6 +169,14 @@
             <Form>frm_pront</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frm_gerenciamento_cons.pas">
+            <Form>frm_gerenciamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frm_editar_cons.pas">
+            <Form>frm_editarcons</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

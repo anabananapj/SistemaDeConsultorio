@@ -66,10 +66,6 @@ query_consultas.open;
     query_consultas.Params.ParamByName('data_cons').asdate   := data_cons.date;
     query_consultas.Params.ParamByName('hora_cons').astime   := hora_cons.time;
     query_consultas.Params.ParamByName('status_cons').value  := 'Pendente';
-
-
-
-
     query_consultas.ExecSQL;
 
     frm_consulta.GetDataSource.DataSet.Refresh;

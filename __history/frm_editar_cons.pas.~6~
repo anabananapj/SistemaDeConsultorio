@@ -5,28 +5,28 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, Vcl.WinXPickers;
+  Vcl.ExtCtrls;
 
 type
   Tfrm_editarcons = class(TForm)
     pn_editar: TPanel;
     pn_titulo: TPanel;
     btn_fechar: TImage;
-    edt_med: TEdit;
-    lb_med: TLabel;
-    edt_pac: TEdit;
-    lb_pac: TLabel;
+    edt_nome: TEdit;
+    lb_nome: TLabel;
     edt_cpf: TEdit;
     lb_cpf: TLabel;
-    edt_crm: TEdit;
-    lb_crm: TLabel;
-    lb_data: TLabel;
-    lb_hora: TLabel;
+    edt_rg: TEdit;
+    lb_rg: TLabel;
+    edt_telefone: TEdit;
+    lb_telefone: TLabel;
+    edt_email: TEdit;
+    lb_email: TLabel;
+    edt_profissao: TEdit;
+    lb_profissao: TLabel;
     btn_salvar: TPanel;
     btn_cancelar: TPanel;
-    memo_cancelamento: TMemo;
-    data_cons: TDatePicker;
-    hora_cons: TTimePicker;
+    Memo1: TMemo;
     procedure btn_fecharClick(Sender: TObject);
   private
     { Private declarations }
