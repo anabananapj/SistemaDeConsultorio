@@ -126,8 +126,6 @@
     Color = 2431253
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 41
     object img_menu: TImage
       Left = 17
       Top = 15
@@ -477,6 +475,7 @@
         30342D33305432313A34333A34392B30303A3030888FBBE80000002874455874
         646174653A74696D657374616D7000323032332D30342D33305432313A34333A
         34392B30303A3030DF9A9A370000000049454E44AE426082}
+      OnClick = Image1Click
       OnMouseEnter = Image1MouseEnter
       OnMouseLeave = Image1MouseLeave
     end
@@ -491,7 +490,6 @@
     Color = 3416861
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 71
     object btn_agendar: TPanel
       Left = 23
       Top = 18
