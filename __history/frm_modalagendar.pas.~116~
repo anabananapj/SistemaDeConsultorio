@@ -55,20 +55,17 @@ var
 begin
 query_consultas.open;
   try
-    sql := 'INSERT INTO consultas (nome_med, cpf_pac, hora_cons, data_cons, status_cons) VALUES (:nome_med, :cpf_pac, :hora_cons, :data_cons, :status_cons) ';
+    sql := 'INSERT INTO consultas (cpf_med, nome_med, cpf_pac, hora_cons, data_cons, status_cons) VALUES (:cpf_med, :nome_med, :cpf_pac, :hora_cons, :data_cons, :status_cons) ';
 
     query_consultas.SQL.Text := sql;
 
 
     query_consultas.Params.ParamByName('nome_med').value     := cm_medicos.Text;
+    query_consultas.Params.ParamByName('cpf_med').Value      := cpf_med;
     query_consultas.Params.ParamByName('cpf_pac').value      := edt_cpf.Text;
     query_consultas.Params.ParamByName('data_cons').asdate   := data_cons.date;
     query_consultas.Params.ParamByName('hora_cons').astime   := hora_cons.time;
     query_consultas.Params.ParamByName('status_cons').value  := 'Pendente';
-
-
-
-
     query_consultas.ExecSQL;
 
     frm_consulta.GetDataSource.DataSet.Refresh;
@@ -104,7 +101,6 @@ begin
   while not query_medicos.Eof do
   begin
 
-  query_medicos.Params.ParamByName('cpf_med').value  := 'Pendente';
   cm_medicos.Items.Add(query_medicos.FieldByName('nome_med').AsString);
   query_medicos.Next;
 

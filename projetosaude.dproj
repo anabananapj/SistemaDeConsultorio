@@ -177,6 +177,10 @@
             <Form>frm_editarcons</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frm_hist_pront.pas">
+            <Form>frm_todospront</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

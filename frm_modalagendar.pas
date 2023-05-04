@@ -33,7 +33,7 @@ type
 
   private
     { Private declarations }
-     procedure carregarcombobox;
+    procedure carregarcombobox;
 
   public
     { Public declarations }

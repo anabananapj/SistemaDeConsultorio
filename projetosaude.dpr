@@ -20,7 +20,8 @@ uses
   frm_modalagendar in 'frm_modalagendar.pas' {agendar},
   frm_pront_pac in 'frm_pront_pac.pas' {frm_pront},
   frm_gerenciamento_cons in 'frm_gerenciamento_cons.pas' {frm_gerenciamento},
-  frm_editar_cons in 'frm_editar_cons.pas' {frm_editarcons};
+  frm_editar_cons in 'frm_editar_cons.pas' {frm_editarcons},
+  frm_hist_pront in 'frm_hist_pront.pas' {frm_todospront};
 
 {$R *.res}
 
@@ -45,6 +46,7 @@ begin
   Application.CreateForm(Tfrm_modalconsultas, frm_modalconsultas);
   Application.CreateForm(Tagendar, agendar);
   Application.CreateForm(Tfrm_pront, frm_pront);
+  Application.CreateForm(Tfrm_todospront, frm_todospront);
   Application.CreateForm(Tfrm_gerenciamento, frm_gerenciamento);
   Application.CreateForm(Tfrm_editarcons, frm_editarcons);
   Application.Run;

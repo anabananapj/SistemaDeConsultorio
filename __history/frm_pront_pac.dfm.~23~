@@ -24,14 +24,12 @@ object frm_pront: Tfrm_pront
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1305
-    ExplicitHeight = 760
     object pn_agendar: TPanel
       Left = 0
       Top = 0
       Width = 1301
       Height = 49
-      Caption = 'Ver Prontu'#225'rios'
+      Caption = 'Prontu'#225'rios dos Pacientes'
       Color = clWhite
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -42,28 +40,45 @@ object frm_pront: Tfrm_pront
       ParentFont = False
       TabOrder = 0
     end
-    object grid_agendar: TDBGrid
-      Left = 14
-      Top = 80
-      Width = 1273
-      Height = 609
+    object search_pac: TSearchBox
+      Left = 5
+      Top = 53
+      Width = 265
+      Height = 29
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = '@Yu Gothic'
+      Font.Name = 'Yu Gothic'
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      TextHint = 'Pesquise por Paciente'
+      OnChange = search_pacChange
+    end
+    object grid_pacientes: TDBGrid
+      Left = 0
+      Top = 85
+      Width = 1301
+      Height = 631
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Tw Cen MT'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
       TitleFont.Charset = ANSI_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -16
       TitleFont.Name = 'Century Gothic'
       TitleFont.Style = []
+      OnDblClick = grid_pacientesDblClick
       Columns = <
         item
           Expanded = False
           FieldName = 'nome_pac'
-          Title.Caption = 'Nome do Paciente'
+          ImeName = 'Portuguese (Brazilian ABNT)'
+          Title.Caption = 'Nome'
           Width = 200
           Visible = True
         end
@@ -75,28 +90,15 @@ object frm_pront: Tfrm_pront
         end
         item
           Expanded = False
-          FieldName = 'cpf_pac'
-          Title.Caption = 'CPF'
-          Visible = True
-        end
-        item
-          Expanded = False
           FieldName = 'nascimento_pac'
           Title.Caption = 'Nascimento'
-          Width = 150
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'telefone_pac'
-          Title.Caption = 'Telefone'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'email_pac'
-          Title.Caption = 'Email'
-          Width = 150
+          FieldName = 'cpf_pac'
+          Title.Caption = 'CPF'
+          Width = 180
           Visible = True
         end
         item
@@ -107,9 +109,37 @@ object frm_pront: Tfrm_pront
         end
         item
           Expanded = False
-          FieldName = 'cep'
-          Title.Caption = 'CEP'
-          Width = 100
+          FieldName = 'email_pac'
+          Title.Caption = 'E-mail'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'profissao'
+          Title.Caption = 'Profiss'#227'o'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'rua'
+          Title.Caption = 'Rua'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'numero_casa'
+          Title.Caption = 'N'#250'mero'
+          Width = 50
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'bairro'
+          Title.Caption = 'Bairro'
+          Width = 200
           Visible = True
         end
         item
@@ -118,7 +148,40 @@ object frm_pront: Tfrm_pront
           Title.Caption = 'Cidade'
           Width = 150
           Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'cep'
+          Title.Caption = 'CEP'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'telefone_pac'
+          Title.Caption = 'Telefone'
+          Width = 170
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'estado'
+          Title.Caption = 'Estado'
+          Width = 150
+          Visible = True
         end>
     end
+  end
+  object query_pacientes: TFDQuery
+    Active = True
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from pacientes')
+    Left = 32
+    Top = 8
+  end
+  object ds_pacientes: TDataSource
+    DataSet = query_pacientes
+    Left = 72
+    Top = 8
   end
 end

@@ -2928,8 +2928,8 @@
     object lb_saúde: TLabel
       Left = 173
       Top = 136
-      Width = 176
-      Height = 72
+      Width = 194
+      Height = 78
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -2971,7 +2971,7 @@
       Left = 120
       Top = 296
       Width = 241
-      Height = 24
+      Height = 27
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -2987,7 +2987,7 @@
       Left = 120
       Top = 261
       Width = 241
-      Height = 24
+      Height = 27
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
