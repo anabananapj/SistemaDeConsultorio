@@ -12,6 +12,7 @@ object cadastro_paciente: Tcadastro_paciente
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pn_cad_pac: TPanel
@@ -500,7 +501,6 @@ object cadastro_paciente: Tcadastro_paciente
     end
   end
   object query_cad_pac: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from pacientes')

@@ -13,6 +13,7 @@ object frm_editarcons: Tfrm_editarcons
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pn_editar: TPanel
@@ -23,7 +24,6 @@ object frm_editarcons: Tfrm_editarcons
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 736
     object lb_med: TLabel
       Left = 93
       Top = 60
@@ -119,10 +119,10 @@ object frm_editarcons: Tfrm_editarcons
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 736
+      ExplicitTop = 5
       object btn_fechar: TImage
-        Left = 691
-        Top = 16
+        Left = 690
+        Top = 10
         Width = 30
         Height = 33
         Cursor = crHandPoint
@@ -156,11 +156,12 @@ object frm_editarcons: Tfrm_editarcons
         OnClick = btn_fecharClick
       end
     end
-    object edt_med: TEdit
+    object edt_pac: TEdit
       Left = 93
-      Top = 87
-      Width = 284
+      Top = 143
+      Width = 286
       Height = 27
+      Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -169,11 +170,12 @@ object frm_editarcons: Tfrm_editarcons
       ParentFont = False
       TabOrder = 1
     end
-    object edt_pac: TEdit
-      Left = 93
+    object edt_cpf: TEdit
+      Left = 389
       Top = 143
-      Width = 286
+      Width = 233
       Height = 27
+      Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -182,11 +184,12 @@ object frm_editarcons: Tfrm_editarcons
       ParentFont = False
       TabOrder = 2
     end
-    object edt_cpf: TEdit
+    object edt_crm: TEdit
       Left = 389
-      Top = 143
+      Top = 87
       Width = 233
       Height = 27
+      Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -194,19 +197,6 @@ object frm_editarcons: Tfrm_editarcons
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-    end
-    object edt_crm: TEdit
-      Left = 389
-      Top = 87
-      Width = 233
-      Height = 27
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 4
     end
     object btn_salvar: TPanel
       Left = 262
@@ -224,7 +214,8 @@ object frm_editarcons: Tfrm_editarcons
       Font.Style = [fsBold]
       ParentBackground = False
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 4
+      OnClick = btn_salvarClick
     end
     object btn_cancelar: TPanel
       Left = 262
@@ -242,10 +233,11 @@ object frm_editarcons: Tfrm_editarcons
       Font.Style = [fsBold]
       ParentBackground = False
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
+      OnClick = btn_cancelarClick
     end
     object memo_cancelamento: TMemo
-      Left = 168
+      Left = 172
       Top = 339
       Width = 369
       Height = 89
@@ -255,7 +247,7 @@ object frm_editarcons: Tfrm_editarcons
       Font.Name = '@Yu Gothic UI'
       Font.Style = []
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 6
     end
     object data_cons: TDatePicker
       Left = 168
@@ -267,7 +259,7 @@ object frm_editarcons: Tfrm_editarcons
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
-      TabOrder = 8
+      TabOrder = 7
     end
     object hora_cons: TTimePicker
       Left = 441
@@ -277,9 +269,38 @@ object frm_editarcons: Tfrm_editarcons
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
-      TabOrder = 9
+      TabOrder = 8
       Time = 45048.582068726850000000
       TimeFormat = 'hh:mm'
     end
+    object cm_medicos: TComboBox
+      Left = 93
+      Top = 87
+      Width = 286
+      Height = 26
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      TabOrder = 9
+      OnChange = cm_medicosChange
+    end
+  end
+  object query_consultas: TFDQuery
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from consultas')
+    Left = 32
+    Top = 16
+  end
+  object query_medicos: TFDQuery
+    Active = True
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from medicos')
+    Left = 128
+    Top = 16
   end
 end

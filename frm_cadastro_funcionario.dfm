@@ -16,6 +16,7 @@ object cadastro_funcionario: Tcadastro_funcionario
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pn_cad_pac: TPanel
@@ -386,11 +387,13 @@ object cadastro_funcionario: Tcadastro_funcionario
       Top = 276
       Width = 233
       Height = 27
+      BiDiMode = bdLeftToRight
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = []
+      ParentBiDiMode = False
       ParentFont = False
       TabOrder = 11
     end
@@ -485,7 +488,6 @@ object cadastro_funcionario: Tcadastro_funcionario
     end
   end
   object query_cad_func: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from funcionarios')

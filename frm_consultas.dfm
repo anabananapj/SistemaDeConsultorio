@@ -44,9 +44,9 @@ object consultas: Tconsultas
     end
     object grid_consultas: TDBGrid
       Left = 0
-      Top = 48
+      Top = 88
       Width = 1301
-      Height = 649
+      Height = 609
       DataSource = ds_consultas
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -66,6 +66,7 @@ object consultas: Tconsultas
           Expanded = False
           FieldName = 'nome_med'
           Title.Caption = 'M'#233'dico(a)'
+          Width = 200
           Visible = True
         end
         item
@@ -122,8 +123,24 @@ object consultas: Tconsultas
           Visible = True
         end>
     end
+    object search_pac: TSearchBox
+      Left = 5
+      Top = 53
+      Width = 265
+      Height = 29
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Yu Gothic'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      TextHint = 'Pesquise por Paciente'
+      OnChange = search_pacChange
+    end
   end
   object query_consultas: TFDQuery
+    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'SELECT *'

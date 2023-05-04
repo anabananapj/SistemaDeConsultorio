@@ -43,10 +43,10 @@ object frm_gerenciamento: Tfrm_gerenciamento
       TabOrder = 0
     end
     object grid_consultas: TDBGrid
-      Left = 56
-      Top = 79
-      Width = 1185
-      Height = 618
+      Left = 0
+      Top = 85
+      Width = 1301
+      Height = 604
       Color = clAppWorkSpace
       DataSource = ds_consultas
       Font.Charset = ANSI_CHARSET
@@ -67,6 +67,7 @@ object frm_gerenciamento: Tfrm_gerenciamento
           Expanded = False
           FieldName = 'nome_med'
           Title.Caption = 'M'#233'dico(a)'
+          Width = 200
           Visible = True
         end
         item
@@ -123,6 +124,21 @@ object frm_gerenciamento: Tfrm_gerenciamento
           Visible = True
         end>
     end
+    object search_consulta: TSearchBox
+      Left = 7
+      Top = 52
+      Width = 265
+      Height = 29
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Yu Gothic'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      TextHint = 'Pesquise por Paciente'
+      OnChange = search_consultaChange
+    end
   end
   object query_consultas: TFDQuery
     Active = True
@@ -133,12 +149,12 @@ object frm_gerenciamento: Tfrm_gerenciamento
       'INNER JOIN consultas ON pacientes.cpf_pac = consultas.cpf_pac'
       'INNER JOIN medicos ON consultas.cpf_med = medicos.cpf_med'
       'WHERE status_cons = '#39'Pendente'#39)
-    Left = 64
+    Left = 16
     Top = 8
   end
   object ds_consultas: TDataSource
     DataSet = query_consultas
-    Left = 152
+    Left = 96
     Top = 8
   end
 end

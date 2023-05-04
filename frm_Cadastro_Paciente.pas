@@ -51,10 +51,12 @@ type
     btn_buscar: TButton;
     procedure btn_concluirClick(Sender: TObject);
     procedure btn_buscarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     procedure LimparFormulario;
     procedure PreencherCampos(const CEP: string; var cidade, estado, bairro, rua: string);
+    procedure FormatarTextoEdit(Sender: TObject);
   public
     { Public declarations }
 
@@ -174,6 +176,36 @@ if query_cad_pac.RecordCount = 0 then
 
 end;
 
+
+
+procedure Tcadastro_paciente.FormatarTextoEdit(Sender: TObject);
+var
+  i: Integer;
+  texto: String;
+begin
+  texto := TEdit(Sender).Text;
+  for i := 1 to Length(texto) do
+  begin
+    if (i = 1) or (texto[i-1] = ' ') then
+      texto[i] := UpCase(texto[i])
+    else
+      texto[i] := LowerCase(texto[i])[1];
+  end;
+  TEdit(Sender).Text := texto;
+  TEdit(Sender).SelStart := Length(texto); // move o cursor para o fim do texto
+end;
+
+
+procedure Tcadastro_paciente.FormCreate(Sender: TObject);
+var
+  i: Integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+  begin
+    if Components[i] is TEdit then
+      TEdit(Components[i]).OnChange := FormatarTextoEdit;
+  end;
+end;
 
 
 procedure Tcadastro_paciente.LimparFormulario;

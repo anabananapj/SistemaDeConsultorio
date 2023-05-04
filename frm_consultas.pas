@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Vcl.StdCtrls, Vcl.WinXCtrls;
 
 type
   Tconsultas = class(TForm)
@@ -16,8 +17,10 @@ type
     grid_consultas: TDBGrid;
     query_consultas: TFDQuery;
     ds_consultas: TDataSource;
+    search_pac: TSearchBox;
     procedure grid_consultasDblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure search_pacChange(Sender: TObject);
   private
     { Private declarations }
      FDataSource: TDataSource;
@@ -108,6 +111,30 @@ begin
   query_consultas.Open;
 
 end;
+
+procedure Tconsultas.search_pacChange(Sender: TObject);
+var
+  S: string;
+begin
+  S := search_pac.Text;
+  if Length(S) > 0 then
+    S := AnsiUpperCase(Copy(S, 1, 1)) + Copy(S, 2, Length(S) - 1);
+  search_pac.Text := S;
+  search_pac.SelStart := Length(S);
+begin
+if not FDataSource.DataSet.Active then
+    Exit;
+  if search_pac.Text = '' then
+  begin
+    FDataSource.DataSet.Filtered := False;
+    Exit;
+  end;
+  FDataSource.DataSet.Filter := 'nome_pac LIKE ' + QuotedStr('%' + search_pac.Text + '%');
+
+  FDataSource.DataSet.Filtered := True;
+
+    end;
+  end;
 
 procedure Tconsultas.SetDataSource(ADataSource: TDataSource);
 begin

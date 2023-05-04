@@ -44,9 +44,9 @@ object pacientes: Tpacientes
     end
     object grid_pacientes: TDBGrid
       Left = 0
-      Top = 48
+      Top = 88
       Width = 1301
-      Height = 671
+      Height = 631
       DataSource = ds_pacientes
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -93,6 +93,13 @@ object pacientes: Tpacientes
           Expanded = False
           FieldName = 'rg_pac'
           Title.Caption = 'RG'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'email_pac'
+          Title.Caption = 'E-mail'
+          Width = 200
           Visible = True
         end
         item
@@ -151,6 +158,21 @@ object pacientes: Tpacientes
           Visible = True
         end>
     end
+  end
+  object search_pac: TSearchBox
+    Left = 5
+    Top = 53
+    Width = 265
+    Height = 29
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Yu Gothic'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    TextHint = 'Pesquise por Paciente'
+    OnChange = search_pacChange
   end
   object query_pacientes: TFDQuery
     Active = True

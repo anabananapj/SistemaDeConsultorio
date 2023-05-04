@@ -17,7 +17,9 @@ type
     grid_medicos: TDBGrid;
     query_medicos: TFDQuery;
     ds_medicos: TDataSource;
+    search_med: TSearchBox;
     procedure grid_medicosDblClick(Sender: TObject);
+    procedure search_medChange(Sender: TObject);
  private
     { Private declarations }
 
@@ -102,4 +104,27 @@ begin
   end;
 end;
 
+procedure Tmedicos.search_medChange(Sender: TObject);
+var
+  S: string;
+begin
+  S := search_med.Text;
+  if Length(S) > 0 then
+    S := AnsiUpperCase(Copy(S, 1, 1)) + Copy(S, 2, Length(S) - 1);
+  search_med.Text := S;
+  search_med.SelStart := Length(S);
+begin
+if not FDataSource.DataSet.Active then
+    Exit;
+  if search_med.Text = '' then
+  begin
+    FDataSource.DataSet.Filtered := False;
+    Exit;
+  end;
+  FDataSource.DataSet.Filter := 'nome_med LIKE ' + QuotedStr('%' + search_med.Text + '%');
+
+  FDataSource.DataSet.Filtered := True;
+
+    end;
+  end;
 end.

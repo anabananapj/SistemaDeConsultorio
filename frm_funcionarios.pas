@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Vcl.StdCtrls, Vcl.WinXCtrls;
 
 type
   Tfrm_func = class(TForm)
@@ -16,7 +17,9 @@ type
     grid_funcionarios: TDBGrid;
     query_funcionarios: TFDQuery;
     ds_funcionarios: TDataSource;
+    search_func: TSearchBox;
     procedure grid_funcionariosDblClick(Sender: TObject);
+    procedure search_funcChange(Sender: TObject);
   private
     { Private declarations }
         FDataSource: TDataSource;
@@ -107,4 +110,27 @@ end;
 
 
 
+procedure Tfrm_func.search_funcChange(Sender: TObject);
+var
+  S: string;
+begin
+  S := search_func.Text;
+  if Length(S) > 0 then
+    S := AnsiUpperCase(Copy(S, 1, 1)) + Copy(S, 2, Length(S) - 1);
+  search_func.Text := S;
+  search_func.SelStart := Length(S);
+begin
+if not FDataSource.DataSet.Active then
+    Exit;
+  if search_func.Text = '' then
+  begin
+    FDataSource.DataSet.Filtered := False;
+    Exit;
+  end;
+  FDataSource.DataSet.Filter := 'nome_func LIKE ' + QuotedStr('%' + search_func.Text + '%');
+
+  FDataSource.DataSet.Filtered := True;
+
+    end;
+  end;
 end.
