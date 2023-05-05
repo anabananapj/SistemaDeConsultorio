@@ -16,7 +16,7 @@ object frm_modalconsultas: Tfrm_modalconsultas
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object pn_editar: TPanel
+  object pn_consulta: TPanel
     Left = 0
     Top = 0
     Width = 899

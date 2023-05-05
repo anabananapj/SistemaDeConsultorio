@@ -1,0 +1,62 @@
+unit frm_visua_pront;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls;
+
+type
+  Tfrm_visualizar_pront = class(TForm)
+    pn_consulta: TPanel;
+    lb_nome: TLabel;
+    lb_queixaprincipal: TLabel;
+    lb_historia: TLabel;
+    lb_antecedentes: TLabel;
+    lb_receita: TLabel;
+    lb_medico: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    lb_observacoes: TLabel;
+    lb_hora: TLabel;
+    lb_data: TLabel;
+    pn_titulo: TPanel;
+    edt_nome: TEdit;
+    memo_qp: TMemo;
+    memo_historia: TMemo;
+    memo_antecedentes: TMemo;
+    memo_receita: TMemo;
+    edt_medico: TEdit;
+    edt_cpfpac: TEdit;
+    edt_nomemed: TEdit;
+    memo_observacoes: TMemo;
+    edt_hora: TEdit;
+    edt_data: TEdit;
+    Label3: TLabel;
+    edt_duracao: TEdit;
+    Image2: TImage;
+    procedure btn_fecharClick(Sender: TObject);
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_visualizar_pront: Tfrm_visualizar_pront;
+
+implementation
+
+{$R *.dfm}
+
+
+
+procedure Tfrm_visualizar_pront.btn_fecharClick(Sender: TObject);
+begin
+close;
+end;
+
+end.

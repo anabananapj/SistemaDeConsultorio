@@ -1,0 +1,372 @@
+object frm_visualizar_pront: Tfrm_visualizar_pront
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'frm_visualizar_pront'
+  ClientHeight = 553
+  ClientWidth = 905
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pn_consulta: TPanel
+    Left = 0
+    Top = 0
+    Width = 905
+    Height = 553
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 3551781
+    ParentBackground = False
+    TabOrder = 0
+    object lb_nome: TLabel
+      Left = 13
+      Top = 63
+      Width = 77
+      Height = 25
+      Caption = 'Paciente:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_queixaprincipal: TLabel
+      Left = 13
+      Top = 234
+      Width = 145
+      Height = 25
+      Caption = 'Queixa Principal:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_historia: TLabel
+      Left = 13
+      Top = 324
+      Width = 232
+      Height = 25
+      Caption = 'Hist'#243'ria da Mol'#233'stia Atual:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_antecedentes: TLabel
+      Left = 13
+      Top = 438
+      Width = 121
+      Height = 25
+      Caption = 'Antecedentes:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_receita: TLabel
+      Left = 488
+      Top = 438
+      Width = 67
+      Height = 25
+      Caption = 'Receita:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_medico: TLabel
+      Left = 313
+      Top = 120
+      Width = 137
+      Height = 25
+      Caption = 'CRM M'#233'dico(a):'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 313
+      Top = 63
+      Width = 116
+      Height = 25
+      Caption = 'CPF Paciente:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 13
+      Top = 118
+      Width = 149
+      Height = 25
+      Caption = 'Nome M'#233'dico(a):'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_observacoes: TLabel
+      Left = 487
+      Top = 232
+      Width = 112
+      Height = 25
+      Caption = 'Observa'#231#245'es:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_hora: TLabel
+      Left = 13
+      Top = 177
+      Width = 46
+      Height = 25
+      Caption = 'Hora:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_data: TLabel
+      Left = 149
+      Top = 177
+      Width = 45
+      Height = 25
+      Caption = 'Data:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 282
+      Top = 177
+      Width = 76
+      Height = 25
+      Caption = 'Dura'#231#227'o:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Malgun Gothic'
+      Font.Style = []
+      ParentFont = False
+    end
+    object pn_titulo: TPanel
+      Left = 0
+      Top = 0
+      Width = 905
+      Height = 49
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Prontu'#225'rio'
+      Color = 12701617
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -21
+      Font.Name = 'Gadugi'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 0
+    end
+    object edt_nome: TEdit
+      Left = 13
+      Top = 87
+      Width = 286
+      Height = 27
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+    object memo_qp: TMemo
+      Left = 13
+      Top = 264
+      Width = 452
+      Height = 60
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+    end
+    object memo_historia: TMemo
+      Left = 13
+      Top = 355
+      Width = 452
+      Height = 80
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 3
+    end
+    object memo_antecedentes: TMemo
+      Left = 13
+      Top = 469
+      Width = 452
+      Height = 49
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 4
+    end
+    object memo_receita: TMemo
+      Left = 488
+      Top = 469
+      Width = 372
+      Height = 49
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 5
+    end
+    object edt_medico: TEdit
+      Left = 313
+      Top = 144
+      Width = 286
+      Height = 27
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+    end
+    object edt_cpfpac: TEdit
+      Left = 313
+      Top = 87
+      Width = 286
+      Height = 27
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+    end
+    object edt_nomemed: TEdit
+      Left = 13
+      Top = 144
+      Width = 286
+      Height = 27
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 8
+    end
+    object memo_observacoes: TMemo
+      Left = 488
+      Top = 263
+      Width = 372
+      Height = 172
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 9
+    end
+    object edt_hora: TEdit
+      Left = 13
+      Top = 206
+      Width = 121
+      Height = 27
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+    end
+    object edt_data: TEdit
+      Left = 149
+      Top = 206
+      Width = 121
+      Height = 27
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 11
+    end
+    object edt_duracao: TEdit
+      Left = 282
+      Top = 206
+      Width = 121
+      Height = 27
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 12
+    end
+  end
+end

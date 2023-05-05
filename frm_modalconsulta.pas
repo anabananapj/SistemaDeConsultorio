@@ -14,7 +14,7 @@ uses
 
 type
   Tfrm_modalconsultas = class(TForm)
-    pn_editar: TPanel;
+    pn_consulta: TPanel;
     pn_titulo: TPanel;
     btn_fechar: TImage;
     lb_nome: TLabel;

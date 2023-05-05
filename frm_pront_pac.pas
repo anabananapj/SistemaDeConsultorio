@@ -81,23 +81,26 @@ begin
   Query.SQL.Text := 'SELECT * ' +
                     'FROM prontuarios ' +
                     'INNER JOIN pacientes ON pacientes.cpf_pac = prontuarios.cpf_pac ' +
+                    'INNER JOIN medicos ON medicos.crm_med = prontuarios.crm_med ' +
                     'WHERE pacientes.cpf_pac = :cpf_pac';
 
   Query.Params.ParamByName('cpf_pac').Value := cpf_pac;
   Query.Open;
 
   try
-    frm_todospront := Tfrm_todospront.Create(Self);
-    frm_todospront.grid_pront.DataSource.DataSet := Query;
-    frm_todospront.ShowModal;
+    if Query.IsEmpty then
+      messagedlg('Não há registro de Prontuários pra esse Paciente!', mtError, [mbOK], 0)
+    else
+    begin
+      frm_todospront := Tfrm_todospront.Create(Self);
+      frm_todospront.grid_pront.DataSource.DataSet := Query;
+      frm_todospront.ShowModal;
+    end;
   finally
     Query.Close;
     Query.Free;
   end;
 end;
-
-
-
 
 
 procedure Tfrm_pront.search_pacChange(Sender: TObject);
