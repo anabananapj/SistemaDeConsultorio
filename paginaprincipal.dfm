@@ -491,16 +491,16 @@
     end
     object pn_cadastros: TPanel
       Left = -6
-      Top = 512
+      Top = 488
       Width = 268
-      Height = 209
+      Height = 233
       BevelOuter = bvNone
       Color = 4665642
       ParentBackground = False
       TabOrder = 1
       object lb_cadastros: TLabel
         Left = 81
-        Top = 23
+        Top = 11
         Width = 113
         Height = 33
         Caption = 'Cadastros'
@@ -513,7 +513,7 @@
       end
       object btn_cad_medicos: TPanel
         Left = 57
-        Top = 72
+        Top = 58
         Width = 161
         Height = 33
         Cursor = crHandPoint
@@ -532,7 +532,7 @@
       end
       object btn_cad_pacientes: TPanel
         Left = 57
-        Top = 111
+        Top = 95
         Width = 161
         Height = 33
         Cursor = crHandPoint
@@ -551,7 +551,7 @@
       end
       object btn_cad_funcionarios: TPanel
         Left = 57
-        Top = 150
+        Top = 132
         Width = 161
         Height = 33
         Cursor = crHandPoint
@@ -567,6 +567,25 @@
         ParentFont = False
         TabOrder = 2
         OnClick = btn_cad_funcionariosClick
+      end
+      object btn_cad_hora: TPanel
+        Left = 57
+        Top = 169
+        Width = 161
+        Height = 33
+        Cursor = crHandPoint
+        BevelOuter = bvNone
+        Caption = 'Hora'
+        Color = 9068119
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 3
+        OnClick = btn_cad_horaClick
       end
     end
     object btn_verconsultas: TPanel

@@ -25,9 +25,9 @@ object agendar: Tagendar
     BevelOuter = bvNone
     TabOrder = 0
     object lb_data: TLabel
-      Left = 207
-      Top = 238
-      Width = 56
+      Left = 210
+      Top = 246
+      Width = 63
       Height = 24
       Caption = 'Data:'
       Font.Charset = ANSI_CHARSET
@@ -38,8 +38,8 @@ object agendar: Tagendar
       ParentFont = False
     end
     object lb_hora: TLabel
-      Left = 207
-      Top = 318
+      Left = 210
+      Top = 320
       Width = 53
       Height = 24
       Caption = 'Hora:'
@@ -117,7 +117,7 @@ object agendar: Tagendar
       end
     end
     object btn_agendar: TPanel
-      Left = 143
+      Left = 147
       Top = 408
       Width = 185
       Height = 41
@@ -136,10 +136,11 @@ object agendar: Tagendar
       OnClick = btn_agendarClick
     end
     object cm_medicos: TComboBox
-      Left = 165
+      Left = 164
       Top = 206
-      Width = 145
+      Width = 150
       Height = 29
+      Style = csDropDownList
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -148,30 +149,6 @@ object agendar: Tagendar
       ParentFont = False
       TabOrder = 2
       OnChange = cm_medicosChange
-    end
-    object data_cons: TDatePicker
-      Left = 160
-      Top = 268
-      Date = 45043.000000000000000000
-      DateFormat = 'dd/MM/yyyy'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 3
-    end
-    object hora_cons: TTimePicker
-      Left = 160
-      Top = 348
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 4
-      Time = 45043.438711956020000000
-      TimeFormat = 'hh:mm'
     end
     object edt_cpf: TDBEdit
       Left = 100
@@ -184,7 +161,7 @@ object agendar: Tagendar
       Font.Name = 'Century Gothic'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 3
     end
     object edt_nome: TDBEdit
       Left = 100
@@ -197,6 +174,31 @@ object agendar: Tagendar
       Font.Name = 'Century Gothic'
       Font.Style = [fsBold]
       ParentFont = False
+      TabOrder = 4
+    end
+    object cm_hora: TComboBox
+      Left = 164
+      Top = 350
+      Width = 150
+      Height = 31
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 5
+    end
+    object data_cons: TDatePicker
+      Left = 164
+      Top = 277
+      Date = 45054.000000000000000000
+      DateFormat = 'dd/MM/yyyy'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
       TabOrder = 6
     end
   end
@@ -213,7 +215,14 @@ object agendar: Tagendar
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from consultas')
-    Left = 64
-    Top = 304
+    Left = 56
+    Top = 232
+  end
+  object query_hora: TFDQuery
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from hora_cons')
+    Left = 56
+    Top = 288
   end
 end

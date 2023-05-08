@@ -40,6 +40,7 @@ type
     lb_pront: TPanel;
     Image1: TImage;
     lb_gerenciamento: TPanel;
+    btn_cad_hora: TPanel;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
@@ -66,6 +67,7 @@ type
     procedure Image1MouseEnter(Sender: TObject);
     procedure Image1MouseLeave(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+    procedure btn_cad_horaClick(Sender: TObject);
 
 
 
@@ -88,7 +90,8 @@ implementation
 
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
   frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos,
-  frm_funcionarios, frm_consultas, frm_pront_pac, frm_gerenciamento_cons;
+  frm_funcionarios, frm_consultas, frm_pront_pac, frm_gerenciamento_cons,
+  frm_cadastro_hora;
 
 { Tfrm_telaprincipal }
 
@@ -123,7 +126,15 @@ closeform;
 
 end;
 
-      {botão agendamento de consulta}
+procedure Tfrm_telaprincipal.btn_cad_horaClick(Sender: TObject);
+begin
+
+
+  cad_hora.show;
+
+end;
+
+{botão agendamento de consulta}
 
 procedure Tfrm_telaprincipal.btn_cad_medicosClick(Sender: TObject);
 begin
@@ -238,15 +249,15 @@ end;
 
 procedure Tfrm_telaprincipal.Image1Click(Sender: TObject);
 begin
-closeform;
-
-  frm_gerenciamento := tfrm_gerenciamento.create(self);
-  frm_gerenciamento.parent := pn_formularios;
-  pn_principal.hide;
-
-  frm_gerenciamento.show;
+CloseForm;
+  frm_gerenciamento := Tfrm_gerenciamento.Create(Self);
+  frm_gerenciamento.Parent := pn_formularios;
+  pn_principal.Hide;
+  frm_gerenciamento.Show;
 
 end;
+
+
 
 procedure Tfrm_telaprincipal.Image1MouseEnter(Sender: TObject);
 begin
