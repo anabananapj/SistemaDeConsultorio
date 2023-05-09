@@ -27,7 +27,7 @@ object agendar: Tagendar
     object lb_data: TLabel
       Left = 210
       Top = 246
-      Width = 63
+      Width = 51
       Height = 24
       Caption = 'Data:'
       Font.Charset = ANSI_CHARSET
@@ -40,7 +40,7 @@ object agendar: Tagendar
     object lb_hora: TLabel
       Left = 210
       Top = 320
-      Width = 53
+      Width = 51
       Height = 24
       Caption = 'Hora:'
       Font.Charset = ANSI_CHARSET
@@ -53,7 +53,7 @@ object agendar: Tagendar
     object Label1: TLabel
       Left = 201
       Top = 176
-      Width = 83
+      Width = 74
       Height = 24
       Caption = 'M'#233'dico:'
       Font.Charset = ANSI_CHARSET
@@ -139,7 +139,7 @@ object agendar: Tagendar
       Left = 164
       Top = 206
       Width = 150
-      Height = 29
+      Height = 26
       Style = csDropDownList
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -180,7 +180,7 @@ object agendar: Tagendar
       Left = 164
       Top = 350
       Width = 150
-      Height = 31
+      Height = 30
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
