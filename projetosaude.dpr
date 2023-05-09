@@ -21,7 +21,8 @@ uses
   frm_pront_pac in 'frm_pront_pac.pas' {frm_pront},
   frm_gerenciamento_cons in 'frm_gerenciamento_cons.pas' {frm_gerenciamento},
   frm_editar_cons in 'frm_editar_cons.pas' {frm_editarcons},
-  frm_hist_pront in 'frm_hist_pront.pas' {frm_todospront};
+  frm_hist_pront in 'frm_hist_pront.pas' {frm_todospront},
+  frm_cadastro_hora in 'frm_cadastro_hora.pas' {cad_hora};
 
 {$R *.res}
 
@@ -31,6 +32,7 @@ begin
   Application.CreateForm(TDTConnection, DTConnection);
   Application.CreateForm(TFrm_login, Frm_login);
   Application.CreateForm(Tfrm_telaprincipal, frm_telaprincipal);
+  Application.CreateForm(Tcad_hora, cad_hora);
   Application.CreateForm(Tcadastro_paciente, cadastro_paciente);
   Application.CreateForm(Tcadastro_medico, cadastro_medico);
   Application.CreateForm(Tcadastro_funcionario, cadastro_funcionario);

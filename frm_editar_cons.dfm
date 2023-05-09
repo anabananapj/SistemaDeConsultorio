@@ -119,7 +119,6 @@ object frm_editarcons: Tfrm_editarcons
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      ExplicitTop = 5
       object btn_fechar: TImage
         Left = 690
         Top = 10
@@ -260,33 +259,35 @@ object frm_editarcons: Tfrm_editarcons
       Font.Name = 'Segoe UI'
       Font.Style = []
       TabOrder = 7
-    end
-    object hora_cons: TTimePicker
-      Left = 441
-      Top = 207
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 8
-      Time = 45048.582068726850000000
-      TimeFormat = 'hh:mm'
+      OnChange = data_consChange
     end
     object cm_medicos: TComboBox
       Left = 93
       Top = 87
       Width = 286
-      Height = 26
+      Height = 29
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Century Gothic'
       Font.Style = [fsBold, fsItalic]
       ParentFont = False
-      TabOrder = 9
+      TabOrder = 8
       OnChange = cm_medicosChange
     end
+  end
+  object cm_hora: TComboBox
+    Left = 440
+    Top = 207
+    Width = 150
+    Height = 31
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
   end
   object query_consultas: TFDQuery
     Connection = DTConnection.FDConnection1
@@ -296,11 +297,17 @@ object frm_editarcons: Tfrm_editarcons
     Top = 16
   end
   object query_medicos: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from medicos')
     Left = 128
     Top = 16
+  end
+  object query_hora: TFDQuery
+    Connection = DTConnection.FDConnection1
+    SQL.Strings = (
+      'select * from hora_cons')
+    Left = 48
+    Top = 192
   end
 end

@@ -82,7 +82,7 @@ begin
       EditForm.edt_cpf.Text       := FDataSource.DataSet.FieldByName('cpf_pac').AsString;
       EditForm.edt_crm.Text       := FDataSource.DataSet.FieldByName('crm_med').AsString;
       EditForm.data_cons.date     := StrToDate(FDataSource.DataSet.FieldByName('data_cons').AsString);
-      EditForm.hora_cons.time     := StrToTime(FDataSource.DataSet.FieldByName('hora_cons').AsString);
+      EditForm.cm_hora.text       := FDataSource.DataSet.FieldByName('hora_cons').AsString;
 
       query_consultas.open;
 

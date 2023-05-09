@@ -31,7 +31,7 @@ object cad_hora: Tcad_hora
     object lb_hora: TLabel
       Left = 147
       Top = 157
-      Width = 59
+      Width = 53
       Height = 24
       Caption = 'Hora:'
       Font.Charset = ANSI_CHARSET

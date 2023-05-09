@@ -44,22 +44,38 @@ uses uDTModuleConnection;
 procedure Tcad_hora.btn_agendarClick(Sender: TObject);
 var
   sql: string;
+  horaConsulta: TTime;
 begin
-query_cad_hora.open;
-  try
-    sql := 'INSERT INTO hora_cons (medico_nome, hora_consulta) VALUES (:medico_nome, :hora_consulta) ';
+  horaConsulta := hora_cons.Time;
 
+  query_cad_hora.Open;
+  try
+    sql := 'SELECT * FROM hora_cons WHERE medico_nome = :medico_nome AND hora_consulta = :hora_consulta';
     query_cad_hora.SQL.Text := sql;
 
-    query_cad_hora.Params.ParamByName('medico_nome').value     := cm_medicos.Text;
-    query_cad_hora.Params.ParamByName('hora_consulta').astime  := hora_cons.time;
+    query_cad_hora.Params.ParamByName('medico_nome').Value := cm_medicos.Text;
+    query_cad_hora.Params.ParamByName('hora_consulta').AsTime := horaConsulta;
 
+    query_cad_hora.Open;
 
-    query_cad_hora.ExecSQL;
+    if not query_cad_hora.IsEmpty then
+    begin
+      messagedlg('Erro ao Cadastrar! Já existe um horário cadastrado para este médico nesta hora.', mtError, [mbOK], 0);
+    end
+    else
+    begin
+      sql := 'INSERT INTO hora_cons (medico_nome, hora_consulta) VALUES (:medico_nome, :hora_consulta) ';
 
+      query_cad_hora.SQL.Text := sql;
 
-    ModalResult := mrOk;
-    messagedlg('Horário Cadastrado!', mtConfirmation, [mbOK], 0);
+      query_cad_hora.Params.ParamByName('medico_nome').Value := cm_medicos.Text;
+      query_cad_hora.Params.ParamByName('hora_consulta').AsTime := horaConsulta;
+
+      query_cad_hora.ExecSQL;
+
+      ModalResult := mrOk;
+      messagedlg('Horário Cadastrado!', mtConfirmation, [mbOK], 0);
+    end;
   except
     on E: Exception do
     begin
@@ -67,6 +83,8 @@ query_cad_hora.open;
     end;
   end;
 end;
+
+
 
 
 

@@ -27,7 +27,7 @@ object agendar: Tagendar
     object lb_data: TLabel
       Left = 210
       Top = 246
-      Width = 51
+      Width = 56
       Height = 24
       Caption = 'Data:'
       Font.Charset = ANSI_CHARSET
@@ -40,7 +40,7 @@ object agendar: Tagendar
     object lb_hora: TLabel
       Left = 210
       Top = 320
-      Width = 51
+      Width = 53
       Height = 24
       Caption = 'Hora:'
       Font.Charset = ANSI_CHARSET
@@ -53,7 +53,7 @@ object agendar: Tagendar
     object Label1: TLabel
       Left = 201
       Top = 176
-      Width = 74
+      Width = 83
       Height = 24
       Caption = 'M'#233'dico:'
       Font.Charset = ANSI_CHARSET
@@ -139,7 +139,7 @@ object agendar: Tagendar
       Left = 164
       Top = 206
       Width = 150
-      Height = 26
+      Height = 29
       Style = csDropDownList
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -180,7 +180,7 @@ object agendar: Tagendar
       Left = 164
       Top = 350
       Width = 150
-      Height = 30
+      Height = 31
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -200,10 +200,10 @@ object agendar: Tagendar
       Font.Name = 'Segoe UI'
       Font.Style = []
       TabOrder = 6
+      OnChange = data_consChange
     end
   end
   object query_medicos: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from medicos')
@@ -211,7 +211,6 @@ object agendar: Tagendar
     Top = 176
   end
   object query_consultas: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from consultas')

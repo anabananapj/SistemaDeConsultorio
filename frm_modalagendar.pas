@@ -32,11 +32,13 @@ type
     procedure btn_fecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure cm_medicosChange(Sender: TObject);
+    procedure data_consChange(Sender: TObject);
+
+
 
   private
     { Private declarations }
     procedure carregarcombobox;
-    procedure carregarcomboboxhora;
     function HorarioAgendado(medico_nome: string;
       data_consulta, hora_consulta: TDateTime): Boolean;
 
@@ -110,26 +112,7 @@ begin
 
 end;
 
-procedure Tagendar.carregarcomboboxhora;
-begin
 
-  query_hora.close;
-  query_hora.sql.Clear;
-  query_hora.sql.Add('SELECT * FROM hora_cons');
-  query_hora.open;
-
-  if not query_hora.IsEmpty then
-  begin
-    while not query_hora.Eof do
-    begin
-
-      cm_hora.Items.Add(query_hora.FieldByName('hora_consulta').AsString);
-      query_hora.Next;
-
-    end;
-  end;
-
-end;
 
 procedure Tagendar.cm_medicosChange(Sender: TObject);
 var
@@ -178,10 +161,16 @@ begin
   end;
 end;
 
+
+procedure Tagendar.data_consChange(Sender: TObject);
+begin
+cm_medicos.ItemIndex := -1;
+end;
+
 procedure Tagendar.FormCreate(Sender: TObject);
 begin
   carregarcombobox;
-
+  data_cons.date := now;
 end;
 
 function Tagendar.HorarioAgendado(medico_nome: string;
@@ -198,10 +187,10 @@ sql := 'SELECT COUNT(*) FROM consultas WHERE nome_med = :medico_nome AND data_co
   query_consultas.Params.ParamByName('medico_nome').value := medico_nome;
   Data := DateOf(data_consulta);
 
-  query_consultas.Params.ParamByName('data_cons').asdate := Data;
+  query_consultas.Params.ParamByName('data_cons').AsDateTime := data_consulta;
 
   query_consultas.Params.ParamByName('hora_consulta').AsTime :=
-    TimeOf(hora_consulta);
+  TimeOf(hora_consulta);
   query_consultas.open;
 
   Result := query_consultas.Fields[0].AsInteger > 0;
