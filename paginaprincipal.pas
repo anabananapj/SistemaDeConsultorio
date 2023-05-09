@@ -9,7 +9,8 @@ uses
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.PG,
   FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
-  Vcl.Menus;
+  Vcl.Menus, REST.Types, REST.Client, Data.Bind.Components,
+  Data.Bind.ObjectScope;
 
 type
   Tfrm_telaprincipal = class(TForm)
@@ -41,6 +42,10 @@ type
     Image1: TImage;
     lb_gerenciamento: TPanel;
     btn_cad_hora: TPanel;
+    btn_api: TButton;
+    request: TRESTRequest;
+    client: TRESTClient;
+    response: TRESTResponse;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
@@ -68,10 +73,7 @@ type
     procedure Image1MouseLeave(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure btn_cad_horaClick(Sender: TObject);
-
-
-
-
+    procedure btn_apiClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -79,6 +81,7 @@ type
 
   public
     { Public declarations }
+    function GetJSON(resource, JSON : string):boolean;
   end;
 
 var
@@ -91,7 +94,7 @@ implementation
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
   frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos,
   frm_funcionarios, frm_consultas, frm_pront_pac, frm_gerenciamento_cons,
-  frm_cadastro_hora;
+  frm_cadastro_hora, U_paciente;
 
 { Tfrm_telaprincipal }
 
@@ -113,6 +116,29 @@ closeform;
 end;
 
       {botão cadastro funcionários}
+
+procedure Tfrm_telaprincipal.btn_apiClick(Sender: TObject);
+var
+Paciente : TPaciente;
+begin
+  if (MessageBox(handle, 'Deseja enviar Pacientes para o serviço de WebService?', 'Deseja confirmar?', MB_YESNO+MB_DEFBUTTON2) = mrYes) then
+    begin
+      Paciente := TPaciente.Create;
+
+      try
+        Paciente.ReturnPaciente;
+
+      finally
+        Paciente.Free;
+        showmessage('Enviado Para API com sucesso!');
+      end;
+    end
+  else
+    begin
+      showmessage('Envio cancelado!');
+
+  end;
+end;
 
 procedure Tfrm_telaprincipal.btn_cad_funcionariosClick(Sender: TObject);
 begin
@@ -246,6 +272,21 @@ end;
 
 
 
+
+function Tfrm_telaprincipal.GetJSON(resource, JSON: string): boolean;
+begin
+  result := false;
+  Client.BaseURL := 'http://192.168.10.220:8080';
+  Request.ResourceSuffix := '';
+  Request.resource := resource;
+  Request.Method := TRESTRequestMethod.rmPOST;
+  Request.Params.clear;
+  Request.ClearBody;
+  Request.AddBody(JSON, ContentTypeFromString('application/json'));
+  Request.Params.AddItem('aluno-hash', '24b1b590-76b0-4a5d-99ae-01f8e0bc8e39', pkHTTPHEADER, [poDoNotEncode]);
+  Request.Execute;
+  result := true;
+end;
 
 procedure Tfrm_telaprincipal.Image1Click(Sender: TObject);
 begin

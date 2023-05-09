@@ -633,6 +633,15 @@
       ParentFont = False
       TabOrder = 3
     end
+    object btn_api: TButton
+      Left = 88
+      Top = 320
+      Width = 75
+      Height = 25
+      Caption = 'API'
+      TabOrder = 4
+      OnClick = btn_apiClick
+    end
   end
   object lb_menu: TPanel
     Left = 57
@@ -742,5 +751,21 @@
     ParentFont = False
     TabOrder = 9
     Visible = False
+  end
+  object request: TRESTRequest
+    Client = client
+    Params = <>
+    Response = response
+    Left = 153
+    Top = 441
+  end
+  object client: TRESTClient
+    Params = <>
+    Left = 233
+    Top = 441
+  end
+  object response: TRESTResponse
+    Left = 73
+    Top = 441
   end
 end

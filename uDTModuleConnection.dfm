@@ -18,4 +18,9 @@ object DTConnection: TDTConnection
     Left = 112
     Top = 16
   end
+  object query_api: TFDQuery
+    Connection = FDConnection1
+    Left = 48
+    Top = 80
+  end
 end
