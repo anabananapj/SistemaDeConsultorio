@@ -283,7 +283,7 @@ begin
   Request.Params.clear;
   Request.ClearBody;
   Request.AddBody(JSON, ContentTypeFromString('application/json'));
-  Request.Params.AddItem('aluno-hash', '24b1b590-76b0-4a5d-99ae-01f8e0bc8e39', pkHTTPHEADER, [poDoNotEncode]);
+  Request.Params.AddItem('aluno-hash', '529e6205-cd27-4f61-af23-b91a64b9ce70', pkHTTPHEADER, [poDoNotEncode]);
   Request.Execute;
   result := true;
 end;

@@ -756,16 +756,16 @@
     Client = client
     Params = <>
     Response = response
-    Left = 153
+    Left = 177
     Top = 441
   end
   object client: TRESTClient
     Params = <>
-    Left = 233
+    Left = 257
     Top = 441
   end
   object response: TRESTResponse
-    Left = 73
+    Left = 97
     Top = 441
   end
 end
