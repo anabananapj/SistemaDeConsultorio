@@ -46,12 +46,12 @@ begin
 
   while not dtconnection.query_med.EoF do
     begin
-      Consulta := TMedico.Create;
+      Medico := TMedico.Create;
       Consulta.IDent    := 'M';
-      Consulta.Nome     := dtconnection.query_cons.FieldByName('receita').AsString;
-      Consulta.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_cons.FieldByName('data_registro').AsDateTime);
-      Consulta.CPF      := dtconnection.query_med.FieldByName('receita').AsString;
-      Consulta.CRM      := dtconnection.query_med.FieldByName('receita').AsString;
+      Consulta.Nome     := dtconnection.query_med.FieldByName('nome_med').AsString;
+      Consulta.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_med.FieldByName('data_cadastro').AsDateTime);
+      Consulta.CPF      := dtconnection.query_med.FieldByName('cpf_med').AsString;
+      Consulta.CRM      := dtconnection.query_med.FieldByName('crm_med').AsString;
 
 
       ListaConsulta.Add(Consulta);
@@ -59,8 +59,8 @@ begin
     end;
   for Consulta in ListaConsulta do
     begin
-      JSON := '{ "nome": "'+Consulta.nome+'", "dataLancamentoConsulta": "'+Consulta.datalancamento+'", "identificador": "'+Consulta.IDent+'", "descricaoProntuario": "'+Consulta.DescricaoP+'","medicoId": "'+Consulta.MedicoID+'", "pacienteId": "'+Consulta.PacID+'", "horaConsulta": "'+Consulta.HoraCons+'"}';
-      Execute.GetJSON('api/consulta', JSON);
+      JSON := '{ "nome": "'+Consulta.nome+'", "cpf": "'+Consulta.CPF+'", "identificador": "'+Consulta.IDent+'", "crm": "'+Consulta.CRM+'","dataCadastro": "'+Consulta.Cadastro+'"}';
+      Execute.GetJSON('api/medico', JSON);
   end;
   ListaConsulta.Free;
   Execute.Free;

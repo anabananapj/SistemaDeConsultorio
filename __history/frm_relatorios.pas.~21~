@@ -31,22 +31,28 @@ implementation
 
 {$R *.dfm}
 
-uses U_paciente, U_Consulta;
+uses U_paciente, U_Consulta, U_Medico;
 
 procedure Tfrm_relat.btn_apiClick(Sender: TObject);
 var
 Paciente : TPaciente;
+Consulta : TConsulta;
+Medico   : TMedico;
 begin
   if (MessageBox(handle, 'Deseja enviar Pacientes para o serviço de WebService?', 'Deseja confirmar?', MB_YESNO+MB_DEFBUTTON2) = mrYes) then
     begin
       Paciente := TPaciente.Create;
+      Consulta := TConsulta.Create;
+      Medico := TMedico.Create;
 
       try
         Paciente.ReturnPaciente;
         Consulta.ReturnConsulta;
+        Medico.ReturnMedico;
 
       finally
         Paciente.Free;
+        Consulta.Free;
         showmessage('Enviado Para API com sucesso!');
       end;
     end

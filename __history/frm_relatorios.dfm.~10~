@@ -24,6 +24,9 @@ object frm_relat: Tfrm_relat
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = -258
+    ExplicitTop = -95
+    ExplicitHeight = 719
     object pn_titulo: TPanel
       Left = 0
       Top = 0

@@ -48,11 +48,12 @@ begin
       try
         Paciente.ReturnPaciente;
         Consulta.ReturnConsulta;
-        Medico.ReturnMedico
+        Medico.ReturnMedico;
 
       finally
         Paciente.Free;
         Consulta.Free;
+        Medico.Free;
         showmessage('Enviado Para API com sucesso!');
       end;
     end

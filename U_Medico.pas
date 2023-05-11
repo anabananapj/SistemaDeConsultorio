@@ -29,13 +29,13 @@ uses frm_relatorios, uDTModuleConnection, System.SysUtils;
 { TMedico }
 
 procedure TMedico.ReturnMedico;
-var Consulta : TMedico;
-  ListaConsulta : TObjectList <TMedico>;
+var Medico : TMedico;
+  ListaMedico : TObjectList <TMedico>;
   JSON : string;
   Execute : tfrm_relat;
 begin
   Execute := tfrm_relat.Create(nil);
-  ListaConsulta := TObjectList <TMedico>.create;
+  ListaMedico := TObjectList <TMedico>.create;
   dtconnection.query_med.Close;
   dtconnection.query_med.SQL.Clear;
   dtconnection.query_med.SQL.Add('SELECT * FROM medicos');
@@ -46,23 +46,23 @@ begin
 
   while not dtconnection.query_med.EoF do
     begin
-      Consulta := TMedico.Create;
-      Consulta.IDent    := 'M';
-      Consulta.Nome     := dtconnection.query_cons.FieldByName('nome_med').AsString;
-      Consulta.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_cons.FieldByName('data_cadastro').AsDateTime);
-      Consulta.CPF      := dtconnection.query_med.FieldByName('cpf_med').AsString;
-      Consulta.CRM      := dtconnection.query_med.FieldByName('crm_med').AsString;
+      Medico := TMedico.Create;
+      Medico.IDent    := 'M';
+      Medico.Nome     := dtconnection.query_med.FieldByName('nome_med').AsString;
+      Medico.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_med.FieldByName('data_cadastro').AsDateTime);
+      Medico.CPF      := dtconnection.query_med.FieldByName('cpf_med').AsString;
+      Medico.CRM      := dtconnection.query_med.FieldByName('crm_med').AsString;
 
 
-      ListaConsulta.Add(Consulta);
+      ListaMedico.Add(Medico);
       dtconnection.query_med.Next;
     end;
-  for Consulta in ListaConsulta do
+  for Medico in ListaMedico do
     begin
-      JSON := '{ "nome": "'+Consulta.nome+'", "cpf": "'+Consulta.CPF+'", "identificador": "'+Consulta.IDent+'", "crm": "'+Consulta.CRM+'","dataCadastro": "'+Consulta.Cadastro+'"}';
+      JSON := '{ "nome": "'+Medico.nome+'", "cpf": "'+Medico.CPF+'", "identificador": "'+Medico.IDent+'", "crm": "'+Medico.CRM+'","dataCadastro": "'+Medico.Cadastro+'"}';
       Execute.GetJSON('api/medico', JSON);
   end;
-  ListaConsulta.Free;
+  ListaMedico.Free;
   Execute.Free;
 end;
 end.
