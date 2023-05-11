@@ -130,8 +130,8 @@ begin
   query_cad_pac.SQL.Clear;
   Nasc := FormatDateTime('yyyy-mm-dd', data_nasc.Date);
 
-  VALUES := 'VALUES (:nome_pac, :sexo_pac, ' + QuotedStr(Nasc) + ', :cpf_pac, :rg_pac, :telefone_pac, :profissao, :nome_pai_pac, :nome_mae_pac, :cep, :rua, :numero_casa, :bairro, :cidade, :estado, :email_pac)';
-  query_cad_pac.SQL.Add('INSERT INTO pacientes (nome_pac, sexo_pac, nascimento_pac, cpf_pac, rg_pac, telefone_pac, profissao, nome_pai_pac, nome_mae_pac, cep, rua, numero_casa, bairro, cidade, estado, email_pac)' + VALUES + '');
+  VALUES := 'VALUES (:nome_pac, :sexo_pac, ' + QuotedStr(Nasc) + ', :cpf_pac, :rg_pac, :telefone_pac, :profissao, :nome_pai_pac, :nome_mae_pac, :cep, :rua, :numero_casa, :bairro, :cidade, :estado, :email_pac, :data_cadastro)';
+  query_cad_pac.SQL.Add('INSERT INTO pacientes (nome_pac, sexo_pac, nascimento_pac, cpf_pac, rg_pac, telefone_pac, profissao, nome_pai_pac, nome_mae_pac, cep, rua, numero_casa, bairro, cidade, estado, email_pac, data_cadastro)' + VALUES + '');
 
 
   query_cad_pac.ParamByName('nome_pac').Value := edt_nome.Text;
@@ -156,6 +156,7 @@ begin
   query_cad_pac.params.ParamByName('cidade').Value := edt_cidade.Text;
   query_cad_pac.params.ParamByName('estado').Value := edt_estado.Text;
   query_cad_pac.params.ParamByName('email_pac').Value := edt_email.Text;
+  query_cad_pac.params.ParamByName('data_cadastro').Value := Now();
 
 
 

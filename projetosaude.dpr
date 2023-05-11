@@ -22,7 +22,11 @@ uses
   frm_gerenciamento_cons in 'frm_gerenciamento_cons.pas' {frm_gerenciamento},
   frm_editar_cons in 'frm_editar_cons.pas' {frm_editarcons},
   frm_hist_pront in 'frm_hist_pront.pas' {frm_todospront},
-  frm_cadastro_hora in 'frm_cadastro_hora.pas' {cad_hora};
+  frm_cadastro_hora in 'frm_cadastro_hora.pas' {cad_hora},
+  frm_relatorios in 'frm_relatorios.pas' {frm_relat},
+  U_paciente in 'U_paciente.pas',
+  U_Consulta in 'U_Consulta.pas',
+  U_Medico in 'U_Medico.pas';
 
 {$R *.res}
 
@@ -51,5 +55,6 @@ begin
   Application.CreateForm(Tfrm_todospront, frm_todospront);
   Application.CreateForm(Tfrm_gerenciamento, frm_gerenciamento);
   Application.CreateForm(Tfrm_editarcons, frm_editarcons);
+  Application.CreateForm(Tfrm_relat, frm_relat);
   Application.Run;
 end.

@@ -131,8 +131,8 @@ begin
 
   {INSERT TABELA MÉDICOS}
 
-  VALUES := 'VALUES (:crm_med, :nome_med, :sexo_med, ' + QuotedStr(Nasc) + ', :cpf_med, :rg_med, :telefone_med, :especialidade_med, :formacao_med, :cep, :rua, :numero_casa, :bairro, :cidade, :estado, :email_med)';
-  query_cad_med.SQL.Add('INSERT INTO medicos (crm_med, nome_med, sexo_med, nascimento_med, cpf_med, rg_med, telefone_med, especialidade_med, formacao_med, cep, rua, numero_casa, bairro, cidade, estado, email_med)' + VALUES + '');
+  VALUES := 'VALUES (:crm_med, :nome_med, :sexo_med, ' + QuotedStr(Nasc) + ', :cpf_med, :rg_med, :telefone_med, :especialidade_med, :formacao_med, :cep, :rua, :numero_casa, :bairro, :cidade, :estado, :email_med, :data_cadastro)';
+  query_cad_med.SQL.Add('INSERT INTO medicos (crm_med, nome_med, sexo_med, nascimento_med, cpf_med, rg_med, telefone_med, especialidade_med, formacao_med, cep, rua, numero_casa, bairro, cidade, estado, email_med, data_cadastro)' + VALUES + '');
 
   query_cad_med.ParamByName('crm_med').Value := edt_crm.Text;
   query_cad_med.ParamByName('nome_med').Value := edt_nome.Text;
@@ -156,6 +156,7 @@ begin
   query_cad_med.params.ParamByName('cidade').Value := edt_cidade.Text;
   query_cad_med.params.ParamByName('estado').Value := edt_estado.Text;
   query_cad_med.params.ParamByName('email_med').Value := edt_email.Text;
+  query_cad_med.params.ParamByName('data_cadastro').Value := Now();
 
 
   {INSERT TABELA USUARIOS}

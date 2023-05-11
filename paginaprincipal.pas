@@ -42,10 +42,9 @@ type
     Image1: TImage;
     lb_gerenciamento: TPanel;
     btn_cad_hora: TPanel;
-    btn_api: TButton;
-    request: TRESTRequest;
-    client: TRESTClient;
-    response: TRESTResponse;
+    Image2: TImage;
+    Image3: TImage;
+    lb_relatorios: TPanel;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
@@ -73,7 +72,9 @@ type
     procedure Image1MouseLeave(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure btn_cad_horaClick(Sender: TObject);
-    procedure btn_apiClick(Sender: TObject);
+    procedure Image3MouseEnter(Sender: TObject);
+    procedure Image3MouseLeave(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -81,7 +82,6 @@ type
 
   public
     { Public declarations }
-    function GetJSON(resource, JSON : string):boolean;
   end;
 
 var
@@ -94,7 +94,7 @@ implementation
 uses login, frm_Cadastro_Paciente, uDTModuleConnection, frm_cadastro_medico,
   frm_cadastro_funcionario, frm_agendar_consulta, frm_pacientes, frm_medicos,
   frm_funcionarios, frm_consultas, frm_pront_pac, frm_gerenciamento_cons,
-  frm_cadastro_hora, U_paciente;
+  frm_cadastro_hora, U_paciente, frm_relatorios;
 
 { Tfrm_telaprincipal }
 
@@ -117,28 +117,7 @@ end;
 
       {botão cadastro funcionários}
 
-procedure Tfrm_telaprincipal.btn_apiClick(Sender: TObject);
-var
-Paciente : TPaciente;
-begin
-  if (MessageBox(handle, 'Deseja enviar Pacientes para o serviço de WebService?', 'Deseja confirmar?', MB_YESNO+MB_DEFBUTTON2) = mrYes) then
-    begin
-      Paciente := TPaciente.Create;
 
-      try
-        Paciente.ReturnPaciente;
-
-      finally
-        Paciente.Free;
-        showmessage('Enviado Para API com sucesso!');
-      end;
-    end
-  else
-    begin
-      showmessage('Envio cancelado!');
-
-  end;
-end;
 
 procedure Tfrm_telaprincipal.btn_cad_funcionariosClick(Sender: TObject);
 begin
@@ -271,23 +250,6 @@ begin
 end;
 
 
-
-
-function Tfrm_telaprincipal.GetJSON(resource, JSON: string): boolean;
-begin
-  result := false;
-  Client.BaseURL := 'http://192.168.10.220:8080';
-  Request.ResourceSuffix := '';
-  Request.resource := resource;
-  Request.Method := TRESTRequestMethod.rmPOST;
-  Request.Params.clear;
-  Request.ClearBody;
-  Request.AddBody(JSON, ContentTypeFromString('application/json'));
-  Request.Params.AddItem('aluno-hash', '529e6205-cd27-4f61-af23-b91a64b9ce70', pkHTTPHEADER, [poDoNotEncode]);
-  Request.Execute;
-  result := true;
-end;
-
 procedure Tfrm_telaprincipal.Image1Click(Sender: TObject);
 begin
 CloseForm;
@@ -313,6 +275,27 @@ end;
 
 
 
+
+procedure Tfrm_telaprincipal.Image3Click(Sender: TObject);
+begin
+closeform;
+
+  frm_relat := tfrm_relat.create(self);
+  frm_relat.parent := pn_formularios;
+  pn_principal.hide;
+
+  frm_relat.show;
+end;
+
+procedure Tfrm_telaprincipal.Image3MouseEnter(Sender: TObject);
+begin
+  lb_relatorios.Visible := true;
+end;
+
+procedure Tfrm_telaprincipal.Image3MouseLeave(Sender: TObject);
+begin
+  lb_relatorios.Visible := false;
+end;
 
 {botão para voltar para o menu principal}
 

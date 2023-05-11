@@ -62,11 +62,12 @@ var
 begin
   query_consultas.open;
   try
-    sql := 'INSERT INTO consultas (cpf_med, nome_med, cpf_pac, hora_cons, data_cons, status_cons) VALUES (:cpf_med, :nome_med, :cpf_pac, :hora_cons, :data_cons, :status_cons) ';
+    sql := 'INSERT INTO consultas (cpf_med, nome_med, cpf_pac, hora_cons, data_cons, status_cons, data_registro) VALUES (:cpf_med, :nome_med, :cpf_pac, :hora_cons, :data_cons, :status_cons, :data_registro) ';
 
     query_consultas.sql.Text := sql;
 
     query_consultas.Params.ParamByName('nome_med').value := cm_medicos.Text;
+    query_consultas.Params.ParamByName('data_registro').value := Now();
     query_consultas.Params.ParamByName('cpf_med').value := cpf_med;
     query_consultas.Params.ParamByName('cpf_pac').value := edt_cpf.Text;
     query_consultas.Params.ParamByName('data_cons').asdate := data_cons.date;

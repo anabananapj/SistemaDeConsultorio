@@ -246,11 +246,11 @@ object frm_modalconsultas: Tfrm_modalconsultas
       ParentBackground = False
       TabOrder = 2
       object lb_tempo: TLabel
-        Left = 31
+        Left = 47
         Top = 30
-        Width = 126
+        Width = 84
         Height = 25
-        Caption = '00:00:00.000'
+        Caption = '00:00:00'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -21
@@ -455,7 +455,6 @@ object frm_modalconsultas: Tfrm_modalconsultas
   end
   object Timer1: TTimer
     Enabled = False
-    Interval = 200
     OnTimer = Timer1Timer
     Left = 33
     Top = 4

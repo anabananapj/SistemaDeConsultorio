@@ -15,6 +15,8 @@ type
     FDConnection1: TFDConnection;
     DriverLink: TFDPhysPgDriverLink;
     query_api: TFDQuery;
+    query_cons: TFDQuery;
+    query_med: TFDQuery;
     published
   private
     { Private declarations }

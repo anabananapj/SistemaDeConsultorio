@@ -58,8 +58,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    tempo: Ttime;
-    agora: integer;
+    tempo_decorrido: TDateTime;
+    tempo_inicial: TDateTime;
   end;
 
 var
@@ -73,11 +73,13 @@ uses frm_consultas, uDTModuleConnection, login;
 
 procedure Tfrm_modalconsultas.btn_comecarClick(Sender: TObject);
 begin
-  agora := Gettickcount;
-  timer1.Enabled := true;
-
-  btn_comecar.Visible := false;
-  btn_encerrar.Visible := true;
+  if not Timer1.Enabled then
+  begin
+    Timer1.Enabled := True;
+    tempo_inicial := Now;
+    btn_comecar.Visible := false;
+    btn_encerrar.Visible := true;
+  end;
 end;
 
 
@@ -85,23 +87,28 @@ end;
 
 procedure Tfrm_modalconsultas.btn_encerrarClick(Sender: TObject);
 var
-  tempo_decorrido: TDateTime;
   query_prontuarios: TFDQuery;
   VALUES: string;
+  duracao_cons: TTime;
 begin
-  timer1.Enabled := False;
-  pn_concluido.Visible := True;
-  tempo_decorrido := (GetTickCount - agora) * OneMilliSecond / 1000;
+ begin
+  if Timer1.Enabled then
+  begin
+    Timer1.Enabled := False;
+    tempo_decorrido := Now - tempo_inicial;
+    ShowMessage('Tempo decorrido: ' + FormatDateTime('hh:nn:ss', tempo_decorrido));
+    pn_concluido.Visible := true;
+  end;
+end;
   query_prontuarios := TFDQuery.Create(nil);
   try
     query_prontuarios.Connection := dtconnection.fdconnection1;
-    VALUES:= 'VALUES (:cpf_pac, :crm_med, :duracao_cons, :queixa_principal, :hist_atual, :antecedentes, :receita, :observacoes, :hora_cons, :data_cons)';
-    query_prontuarios.SQL.Add('INSERT INTO prontuarios (cpf_pac, crm_med, duracao_cons, queixa_principal, hist_atual, antecedentes, receita, observacoes, hora_cons, data_cons)' + VALUES + '');
-
+    VALUES := 'VALUES (:cpf_pac, :crm_med, :duracao_cons, :queixa_principal, :hist_atual, :antecedentes, :receita, :observacoes, :hora_cons, :data_cons)';
+    query_prontuarios.SQL.Add('INSERT INTO prontuarios (cpf_pac, crm_med, duracao_cons, queixa_principal, hist_atual, antecedentes, receita, observacoes, hora_cons, data_cons) ' + VALUES);
     query_prontuarios.Params.ParamByName('cpf_pac').Value           := edt_cpfpac.Text;
     query_prontuarios.Params.ParamByName('crm_med').Value           := edt_medico.Text;
-    query_prontuarios.Params.ParamByName('hora_cons').astime        := StrToTime(edt_hora.Text);
-    query_prontuarios.Params.ParamByName('data_cons').asdate        := StrToDate(edt_data.Text);
+    query_prontuarios.Params.ParamByName('hora_cons').AsTime        := StrToTime(edt_hora.Text);
+    query_prontuarios.Params.ParamByName('data_cons').AsDate        := StrToDate(edt_data.Text);
     query_prontuarios.Params.ParamByName('queixa_principal').Value  := memo_qp.Text;
     query_prontuarios.Params.ParamByName('hist_atual').Value        := memo_historia.Text;
     query_prontuarios.Params.ParamByName('antecedentes').Value      := memo_antecedentes.Text;
@@ -131,6 +138,7 @@ begin
 end;
 
 
+
 procedure Tfrm_modalconsultas.btn_fecharClick(Sender: TObject);
 begin
 close;
@@ -151,8 +159,8 @@ end;
 
 procedure Tfrm_modalconsultas.Timer1Timer(Sender: TObject);
 begin
-  tempo := (gettickcount - agora) * onemillisecond;
-  lb_tempo.caption := formatdatetime('hh:mm:ss.zzz' , tempo);
+  tempo_decorrido := Now - tempo_inicial;
+  lb_tempo.Caption := FormatDateTime('hh:nn:ss', tempo_decorrido);
 end;
 
 end.

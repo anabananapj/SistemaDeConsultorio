@@ -55,7 +55,7 @@ object cadastro_paciente: Tcadastro_paciente
       Left = 99
       Top = 337
       Width = 147
-      Height = 36
+      Height = 39
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite

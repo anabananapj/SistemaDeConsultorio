@@ -24,21 +24,21 @@ implementation
 { TPaciente }
 
 uses uDTModuleConnection, System.Generics.Collections, paginaprincipal,
-  System.SysUtils;
+  System.SysUtils, frm_relatorios;
 
 
 procedure TPaciente.ReturnPaciente;
 var Paciente : TPaciente;
   ListaPaciente : TObjectList <TPaciente>;
   JSON : string;
-  Execute : Tfrm_telaprincipal;
+  Execute : tfrm_relat;
 begin
-  Execute := Tfrm_telaprincipal.Create(nil);
+  Execute := tfrm_relat.Create(nil);
   ListaPaciente := TObjectList <TPaciente>.create;
   dtconnection.query_api.Close;
   dtconnection.query_api.SQL.Clear;
-  dtconnection.query_api.SQL.Add('SELECT nome_pf, sobrenome_pf, CAST(CONCAT(nome_pf, '' '', sobrenome_pf) AS Varchar(200)) AS nome_completo_pf, cpf_pf, cidade_end, registro_pf FROM pacientes ');
-  dtconnection.query_api.SQL.Add('LEFT JOIN pessoa_fisica ON id_pf_pct = id_pf LEFT JOIN enderecos ON id_pf_end = id_pf WHERE fav_end = ''Sim''');
+  dtconnection.query_api.SQL.Add('SELECT * FROM pacientes');
+
   dtconnection.query_api.Open;
 
 
@@ -46,10 +46,10 @@ begin
     begin
       Paciente := TPaciente.Create;
       Paciente.IDent := 'P';
-      Paciente.Nome := dtconnection.query_api.FieldByName('nome_completo_pf').AsString;
-      Paciente.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_api.FieldByName('registro_pf').AsDateTime);
-      Paciente.CPF :=  dtconnection.query_api.FieldByName('cpf_pf').AsString;
-      Paciente.Cidade_Bairro :=  dtconnection.query_api.FieldByName('cidade_end').AsString;
+      Paciente.Nome := dtconnection.query_api.FieldByName('nome_pac').AsString;
+      Paciente.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_api.FieldByName('data_cadastro').AsDateTime);
+      Paciente.CPF :=  dtconnection.query_api.FieldByName('cpf_pac').AsString;
+      Paciente.Cidade_Bairro :=  dtconnection.query_api.FieldByName('cidade').AsString;
 
       ListaPaciente.Add(Paciente);
        dtconnection.query_api.Next;
