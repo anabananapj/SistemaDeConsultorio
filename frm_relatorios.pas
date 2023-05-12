@@ -12,10 +12,10 @@ type
   Tfrm_relat = class(TForm)
     pn_cad_pac: TPanel;
     pn_titulo: TPanel;
-    btn_api: TButton;
     response: TRESTResponse;
     request: TRESTRequest;
     client: TRESTClient;
+    btn_api: TPanel;
     procedure btn_apiClick(Sender: TObject);
   private
     { Private declarations }
@@ -43,7 +43,7 @@ begin
     begin
       Paciente := TPaciente.Create;
       Consulta := TConsulta.Create;
-      Medico := TMedico.Create;
+      Medico   := TMedico.Create;
 
       try
         Paciente.ReturnPaciente;
@@ -53,7 +53,7 @@ begin
       finally
         Paciente.Free;
         Consulta.Free;
-        Medico.Free;
+        Medico  .Free;
         showmessage('Enviado Para API com sucesso!');
       end;
     end

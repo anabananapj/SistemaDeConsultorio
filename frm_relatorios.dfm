@@ -41,12 +41,22 @@ object frm_relat: Tfrm_relat
       ParentFont = False
       TabOrder = 0
     end
-    object btn_api: TButton
-      Left = 16
-      Top = 66
-      Width = 75
-      Height = 25
+    object btn_api: TPanel
+      Left = 33
+      Top = 80
+      Width = 161
+      Height = 33
+      Cursor = crHandPoint
+      BevelOuter = bvNone
       Caption = 'Desafio'
+      Color = 9068119
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Century Gothic'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
       TabOrder = 1
       OnClick = btn_apiClick
     end

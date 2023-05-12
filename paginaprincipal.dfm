@@ -726,7 +726,7 @@
   end
   object lb_menu: TPanel
     Left = 57
-    Top = 66
+    Top = 67
     Width = 73
     Height = 25
     BevelOuter = bvNone

@@ -102,7 +102,7 @@ object cadastro_funcionario: Tcadastro_funcionario
       Left = 51
       Top = 329
       Width = 147
-      Height = 36
+      Height = 39
       Caption = 'Endere'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite

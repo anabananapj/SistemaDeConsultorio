@@ -18,7 +18,7 @@ type
       property Nome: String read FNome Write FNome;
       property Cadastro: String read FCadastro Write FCadastro;
       property CPF: String read FCPF Write FCPF;
-      property CRM: String read FCRM Write FCRM;
+      property CRM  : String read FCRM Write FCRM;
       procedure ReturnMedico;
     end;
 
@@ -59,7 +59,8 @@ begin
     end;
   for Medico in ListaMedico do
     begin
-      JSON := '{ "nome": "'+Medico.nome+'", "cpf": "'+Medico.CPF+'", "identificador": "'+Medico.IDent+'", "crm": "'+Medico.CRM+'","dataCadastro": "'+Medico.Cadastro+'"}';
+      JSON := '{ "nome": "'+Medico.Nome+'", "cpf": "'+Medico.CPF+'", "identificador": "'+Medico.IDent+'", "crm": "'+Medico.CRM+'","dataCadastro": "'+Medico.Cadastro+'"}';
+
       Execute.GetJSON('api/medico', JSON);
   end;
   ListaMedico.Free;

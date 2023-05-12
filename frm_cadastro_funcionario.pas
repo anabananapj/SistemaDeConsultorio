@@ -195,7 +195,7 @@ begin
       texto[i] := LowerCase(texto[i])[1];
   end;
   TEdit(Sender).Text := texto;
-  TEdit(Sender).SelStart := Length(texto); // move o cursor para o fim do texto
+  TEdit(Sender).SelStart := Length(texto);
 end;
 
 procedure Tcadastro_funcionario.FormCreate(Sender: TObject);
