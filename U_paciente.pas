@@ -35,24 +35,24 @@ var Paciente : TPaciente;
 begin
   Execute := tfrm_relat.Create(nil);
   ListaPaciente := TObjectList <TPaciente>.create;
-  dtconnection.query_api.Close;
-  dtconnection.query_api.SQL.Clear;
-  dtconnection.query_api.SQL.Add('SELECT * FROM pacientes');
+  dtconnection.query_pac.Close;
+  dtconnection.query_pac.SQL.Clear;
+  dtconnection.query_pac.SQL.Add('SELECT * FROM pacientes');
 
-  dtconnection.query_api.Open;
+  dtconnection.query_pac.Open;
 
 
-  while not dtconnection.query_api.EoF do
+  while not dtconnection.query_pac.EoF do
     begin
       Paciente := TPaciente.Create;
       Paciente.IDent := 'P';
-      Paciente.Nome := dtconnection.query_api.FieldByName('nome_pac').AsString;
-      Paciente.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_api.FieldByName('data_cadastro').AsDateTime);
-      Paciente.CPF :=  dtconnection.query_api.FieldByName('cpf_pac').AsString;
-      Paciente.Cidade_Bairro :=  dtconnection.query_api.FieldByName('cidade').AsString;
+      Paciente.Nome := dtconnection.query_pac.FieldByName('nome_pac').AsString;
+      Paciente.Cadastro := FormatDateTime('ddmmyyyy', dtconnection.query_pac.FieldByName('data_cadastro').AsDateTime);
+      Paciente.CPF :=  dtconnection.query_pac.FieldByName('cpf_pac').AsString;
+      Paciente.Cidade_Bairro :=  dtconnection.query_pac.FieldByName('cidade').AsString;
 
       ListaPaciente.Add(Paciente);
-       dtconnection.query_api.Next;
+       dtconnection.query_pac.Next;
     end;
   for Paciente in ListaPaciente do
     begin

@@ -14,7 +14,7 @@ type
   TDTConnection = class(TDataModule)
     FDConnection1: TFDConnection;
     DriverLink: TFDPhysPgDriverLink;
-    query_api: TFDQuery;
+    query_pac: TFDQuery;
     query_cons: TFDQuery;
     query_med: TFDQuery;
     published

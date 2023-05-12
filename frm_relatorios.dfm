@@ -42,8 +42,8 @@ object frm_relat: Tfrm_relat
       TabOrder = 0
     end
     object btn_api: TButton
-      Left = 1120
-      Top = 106
+      Left = 16
+      Top = 66
       Width = 75
       Height = 25
       Caption = 'Desafio'

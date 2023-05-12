@@ -1,7 +1,7 @@
 object DTConnection: TDTConnection
   OldCreateOrder = False
-  Height = 243
-  Width = 284
+  Height = 142
+  Width = 222
   object FDConnection1: TFDConnection
     Params.Strings = (
       'Password=12345'
@@ -18,9 +18,9 @@ object DTConnection: TDTConnection
     Left = 112
     Top = 16
   end
-  object query_api: TFDQuery
+  object query_pac: TFDQuery
     Connection = FDConnection1
-    Left = 48
+    Left = 160
     Top = 80
   end
   object query_cons: TFDQuery
@@ -31,18 +31,14 @@ object DTConnection: TDTConnection
       'INNER JOIN prontuarios AS p ON p.cpf_pac = c.cpf_pac'
       'INNER JOIN medicos AS m ON m.cpf_med = c.cpf_med'
       'INNER JOIN pacientes AS pa ON pa.cpf_pac = c.cpf_pac;')
-    Left = 48
-    Top = 152
+    Left = 32
+    Top = 80
   end
   object query_med: TFDQuery
     Connection = FDConnection1
     SQL.Strings = (
-      'SELECT *'
-      'FROM consultas AS c'
-      'INNER JOIN prontuarios AS p ON p.cpf_pac = c.cpf_pac'
-      'INNER JOIN medicos AS m ON m.cpf_med = c.cpf_med'
-      'INNER JOIN pacientes AS pa ON pa.cpf_pac = c.cpf_pac;')
-    Left = 112
-    Top = 144
+      'select * from medicos')
+    Left = 96
+    Top = 80
   end
 end
