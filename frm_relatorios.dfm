@@ -44,8 +44,8 @@ object frm_relat: Tfrm_relat
       TabOrder = 0
     end
     object btn_api: TPanel
-      Left = 33
-      Top = 80
+      Left = 570
+      Top = 72
       Width = 161
       Height = 33
       Cursor = crHandPoint
@@ -64,9 +64,9 @@ object frm_relat: Tfrm_relat
     end
     object pn_pacientes: TPanel
       Left = 80
-      Top = 205
+      Top = 137
       Width = 337
-      Height = 348
+      Height = 425
       BevelOuter = bvNone
       Color = 5650478
       ParentBackground = False
@@ -84,22 +84,9 @@ object frm_relat: Tfrm_relat
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label3: TLabel
-        Left = 117
-        Top = 162
-        Width = 99
-        Height = 24
-        Caption = 'Data Final:'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Century Gothic'
-        Font.Style = []
-        ParentFont = False
-      end
       object Label4: TLabel
-        Left = 115
-        Top = 98
+        Left = 113
+        Top = 190
         Width = 108
         Height = 24
         Caption = 'Data In'#237'cio:'
@@ -110,9 +97,35 @@ object frm_relat: Tfrm_relat
         Font.Style = []
         ParentFont = False
       end
+      object Label3: TLabel
+        Left = 115
+        Top = 254
+        Width = 102
+        Height = 24
+        Caption = 'Data Final:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 82
+        Top = 98
+        Width = 178
+        Height = 24
+        Caption = 'Nome do Paciente:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
       object date_pac: TDateTimePicker
-        Left = 88
-        Top = 128
+        Left = 86
+        Top = 220
         Width = 161
         Height = 21
         Date = 45060.000000000000000000
@@ -120,8 +133,8 @@ object frm_relat: Tfrm_relat
         TabOrder = 0
       end
       object date_pac2: TDateTimePicker
-        Left = 88
-        Top = 192
+        Left = 86
+        Top = 284
         Width = 161
         Height = 21
         Date = 45060.000000000000000000
@@ -130,7 +143,7 @@ object frm_relat: Tfrm_relat
       end
       object btn_pac: TPanel
         Left = 88
-        Top = 272
+        Top = 360
         Width = 161
         Height = 33
         Cursor = crHandPoint
@@ -147,12 +160,26 @@ object frm_relat: Tfrm_relat
         TabOrder = 2
         OnClick = btn_pacClick
       end
+      object cm_pac2: TComboBox
+        Left = 88
+        Top = 128
+        Width = 161
+        Height = 26
+        Style = csDropDownList
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+        TabOrder = 3
+      end
     end
     object pn_consultas: TPanel
       Left = 488
-      Top = 205
+      Top = 137
       Width = 337
-      Height = 348
+      Height = 425
       BevelOuter = bvNone
       Color = 5650478
       ParentBackground = False
@@ -171,9 +198,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 80
+        Left = 82
         Top = 98
-        Width = 178
+        Width = 180
         Height = 24
         Caption = 'Nome do Paciente:'
         Font.Charset = ANSI_CHARSET
@@ -185,7 +212,7 @@ object frm_relat: Tfrm_relat
       end
       object btn_consultas: TPanel
         Left = 88
-        Top = 272
+        Top = 360
         Width = 161
         Height = 33
         Cursor = crHandPoint
@@ -219,9 +246,9 @@ object frm_relat: Tfrm_relat
     end
     object pn_medicos: TPanel
       Left = 904
-      Top = 205
+      Top = 137
       Width = 337
-      Height = 348
+      Height = 425
       BevelOuter = bvNone
       Color = 5650478
       ParentBackground = False
@@ -239,19 +266,58 @@ object frm_relat: Tfrm_relat
         Font.Style = [fsBold]
         ParentFont = False
       end
+      object Label6: TLabel
+        Left = 114
+        Top = 190
+        Width = 111
+        Height = 24
+        Caption = 'Data In'#237'cio:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 115
+        Top = 254
+        Width = 105
+        Height = 24
+        Caption = 'Data Final:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 87
+        Top = 98
+        Width = 163
+        Height = 24
+        Caption = 'Nome do M'#233'dico:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
       object date_med: TDateTimePicker
-        Left = 113
-        Top = 104
-        Width = 104
+        Left = 88
+        Top = 220
+        Width = 161
         Height = 21
         Date = 45060.000000000000000000
         Time = 0.874976157407218100
         TabOrder = 0
       end
       object date_med2: TDateTimePicker
-        Left = 113
-        Top = 176
-        Width = 104
+        Left = 88
+        Top = 284
+        Width = 161
         Height = 21
         Date = 45060.000000000000000000
         Time = 0.874976157407218100
@@ -259,7 +325,7 @@ object frm_relat: Tfrm_relat
       end
       object btn_medicos: TPanel
         Left = 88
-        Top = 272
+        Top = 360
         Width = 161
         Height = 33
         Cursor = crHandPoint
@@ -275,6 +341,20 @@ object frm_relat: Tfrm_relat
         ParentFont = False
         TabOrder = 2
         OnClick = btn_pacClick
+      end
+      object ComboBox1: TComboBox
+        Left = 88
+        Top = 128
+        Width = 161
+        Height = 26
+        Style = csDropDownList
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+        TabOrder = 3
       end
     end
   end
@@ -1237,7 +1317,6 @@ object frm_relat: Tfrm_relat
     end
   end
   object query_pac: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'SELECT *'
@@ -1279,7 +1358,6 @@ object frm_relat: Tfrm_relat
     Top = 640
   end
   object query_cons: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'SELECT consultas.*, pacientes.nome_pac, medicos.crm_med'

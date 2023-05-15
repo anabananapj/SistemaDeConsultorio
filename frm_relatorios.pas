@@ -43,9 +43,15 @@ type
     ds_cons: TDataSource;
     frx_cons: TfrxReport;
     cm_pac: TComboBox;
-    Label3: TLabel;
-    Label4: TLabel;
     Label5: TLabel;
+    Label4: TLabel;
+    Label3: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    ComboBox1: TComboBox;
+    cm_pac2: TComboBox;
+    Label9: TLabel;
     procedure btn_apiClick(Sender: TObject);
     procedure btn_pacClick(Sender: TObject);
     procedure btn_consultasClick(Sender: TObject);
@@ -53,6 +59,7 @@ type
   private
     { Private declarations }
     procedure carregarcombobox;
+    procedure carregarcomboboxcons;
   public
     { Public declarations }
     function GetJSON(resource, JSON: string): boolean;
@@ -140,23 +147,37 @@ begin
 end;
 
 procedure Tfrm_relat.btn_pacClick(Sender: TObject);
+var
+  SQLQuery: string;
 begin
   with frm_relat.query_pac do
-  begin
+    begin
     Close;
-    SQL.clear;
-    SQL.Add('SELECT * from pacientes WHERE data_cadastro between :DataIni and :DataFim ORDER BY data_cadastro');
-    Params.ParamByName('DataIni').Value := date_pac.DateTime;
-    Params.ParamByName('DataFim').Value := date_pac2.DateTime;
-    Open;
+    SQL.Clear;
+
+  if cm_pac2.Text = '' then
+      begin
+        SQL.Add('SELECT * FROM pacientes WHERE data_cadastro BETWEEN :DataIni AND :DataFim ORDER BY data_cadastro');
+        ParamByName('DataIni').Value := date_pac.DateTime;
+        ParamByName('DataFim').Value := date_pac2.DateTime;
+      end
+    else
+      begin
+        SQL.Add('SELECT * FROM pacientes WHERE nome_pac LIKE :NomePac ORDER BY data_cadastro');
+        ParamByName('NomePac').Value := '%' + cm_pac2.Text + '%';
+      end;
+  Open;
+
     if IsEmpty then
     begin
-      showmessage('Nenhuma informação localizada.');
+      ShowMessage('Nenhuma informação localizada.');
       Exit;
     end;
   end;
   frm_relat.frx_pacientes.showreport;
 end;
+
+
 
 procedure Tfrm_relat.carregarcombobox;
 begin
@@ -179,9 +200,31 @@ begin
 
 end;
 
+procedure Tfrm_relat.carregarcomboboxcons;
+begin
+
+  query_cons.Close;
+  query_cons.SQL.clear;
+  query_cons.SQL.Add('SELECT * FROM pacientes');
+  query_cons.Open;
+
+  if not query_cons.IsEmpty then
+  begin
+    while not query_cons.Eof do
+    begin
+
+      cm_pac2.Items.Add(query_cons.FieldByName('nome_pac').AsString);
+      query_cons.Next;
+
+    end;
+  end;
+
+end;
+
 procedure Tfrm_relat.FormCreate(Sender: TObject);
 begin
 carregarcombobox;
+carregarcomboboxcons;
 end;
 
 end.
