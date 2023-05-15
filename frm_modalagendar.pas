@@ -195,6 +195,7 @@ sql := 'SELECT COUNT(*) FROM consultas WHERE nome_med = :medico_nome AND data_co
   query_consultas.open;
 
   Result := query_consultas.Fields[0].AsInteger > 0;
+
 end;
 
 end.
