@@ -405,7 +405,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 59
+        Left = 60
         Top = 146
         Width = 188
         Height = 24

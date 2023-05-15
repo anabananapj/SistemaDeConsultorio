@@ -84,7 +84,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 90
+        Left = 93
         Top = 238
         Width = 116
         Height = 24
@@ -97,7 +97,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 90
+        Left = 93
         Top = 295
         Width = 107
         Height = 24
@@ -155,22 +155,28 @@ object frm_relat: Tfrm_relat
         ParentFont = False
         TabOrder = 1
       end
-      object date_pac2: TDateTimePicker
-        Left = 62
-        Top = 325
-        Width = 163
-        Height = 21
-        Date = 45061.000000000000000000
-        Time = 0.610284305555978800
+      object date_pac: TDatePicker
+        Left = 75
+        Top = 265
+        Date = 44986.000000000000000000
+        DateFormat = 'dd/MM/yyyy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         TabOrder = 2
       end
-      object date_pac: TDateTimePicker
-        Left = 62
-        Top = 268
-        Width = 163
-        Height = 21
+      object date_pac2: TDatePicker
+        Left = 75
+        Top = 325
         Date = 45061.000000000000000000
-        Time = 0.610284305555978800
+        DateFormat = 'dd/MM/yyyy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         TabOrder = 3
       end
     end
@@ -267,7 +273,7 @@ object frm_relat: Tfrm_relat
       end
       object Label6: TLabel
         Left = 90
-        Top = 241
+        Top = 238
         Width = 116
         Height = 24
         Caption = 'Data In'#237'cio:'
@@ -279,7 +285,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label7: TLabel
-        Left = 91
+        Left = 99
         Top = 298
         Width = 107
         Height = 24
@@ -340,16 +346,16 @@ object frm_relat: Tfrm_relat
       object date_med2: TDateTimePicker
         Left = 64
         Top = 328
-        Width = 161
+        Width = 186
         Height = 21
         Date = 45061.000000000000000000
         Time = 0.610284305555978800
         TabOrder = 2
       end
       object date_med: TDateTimePicker
-        Left = 64
-        Top = 268
-        Width = 161
+        Left = 63
+        Top = 271
+        Width = 186
         Height = 21
         Date = 45061.000000000000000000
         Time = 0.610284305555978800
@@ -405,7 +411,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 59
+        Left = 60
         Top = 146
         Width = 188
         Height = 24
@@ -481,9 +487,9 @@ object frm_relat: Tfrm_relat
         TabOrder = 3
       end
       object cm_pront_pac: TComboBox
-        Left = 52
+        Left = 50
         Top = 104
-        Width = 201
+        Width = 209
         Height = 29
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET

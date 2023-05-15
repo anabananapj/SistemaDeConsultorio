@@ -84,7 +84,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 90
+        Left = 93
         Top = 238
         Width = 116
         Height = 24
@@ -97,7 +97,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 90
+        Left = 93
         Top = 295
         Width = 107
         Height = 24
@@ -155,22 +155,28 @@ object frm_relat: Tfrm_relat
         ParentFont = False
         TabOrder = 1
       end
-      object date_pac2: TDateTimePicker
-        Left = 62
-        Top = 325
-        Width = 163
-        Height = 21
-        Date = 45061.000000000000000000
-        Time = 0.610284305555978800
+      object date_pac: TDatePicker
+        Left = 75
+        Top = 262
+        Date = 44986.000000000000000000
+        DateFormat = 'dd/MM/yyyy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         TabOrder = 2
       end
-      object date_pac: TDateTimePicker
-        Left = 62
-        Top = 268
-        Width = 163
-        Height = 21
+      object date_pac2: TDatePicker
+        Left = 75
+        Top = 325
         Date = 45061.000000000000000000
-        Time = 0.610284305555978800
+        DateFormat = 'dd/MM/yyyy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         TabOrder = 3
       end
     end
@@ -267,7 +273,7 @@ object frm_relat: Tfrm_relat
       end
       object Label6: TLabel
         Left = 90
-        Top = 241
+        Top = 238
         Width = 116
         Height = 24
         Caption = 'Data In'#237'cio:'
@@ -280,7 +286,7 @@ object frm_relat: Tfrm_relat
       end
       object Label7: TLabel
         Left = 91
-        Top = 298
+        Top = 295
         Width = 107
         Height = 24
         Caption = 'Data Final:'
@@ -304,6 +310,24 @@ object frm_relat: Tfrm_relat
         Font.Style = []
         ParentFont = False
       end
+      object date_med: TDateTimePicker
+        Left = 64
+        Top = 268
+        Width = 161
+        Height = 21
+        Date = 45060.000000000000000000
+        Time = 0.874976157407218100
+        TabOrder = 0
+      end
+      object date_med2: TDateTimePicker
+        Left = 64
+        Top = 325
+        Width = 161
+        Height = 21
+        Date = 45060.000000000000000000
+        Time = 0.874976157407218100
+        TabOrder = 1
+      end
       object btn_medicos: TPanel
         Left = 64
         Top = 465
@@ -320,7 +344,7 @@ object frm_relat: Tfrm_relat
         Font.Style = [fsBold]
         ParentBackground = False
         ParentFont = False
-        TabOrder = 0
+        TabOrder = 2
         OnClick = btn_medicosClick
       end
       object cm_med: TComboBox
@@ -335,24 +359,6 @@ object frm_relat: Tfrm_relat
         Font.Name = 'Century Gothic'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        TabOrder = 1
-      end
-      object date_med2: TDateTimePicker
-        Left = 64
-        Top = 328
-        Width = 161
-        Height = 21
-        Date = 45061.000000000000000000
-        Time = 0.610284305555978800
-        TabOrder = 2
-      end
-      object date_med: TDateTimePicker
-        Left = 64
-        Top = 268
-        Width = 161
-        Height = 21
-        Date = 45061.000000000000000000
-        Time = 0.610284305555978800
         TabOrder = 3
       end
     end
@@ -405,7 +411,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 59
+        Left = 60
         Top = 146
         Width = 188
         Height = 24
@@ -481,9 +487,9 @@ object frm_relat: Tfrm_relat
         TabOrder = 3
       end
       object cm_pront_pac: TComboBox
-        Left = 52
+        Left = 50
         Top = 104
-        Width = 201
+        Width = 209
         Height = 29
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET

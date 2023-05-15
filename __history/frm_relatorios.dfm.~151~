@@ -405,7 +405,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 59
+        Left = 60
         Top = 146
         Width = 188
         Height = 24
@@ -481,9 +481,9 @@ object frm_relat: Tfrm_relat
         TabOrder = 3
       end
       object cm_pront_pac: TComboBox
-        Left = 52
+        Left = 50
         Top = 104
-        Width = 201
+        Width = 209
         Height = 29
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET

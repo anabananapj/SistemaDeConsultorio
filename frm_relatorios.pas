@@ -1,4 +1,4 @@
-unit frm_relatorios;
+  unit frm_relatorios;
 
 interface
 
@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.ComCtrls;
+  Vcl.ComCtrls, Vcl.WinXPickers;
 
 type
   Tfrm_relat = class(TForm)
@@ -26,14 +26,10 @@ type
     ds_pac: TDataSource;
     btn_pac: TPanel;
     dataset_pac: TfrxDBDataset;
-    date_pac: TDateTimePicker;
-    date_pac2: TDateTimePicker;
     pn_pacientes: TPanel;
     pn_consultas: TPanel;
     btn_consultas: TPanel;
     pn_medicos: TPanel;
-    date_med: TDateTimePicker;
-    date_med2: TDateTimePicker;
     btn_medicos: TPanel;
     lb_pacientes: TLabel;
     Label1: TLabel;
@@ -49,17 +45,42 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
-    ComboBox1: TComboBox;
+    cm_med: TComboBox;
     cm_pac2: TComboBox;
     Label9: TLabel;
+    query_med: TFDQuery;
+    ds_med: TDataSource;
+    dataset_med: TfrxDBDataset;
+    frx_med: TfrxReport;
+    pn_prontuarios: TPanel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    date_pront: TDateTimePicker;
+    date_pront2: TDateTimePicker;
+    btn_pront: TPanel;
+    cm_pront_med: TComboBox;
+    Label14: TLabel;
+    cm_pront_pac: TComboBox;
+    query_pront: TFDQuery;
+    ds_pront: TDataSource;
+    dataset_pront: TfrxDBDataset;
+    frx_pront: TfrxReport;
+    date_med2: TDateTimePicker;
+    date_med: TDateTimePicker;
+    date_pac2: TDateTimePicker;
+    date_pac: TDateTimePicker;
     procedure btn_apiClick(Sender: TObject);
     procedure btn_pacClick(Sender: TObject);
     procedure btn_consultasClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btn_medicosClick(Sender: TObject);
   private
     { Private declarations }
     procedure carregarcombobox;
     procedure carregarcomboboxcons;
+    procedure carregarcomboboxmed;
   public
     { Public declarations }
     function GetJSON(resource, JSON: string): boolean;
@@ -146,27 +167,33 @@ begin
   frm_relat.frx_cons.showreport;
 end;
 
-procedure Tfrm_relat.btn_pacClick(Sender: TObject);
-var
-  SQLQuery: string;
+procedure Tfrm_relat.btn_medicosClick(Sender: TObject);
 begin
-  with frm_relat.query_pac do
-    begin
+  with frm_relat.query_med do
+  begin
     Close;
     SQL.Clear;
 
-  if cm_pac2.Text = '' then
-      begin
-        SQL.Add('SELECT * FROM pacientes WHERE data_cadastro BETWEEN :DataIni AND :DataFim ORDER BY data_cadastro');
-        ParamByName('DataIni').Value := date_pac.DateTime;
-        ParamByName('DataFim').Value := date_pac2.DateTime;
-      end
+    if (cm_med.Text = '') and (date_med.checked) and (date_med2.checked) then
+    begin
+      SQL.Add('SELECT * FROM medicos ORDER BY data_cadastro');
+    end
     else
+    begin
+      if cm_med.Text = '' then
       begin
-        SQL.Add('SELECT * FROM pacientes WHERE nome_pac LIKE :NomePac ORDER BY data_cadastro');
-        ParamByName('NomePac').Value := '%' + cm_pac2.Text + '%';
+        SQL.Add('SELECT * FROM medicos WHERE data_cadastro BETWEEN :DataIni AND :DataFim ORDER BY data_cadastro');
+        ParamByName('DataIni').Value := date_med.Date;
+        ParamByName('DataFim').Value := date_med2.Date;
+      end
+      else
+      begin
+        SQL.Add('SELECT * FROM medicos WHERE nome_med LIKE :NomeMed ORDER BY data_cadastro');
+        ParamByName('NomeMed').Value := '%' + cm_med.Text + '%';
       end;
-  Open;
+    end;
+
+    Open;
 
     if IsEmpty then
     begin
@@ -174,8 +201,52 @@ begin
       Exit;
     end;
   end;
+
+  frm_relat.frx_med.ShowReport;
+end;
+
+
+
+procedure Tfrm_relat.btn_pacClick(Sender: TObject);
+var
+  SQLQuery: string;
+begin
+  with frm_relat.query_pac do
+  begin
+    Close;
+    SQL.Clear;
+
+    if (cm_pac2.Text = '') and (date_pac.checked) and (date_pac2.checked) then
+      begin
+        SQL.Add('SELECT * FROM pacientes ORDER BY data_cadastro');
+      end
+    else
+    begin
+      if cm_pac2.Text = '' then
+        begin
+          SQL.Add('SELECT * FROM pacientes WHERE data_cadastro BETWEEN :DataIni AND :DataFim ORDER BY data_cadastro');
+          ParamByName('DataIni').Value := date_pac.Date;
+          ParamByName('DataFim').Value := date_pac2.Date;
+        end
+      else
+        begin
+          SQL.Add('SELECT * FROM pacientes WHERE nome_pac LIKE :NomePac ORDER BY data_cadastro');
+          ParamByName('NomePac').Value := '%' + cm_pac2.Text + '%';
+        end;
+    end;
+
+    Open;
+
+    if IsEmpty then
+    begin
+      ShowMessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+  end;
+
   frm_relat.frx_pacientes.showreport;
 end;
+
 
 
 
@@ -221,10 +292,32 @@ begin
 
 end;
 
+procedure Tfrm_relat.carregarcomboboxmed;
+begin
+
+  query_med.Close;
+  query_med.SQL.clear;
+  query_med.SQL.Add('SELECT * FROM medicos');
+  query_med.Open;
+
+  if not query_med.IsEmpty then
+  begin
+    while not query_med.Eof do
+    begin
+
+      cm_med.Items.Add(query_med.FieldByName('nome_med').AsString);
+      query_med.Next;
+
+    end;
+  end;
+
+end;
+
 procedure Tfrm_relat.FormCreate(Sender: TObject);
 begin
-carregarcombobox;
-carregarcomboboxcons;
+  carregarcombobox;
+  carregarcomboboxcons;
+  carregarcomboboxmed;
 end;
 
 end.
