@@ -25,6 +25,8 @@ object frm_relat: Tfrm_relat
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = -8
+    ExplicitTop = 8
     object pn_titulo: TPanel
       Left = 0
       Top = 0
@@ -63,16 +65,16 @@ object frm_relat: Tfrm_relat
     end
     object pn_pacientes: TPanel
       Left = 24
-      Top = 130
+      Top = 138
       Width = 297
-      Height = 527
+      Height = 519
       BevelOuter = bvNone
       Color = 5650478
       ParentBackground = False
       TabOrder = 2
       object lb_pacientes: TLabel
         Left = 18
-        Top = 24
+        Top = 16
         Width = 260
         Height = 25
         Caption = 'Gerar Relat'#243'rio de Pacientes'
@@ -84,9 +86,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 90
-        Top = 238
-        Width = 116
+        Left = 93
+        Top = 270
+        Width = 108
         Height = 24
         Caption = 'Data In'#237'cio:'
         Font.Charset = ANSI_CHARSET
@@ -97,9 +99,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 90
-        Top = 295
-        Width = 107
+        Left = 99
+        Top = 333
+        Width = 102
         Height = 24
         Caption = 'Data Final:'
         Font.Charset = ANSI_CHARSET
@@ -110,9 +112,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label9: TLabel
-        Left = 47
-        Top = 74
-        Width = 201
+        Left = 62
+        Top = 109
+        Width = 178
         Height = 24
         Caption = 'Nome do Paciente:'
         Font.Charset = ANSI_CHARSET
@@ -123,13 +125,13 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object btn_pac: TPanel
-        Left = 64
-        Top = 464
+        Left = 67
+        Top = 416
         Width = 161
         Height = 33
         Cursor = crHandPoint
         BevelOuter = bvNone
-        Caption = 'Gerar'
+        Caption = 'Gerar por Data'
         Color = 3690797
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
@@ -143,9 +145,9 @@ object frm_relat: Tfrm_relat
       end
       object cm_pac2: TComboBox
         Left = 46
-        Top = 104
+        Top = 139
         Width = 207
-        Height = 29
+        Height = 26
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -156,8 +158,8 @@ object frm_relat: Tfrm_relat
         TabOrder = 1
       end
       object date_pac2: TDateTimePicker
-        Left = 62
-        Top = 325
+        Left = 66
+        Top = 360
         Width = 163
         Height = 21
         Date = 45061.000000000000000000
@@ -165,27 +167,46 @@ object frm_relat: Tfrm_relat
         TabOrder = 2
       end
       object date_pac: TDateTimePicker
-        Left = 62
-        Top = 268
+        Left = 65
+        Top = 300
         Width = 163
         Height = 21
         Date = 45061.000000000000000000
         Time = 0.610284305555978800
         TabOrder = 3
       end
+      object btn_pac_nome: TPanel
+        Left = 68
+        Top = 176
+        Width = 161
+        Height = 33
+        Cursor = crHandPoint
+        BevelOuter = bvNone
+        Caption = 'Gerar por Nome'
+        Color = 3690797
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 4
+        OnClick = btn_pac_nomeClick
+      end
     end
     object pn_consultas: TPanel
       Left = 344
-      Top = 130
+      Top = 138
       Width = 297
-      Height = 527
+      Height = 519
       BevelOuter = bvNone
       Color = 9067082
       ParentBackground = False
       TabOrder = 3
       object Label1: TLabel
         Left = 20
-        Top = 24
+        Top = 16
         Width = 262
         Height = 25
         Caption = 'Gerar Relat'#243'rio de Consultas'
@@ -197,9 +218,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 55
-        Top = 74
-        Width = 201
+        Left = 63
+        Top = 61
+        Width = 178
         Height = 24
         Caption = 'Nome do Paciente:'
         Font.Charset = ANSI_CHARSET
@@ -209,15 +230,54 @@ object frm_relat: Tfrm_relat
         Font.Style = []
         ParentFont = False
       end
-      object btn_consultas: TPanel
-        Left = 62
-        Top = 464
+      object Label15: TLabel
+        Left = 96
+        Top = 310
+        Width = 108
+        Height = 24
+        Caption = 'Data In'#237'cio:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label16: TLabel
+        Left = 102
+        Top = 373
+        Width = 102
+        Height = 24
+        Caption = 'Data Final:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label17: TLabel
+        Left = 64
+        Top = 188
+        Width = 163
+        Height = 24
+        Caption = 'Nome do M'#233'dico:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Century Gothic'
+        Font.Style = []
+        ParentFont = False
+      end
+      object btn_cons_data: TPanel
+        Left = 70
+        Top = 456
         Width = 161
         Height = 33
         Cursor = crHandPoint
         BevelOuter = bvNone
-        Caption = 'Gerar'
-        Color = 3690797
+        Caption = 'Gerar por Data'
+        Color = 5075262
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -19
@@ -226,13 +286,13 @@ object frm_relat: Tfrm_relat
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        OnClick = btn_consultasClick
+        OnClick = btn_cons_dataClick
       end
       object cm_pac: TComboBox
-        Left = 52
-        Top = 104
+        Left = 44
+        Top = 91
         Width = 209
-        Height = 29
+        Height = 26
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -242,19 +302,89 @@ object frm_relat: Tfrm_relat
         ParentFont = False
         TabOrder = 1
       end
+      object btn_cons_pac: TPanel
+        Left = 70
+        Top = 128
+        Width = 161
+        Height = 33
+        Cursor = crHandPoint
+        BevelOuter = bvNone
+        Caption = 'Gerar por Nome'
+        Color = 5075262
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 2
+        OnClick = btn_cons_pacClick
+      end
+      object date_cons: TDateTimePicker
+        Left = 68
+        Top = 340
+        Width = 163
+        Height = 21
+        Date = 45061.000000000000000000
+        Time = 0.610284305555978800
+        TabOrder = 3
+      end
+      object date_cons2: TDateTimePicker
+        Left = 69
+        Top = 400
+        Width = 163
+        Height = 21
+        Date = 45061.000000000000000000
+        Time = 0.610284305555978800
+        TabOrder = 4
+      end
+      object cm_med_cons: TComboBox
+        Left = 48
+        Top = 218
+        Width = 201
+        Height = 26
+        Style = csDropDownList
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+        TabOrder = 5
+      end
+      object btn_nome_med_cons: TPanel
+        Left = 70
+        Top = 256
+        Width = 161
+        Height = 33
+        Cursor = crHandPoint
+        BevelOuter = bvNone
+        Caption = 'Gerar por Nome'
+        Color = 5075262
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 6
+        OnClick = btn_nome_med_consClick
+      end
     end
     object pn_medicos: TPanel
-      Left = 664
-      Top = 130
+      Left = 661
+      Top = 138
       Width = 297
-      Height = 527
+      Height = 519
       BevelOuter = bvNone
       Color = 5650478
       ParentBackground = False
       TabOrder = 4
       object Label2: TLabel
         Left = 25
-        Top = 24
+        Top = 16
         Width = 247
         Height = 25
         Caption = 'Gerar Relat'#243'rio de M'#233'dicos'
@@ -267,8 +397,8 @@ object frm_relat: Tfrm_relat
       end
       object Label6: TLabel
         Left = 90
-        Top = 241
-        Width = 116
+        Top = 270
+        Width = 108
         Height = 24
         Caption = 'Data In'#237'cio:'
         Font.Charset = ANSI_CHARSET
@@ -280,8 +410,8 @@ object frm_relat: Tfrm_relat
       end
       object Label7: TLabel
         Left = 91
-        Top = 298
-        Width = 107
+        Top = 333
+        Width = 102
         Height = 24
         Caption = 'Data Final:'
         Font.Charset = ANSI_CHARSET
@@ -292,9 +422,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 55
-        Top = 74
-        Width = 188
+        Left = 64
+        Top = 109
+        Width = 163
         Height = 24
         Caption = 'Nome do M'#233'dico:'
         Font.Charset = ANSI_CHARSET
@@ -305,13 +435,13 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object btn_medicos: TPanel
-        Left = 64
-        Top = 465
+        Left = 68
+        Top = 416
         Width = 161
         Height = 33
         Cursor = crHandPoint
         BevelOuter = bvNone
-        Caption = 'Gerar'
+        Caption = 'Gerar por Data'
         Color = 3690797
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
@@ -325,9 +455,9 @@ object frm_relat: Tfrm_relat
       end
       object cm_med: TComboBox
         Left = 48
-        Top = 104
+        Top = 139
         Width = 201
-        Height = 29
+        Height = 26
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -339,7 +469,7 @@ object frm_relat: Tfrm_relat
       end
       object date_med2: TDateTimePicker
         Left = 64
-        Top = 328
+        Top = 360
         Width = 161
         Height = 21
         Date = 45061.000000000000000000
@@ -348,26 +478,45 @@ object frm_relat: Tfrm_relat
       end
       object date_med: TDateTimePicker
         Left = 64
-        Top = 268
+        Top = 300
         Width = 161
         Height = 21
         Date = 45061.000000000000000000
         Time = 0.610284305555978800
         TabOrder = 3
       end
+      object btn_nome_med: TPanel
+        Left = 64
+        Top = 176
+        Width = 161
+        Height = 33
+        Cursor = crHandPoint
+        BevelOuter = bvNone
+        Caption = 'Gerar por Nome'
+        Color = 3690797
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 4
+        OnClick = btn_nome_medClick
+      end
     end
     object pn_prontuarios: TPanel
-      Left = 984
-      Top = 130
+      Left = 980
+      Top = 138
       Width = 297
-      Height = 527
+      Height = 519
       BevelOuter = bvNone
       Color = 9067082
       ParentBackground = False
       TabOrder = 5
       object Label10: TLabel
         Left = 12
-        Top = 24
+        Top = 16
         Width = 276
         Height = 25
         Caption = 'Gerar Relat'#243'rio de Prontu'#225'rios'
@@ -380,8 +529,8 @@ object frm_relat: Tfrm_relat
       end
       object Label11: TLabel
         Left = 96
-        Top = 238
-        Width = 116
+        Top = 310
+        Width = 108
         Height = 24
         Caption = 'Data In'#237'cio:'
         Font.Charset = ANSI_CHARSET
@@ -393,8 +542,8 @@ object frm_relat: Tfrm_relat
       end
       object Label12: TLabel
         Left = 97
-        Top = 295
-        Width = 107
+        Top = 373
+        Width = 102
         Height = 24
         Caption = 'Data Final:'
         Font.Charset = ANSI_CHARSET
@@ -405,9 +554,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 59
-        Top = 146
-        Width = 188
+        Left = 69
+        Top = 191
+        Width = 163
         Height = 24
         Caption = 'Nome do M'#233'dico:'
         Font.Charset = ANSI_CHARSET
@@ -418,9 +567,9 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label14: TLabel
-        Left = 53
-        Top = 74
-        Width = 201
+        Left = 69
+        Top = 61
+        Width = 178
         Height = 24
         Caption = 'Nome do Paciente:'
         Font.Charset = ANSI_CHARSET
@@ -432,7 +581,7 @@ object frm_relat: Tfrm_relat
       end
       object date_pront: TDateTimePicker
         Left = 70
-        Top = 268
+        Top = 340
         Width = 161
         Height = 21
         Date = 45060.000000000000000000
@@ -440,23 +589,23 @@ object frm_relat: Tfrm_relat
         TabOrder = 0
       end
       object date_pront2: TDateTimePicker
-        Left = 70
-        Top = 325
+        Left = 69
+        Top = 400
         Width = 161
         Height = 21
         Date = 45060.000000000000000000
         Time = 0.874976157407218100
         TabOrder = 1
       end
-      object btn_pront: TPanel
+      object btn_pront_data: TPanel
         Left = 70
-        Top = 464
+        Top = 456
         Width = 161
         Height = 33
         Cursor = crHandPoint
         BevelOuter = bvNone
-        Caption = 'Gerar'
-        Color = 3690797
+        Caption = 'Gerar por Data'
+        Color = 5075262
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -19
@@ -465,12 +614,13 @@ object frm_relat: Tfrm_relat
         ParentBackground = False
         ParentFont = False
         TabOrder = 2
+        OnClick = btn_pront_dataClick
       end
       object cm_pront_med: TComboBox
         Left = 52
-        Top = 176
+        Top = 218
         Width = 201
-        Height = 29
+        Height = 26
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -482,9 +632,9 @@ object frm_relat: Tfrm_relat
       end
       object cm_pront_pac: TComboBox
         Left = 52
-        Top = 104
+        Top = 91
         Width = 201
-        Height = 29
+        Height = 26
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -493,6 +643,44 @@ object frm_relat: Tfrm_relat
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
         TabOrder = 4
+      end
+      object btn_pront_pac: TPanel
+        Left = 72
+        Top = 128
+        Width = 161
+        Height = 33
+        Cursor = crHandPoint
+        BevelOuter = bvNone
+        Caption = 'Gerar por Nome'
+        Color = 5075262
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 5
+        OnClick = btn_pront_pacClick
+      end
+      object btn_pront_med: TPanel
+        Left = 72
+        Top = 256
+        Width = 161
+        Height = 33
+        Cursor = crHandPoint
+        BevelOuter = bvNone
+        Caption = 'Gerar por Nome'
+        Color = 5075262
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Century Gothic'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 6
+        OnClick = btn_pront_medClick
       end
     end
   end
@@ -509,7 +697,7 @@ object frm_relat: Tfrm_relat
   end
   object client: TRESTClient
     Params = <>
-    Left = 185
+    Left = 177
     Top = 9
   end
   object frx_pacientes: TfrxReport
@@ -2221,7 +2409,6 @@ object frm_relat: Tfrm_relat
     end
   end
   object query_med: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'select * from medicos')
@@ -3234,19 +3421,21 @@ object frm_relat: Tfrm_relat
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       
-        'SELECT prontuarios.*, pacientes.nome_pac, medicos.nome_med FROM ' +
-        'prontuarios'
+        'SELECT prontuarios.*, pacientes.nome_pac, medicos.nome_med, cons' +
+        'ultas.data_registro FROM prontuarios'
       'INNER JOIN medicos ON '
       'prontuarios.crm_med = medicos.crm_med'
       'INNER JOIN pacientes ON'
-      'prontuarios.cpf_pac = pacientes.cpf_pac ')
+      'prontuarios.cpf_pac = pacientes.cpf_pac'
+      'INNER JOIN consultas ON'
+      'prontuarios.cpf_pac = consultas.cpf_pac ')
     Left = 1056
-    Top = 96
+    Top = 88
   end
   object ds_pront: TDataSource
     DataSet = query_pront
     Left = 1104
-    Top = 96
+    Top = 88
   end
   object dataset_pront: TfrxDBDataset
     UserName = 'dateset_pront'
@@ -3255,7 +3444,7 @@ object frm_relat: Tfrm_relat
     BCDToCurrency = False
     DataSetOptions = []
     Left = 1160
-    Top = 96
+    Top = 88
   end
   object frx_pront: TfrxReport
     Version = '2023.1.3'
@@ -3266,7 +3455,7 @@ object frm_relat: Tfrm_relat
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45058.962499791700000000
-    ReportOptions.LastChange = 45061.583880081020000000
+    ReportOptions.LastChange = 45061.922247118100000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -3274,7 +3463,7 @@ object frm_relat: Tfrm_relat
       ''
       'end.')
     Left = 1216
-    Top = 96
+    Top = 88
     Datasets = <
       item
         DataSet = dataset_pac
@@ -3516,7 +3705,7 @@ object frm_relat: Tfrm_relat
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 529.134200000000000000
+        Height = 434.645950000000000000
         Top = 170.078850000000000000
         Width = 718.110700000000000000
         DataSet = dataset_pront
@@ -3566,8 +3755,8 @@ object frm_relat: Tfrm_relat
           Width = 181.417440000000000000
           Height = 18.897650000000000000
           DataField = 'nome_pac'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
+          DataSet = dataset_pront
+          DataSetName = 'dateset_pront'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3576,7 +3765,7 @@ object frm_relat: Tfrm_relat
           Frame.Typ = []
           Fill.BackColor = clWhite
           Memo.UTF8W = (
-            '[data_cons."nome_pac"]')
+            '[dateset_pront."nome_pac"]')
           ParentFont = False
         end
         object db_nome: TfrxMemoView
@@ -3587,8 +3776,8 @@ object frm_relat: Tfrm_relat
           Width = 185.196970000000000000
           Height = 18.897650000000000000
           DataField = 'nome_med'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
+          DataSet = dataset_pront
+          DataSetName = 'dateset_pront'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3597,7 +3786,7 @@ object frm_relat: Tfrm_relat
           Frame.Typ = []
           Fill.BackColor = clWhite
           Memo.UTF8W = (
-            '[data_cons."nome_med"]')
+            '[dateset_pront."nome_med"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3627,8 +3816,8 @@ object frm_relat: Tfrm_relat
           Width = 139.842610000000000000
           Height = 18.897650000000000000
           DataField = 'cpf_pac'
-          DataSet = dataset_pac
-          DataSetName = 'dataset_pac'
+          DataSet = dataset_pront
+          DataSetName = 'dateset_pront'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3637,7 +3826,7 @@ object frm_relat: Tfrm_relat
           Frame.Typ = []
           Fill.BackColor = clWhite
           Memo.UTF8W = (
-            '[dataset_pac."cpf_pac"]')
+            '[dateset_pront."cpf_pac"]')
           ParentFont = False
         end
         object memo_email: TfrxMemoView
@@ -3666,8 +3855,8 @@ object frm_relat: Tfrm_relat
           Width = 177.637910000000000000
           Height = 18.897650000000000000
           DataField = 'hora_cons'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
+          DataSet = dataset_pront
+          DataSetName = 'dateset_pront'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3676,45 +3865,7 @@ object frm_relat: Tfrm_relat
           Frame.Typ = []
           Fill.BackColor = clWhite
           Memo.UTF8W = (
-            '[data_cons."hora_cons"]')
-          ParentFont = False
-        end
-        object memo_sexo: TfrxMemoView
-          AllowVectorExport = True
-          Left = 7.559060000000000000
-          Top = 164.299320000000000000
-          Width = 49.133890000000000000
-          Height = 15.118120000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Nirmala UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            'Status:')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object db_sexo: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 54.472480000000000000
-          Top = 165.078850000000000000
-          Width = 83.149660000000000000
-          Height = 18.897650000000000000
-          DataField = 'status_cons'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[data_cons."status_cons"]')
+            '[dateset_pront."hora_cons"]')
           ParentFont = False
         end
         object Memo6: TfrxMemoView
@@ -3775,8 +3926,8 @@ object frm_relat: Tfrm_relat
           Width = 139.842610000000000000
           Height = 18.897650000000000000
           DataField = 'data_cons'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
+          DataSet = dataset_pront
+          DataSetName = 'dateset_pront'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3785,48 +3936,8 @@ object frm_relat: Tfrm_relat
           Frame.Typ = []
           Fill.BackColor = clWhite
           Memo.UTF8W = (
-            '[data_cons."data_cons"]')
+            '[dateset_pront."data_cons"]')
           ParentFont = False
-        end
-        object Memo20: TfrxMemoView
-          AllowVectorExport = True
-          Left = 7.559060000000000000
-          Top = 195.315090000000000000
-          Width = 117.165430000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Nirmala UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            'Data do Registro:')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object frxDBDataset1data_cadastro: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 128.504020000000000000
-          Top = 195.315090000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'data_registro'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Nirmala UI'
-          Font.Style = []
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            '[data_cons."data_registro"]')
-          ParentFont = False
-          VAlign = vaCenter
         end
         object Memo14: TfrxMemoView
           AllowVectorExport = True
@@ -3854,8 +3965,8 @@ object frm_relat: Tfrm_relat
           Width = 139.842610000000000000
           Height = 18.897650000000000000
           DataField = 'crm_med'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
+          DataSet = dataset_pront
+          DataSetName = 'dateset_pront'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -3864,13 +3975,13 @@ object frm_relat: Tfrm_relat
           Frame.Typ = []
           Fill.BackColor = clWhite
           Memo.UTF8W = (
-            '[data_cons."crm_med"]')
+            '[dateset_pront."crm_med"]')
           ParentFont = False
         end
         object Memo7: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 230.551330000000000000
+          Top = 196.535560000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
@@ -3888,7 +3999,7 @@ object frm_relat: Tfrm_relat
         object Memo8: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 257.008040000000000000
+          Top = 222.992270000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
@@ -3907,7 +4018,7 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 101.047310000000000000
-          Top = 260.008040000000000000
+          Top = 225.992270000000000000
           Width = 608.504330000000000000
           Height = 18.897650000000000000
           DataField = 'hist_atual'
@@ -3928,7 +4039,7 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 119.944960000000000000
-          Top = 230.551330000000000000
+          Top = 196.535560000000000000
           Width = 589.606680000000000000
           Height = 18.897650000000000000
           DataField = 'queixa_principal'
@@ -3946,126 +4057,10 @@ object frm_relat: Tfrm_relat
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo21: TfrxMemoView
-          AllowVectorExport = True
-          Left = 7.559060000000000000
-          Top = 439.205010000000000000
-          Width = 117.165430000000000000
-          Height = 15.118120000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Nirmala UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            'Hora da Consulta:')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo22: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 131.842610000000000000
-          Top = 438.984540000000000000
-          Width = 177.637910000000000000
-          Height = 18.897650000000000000
-          DataField = 'hora_cons'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            '[data_cons."hora_cons"]')
-          ParentFont = False
-        end
-        object Memo23: TfrxMemoView
-          AllowVectorExport = True
-          Left = 7.559060000000000000
-          Top = 462.882190000000000000
-          Width = 49.133890000000000000
-          Height = 15.118120000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Nirmala UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            'Status:')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo24: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 54.472480000000000000
-          Top = 463.661720000000000000
-          Width = 83.149660000000000000
-          Height = 18.897650000000000000
-          DataField = 'status_cons'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[data_cons."status_cons"]')
-          ParentFont = False
-        end
-        object Memo25: TfrxMemoView
-          AllowVectorExport = True
-          Left = 7.559060000000000000
-          Top = 415.748300000000000000
-          Width = 117.165430000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Nirmala UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            'Data da Consulta:')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo26: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 130.283550000000000000
-          Top = 419.527830000000000000
-          Width = 139.842610000000000000
-          Height = 18.897650000000000000
-          DataField = 'data_cons'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Fill.BackColor = clWhite
-          Memo.UTF8W = (
-            '[data_cons."data_cons"]')
-          ParentFont = False
-        end
         object Memo27: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 493.897960000000000000
+          Top = 395.630180000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
@@ -4084,12 +4079,12 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 128.504020000000000000
-          Top = 493.897960000000000000
+          Top = 395.630180000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           DataField = 'data_registro'
-          DataSet = dataset_cons
-          DataSetName = 'data_cons'
+          DataSet = dataset_pront
+          DataSetName = 'dateset_pront'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -4098,14 +4093,14 @@ object frm_relat: Tfrm_relat
           Frame.Typ = []
           Fill.BackColor = clWhite
           Memo.UTF8W = (
-            '[data_cons."data_registro"]')
+            '[dateset_pront."data_registro"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo29: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 279.685220000000000000
+          Top = 245.669450000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
@@ -4123,7 +4118,7 @@ object frm_relat: Tfrm_relat
         object Memo30: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 304.141930000000000000
+          Top = 270.126160000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
@@ -4142,7 +4137,7 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 101.047310000000000000
-          Top = 307.141930000000000000
+          Top = 273.126160000000000000
           Width = 608.504330000000000000
           Height = 18.897650000000000000
           DataField = 'hist_atual'
@@ -4163,7 +4158,7 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 101.047310000000000000
-          Top = 281.685220000000000000
+          Top = 247.669450000000000000
           Width = 589.606680000000000000
           Height = 18.897650000000000000
           DataField = 'antecedentes'
@@ -4184,7 +4179,7 @@ object frm_relat: Tfrm_relat
         object Memo33: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 328.819110000000000000
+          Top = 294.803340000000000000
           Width = 60.472480000000000000
           Height = 18.897650000000000000
           DataSet = dataset_pront
@@ -4205,7 +4200,7 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 63.252010000000000000
-          Top = 331.819110000000000000
+          Top = 297.803340000000000000
           Width = 646.299630000000000000
           Height = 18.897650000000000000
           DataField = 'receita'
@@ -4225,7 +4220,7 @@ object frm_relat: Tfrm_relat
         object Memo35: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 351.496290000000000000
+          Top = 317.480520000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
           DataSet = dataset_pront
@@ -4246,7 +4241,7 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 93.488250000000000000
-          Top = 354.496290000000000000
+          Top = 320.480520000000000000
           Width = 646.299630000000000000
           Height = 18.897650000000000000
           DataField = 'observacoes'
@@ -4266,7 +4261,7 @@ object frm_relat: Tfrm_relat
         object Memo37: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 381.732530000000000000
+          Top = 347.716760000000000000
           Width = 71.811070000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
@@ -4285,7 +4280,7 @@ object frm_relat: Tfrm_relat
           IndexTag = 1
           AllowVectorExport = True
           Left = 68.811070000000000000
-          Top = 384.512060000000000000
+          Top = 350.496290000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
           DataField = 'duracao_cons'
@@ -4311,7 +4306,7 @@ object frm_relat: Tfrm_relat
         FillGap.Right = 0
         Frame.Typ = []
         Height = 26.456710000000000000
-        Top = 805.039890000000000000
+        Top = 710.551640000000000000
         Width = 718.110700000000000000
         object Memo3: TfrxMemoView
           Align = baWidth
@@ -4350,7 +4345,7 @@ object frm_relat: Tfrm_relat
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 759.685530000000000000
+        Top = 665.197280000000000000
         Width = 718.110700000000000000
       end
     end

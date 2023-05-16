@@ -1,4 +1,4 @@
-  unit frm_relatorios;
+unit frm_relatorios;
 
 interface
 
@@ -28,7 +28,7 @@ type
     dataset_pac: TfrxDBDataset;
     pn_pacientes: TPanel;
     pn_consultas: TPanel;
-    btn_consultas: TPanel;
+    btn_cons_data: TPanel;
     pn_medicos: TPanel;
     btn_medicos: TPanel;
     lb_pacientes: TLabel;
@@ -59,7 +59,7 @@ type
     Label13: TLabel;
     date_pront: TDateTimePicker;
     date_pront2: TDateTimePicker;
-    btn_pront: TPanel;
+    btn_pront_data: TPanel;
     cm_pront_med: TComboBox;
     Label14: TLabel;
     cm_pront_pac: TComboBox;
@@ -71,16 +71,39 @@ type
     date_med: TDateTimePicker;
     date_pac2: TDateTimePicker;
     date_pac: TDateTimePicker;
+    btn_pac_nome: TPanel;
+    btn_nome_med: TPanel;
+    btn_cons_pac: TPanel;
+    btn_pront_pac: TPanel;
+    Label15: TLabel;
+    date_cons: TDateTimePicker;
+    Label16: TLabel;
+    date_cons2: TDateTimePicker;
+    Label17: TLabel;
+    cm_med_cons: TComboBox;
+    btn_nome_med_cons: TPanel;
+    btn_pront_med: TPanel;
     procedure btn_apiClick(Sender: TObject);
-    procedure btn_pacClick(Sender: TObject);
     procedure btn_consultasClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btn_medicosClick(Sender: TObject);
+    procedure btn_pacClick(Sender: TObject);
+    procedure btn_pac_nomeClick(Sender: TObject);
+    procedure btn_nome_medClick(Sender: TObject);
+    procedure btn_cons_pacClick(Sender: TObject);
+    procedure btn_nome_med_consClick(Sender: TObject);
+    procedure btn_cons_dataClick(Sender: TObject);
+    procedure btn_pront_pacClick(Sender: TObject);
+    procedure btn_pront_medClick(Sender: TObject);
+    procedure btn_pront_dataClick(Sender: TObject);
   private
     { Private declarations }
     procedure carregarcombobox;
     procedure carregarcomboboxcons;
     procedure carregarcomboboxmed;
+    procedure carregarcomboboxconsmed;
+    procedure carregarcomboboxcprontpac;
+    procedure carregarcomboboxcprontmed;
   public
     { Public declarations }
     function GetJSON(resource, JSON: string): boolean;
@@ -144,6 +167,62 @@ begin
   result := true;
 end;
 
+// gerar relatorio de medicos conforme nome do medico
+procedure Tfrm_relat.btn_nome_medClick(Sender: TObject);
+var
+  SQLQuery: string;
+begin
+  with frm_relat.query_med do
+  begin
+    Close;
+    SQL.clear;
+
+    if cm_med.Text <> '' then
+    begin
+      SQL.Add('SELECT * FROM medicos WHERE nome_med LIKE :NomeMed ORDER BY data_cadastro');
+      ParamByName('NomeMed').Value := '%' + cm_med.Text + '%';
+    end
+    else
+    begin
+      SQL.Add('SELECT * FROM medicos ORDER BY data_cadastro');
+    end;
+
+    Open;
+
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+  end;
+
+  frm_relat.frx_med.ShowReport;
+end;
+
+// carregar relatorio de consultas conforme nome do médico
+procedure Tfrm_relat.btn_nome_med_consClick(Sender: TObject);
+begin
+  with frm_relat.query_cons do
+  begin
+    Close;
+    SQL.clear;
+    SQL.Add('SELECT consultas.*, pacientes.nome_pac, medicos.crm_med FROM consultas '
+      + 'INNER JOIN pacientes ON consultas.cpf_pac = pacientes.cpf_pac ' +
+      'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med ' +
+      'WHERE medicos.nome_med LIKE :NomeMedico ORDER BY consultas.data_registro');
+
+    Params.ParamByName('NomeMedico').Value := '%' + cm_med_cons.Text + '%';
+    Open;
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+  end;
+
+  frm_relat.frx_cons.ShowReport;
+end;
+
 procedure Tfrm_relat.btn_consultasClick(Sender: TObject);
 begin
   with frm_relat.query_cons do
@@ -164,91 +243,231 @@ begin
     end;
   end;
 
-  frm_relat.frx_cons.showreport;
+  frm_relat.frx_cons.ShowReport;
 end;
 
+// gerar relatorio com data de consulta
+procedure Tfrm_relat.btn_cons_dataClick(Sender: TObject);
+begin
+  with frm_relat.query_cons do
+  begin
+    Close;
+    SQL.clear;
+    SQL.Add('SELECT consultas.*, pacientes.nome_pac, medicos.crm_med FROM consultas '
+      + 'INNER JOIN pacientes ON consultas.cpf_pac = pacientes.cpf_pac ' +
+      'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med ' +
+      'WHERE data_registro between :DataIni and :DataFim ORDER BY data_registro');
+
+    Params.ParamByName('DataIni').Value := date_cons.DateTime;
+    Params.ParamByName('DataFim').Value := date_cons2.DateTime;
+    Open;
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+  end;
+  frm_relat.frx_cons.ShowReport;
+end;
+
+// gerar relatorio de consulta com nome do paciente
+procedure Tfrm_relat.btn_cons_pacClick(Sender: TObject);
+begin
+  with frm_relat.query_cons do
+  begin
+    Close;
+    SQL.clear;
+    SQL.Add('SELECT consultas.*, pacientes.nome_pac, medicos.crm_med FROM consultas '
+      + 'INNER JOIN pacientes ON consultas.cpf_pac = pacientes.cpf_pac ' +
+      'INNER JOIN medicos ON consultas.nome_med = medicos.nome_med ' +
+      'WHERE pacientes.nome_pac LIKE :NomePaciente ORDER BY consultas.data_registro');
+
+    Params.ParamByName('NomePaciente').Value := '%' + cm_pac.Text + '%';
+    Open;
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+  end;
+
+  frm_relat.frx_cons.ShowReport;
+end;
+
+// gerar relatorio de medico conforme data de cadastro do medico
 procedure Tfrm_relat.btn_medicosClick(Sender: TObject);
 begin
   with frm_relat.query_med do
   begin
     Close;
-    SQL.Clear;
-
-    if (cm_med.Text = '') and (date_med.checked) and (date_med2.checked) then
-    begin
-      SQL.Add('SELECT * FROM medicos ORDER BY data_cadastro');
-    end
-    else
-    begin
-      if cm_med.Text = '' then
-      begin
-        SQL.Add('SELECT * FROM medicos WHERE data_cadastro BETWEEN :DataIni AND :DataFim ORDER BY data_cadastro');
-        ParamByName('DataIni').Value := date_med.Date;
-        ParamByName('DataFim').Value := date_med2.Date;
-      end
-      else
-      begin
-        SQL.Add('SELECT * FROM medicos WHERE nome_med LIKE :NomeMed ORDER BY data_cadastro');
-        ParamByName('NomeMed').Value := '%' + cm_med.Text + '%';
-      end;
-    end;
-
+    SQL.clear;
+    SQL.Add('SELECT * from medicos WHERE data_cadastro between :DataIni and :DataFim ORDER BY data_cadastro');
+    Params.ParamByName('DataIni').Value := date_med.DateTime;
+    Params.ParamByName('DataFim').Value := date_med2.DateTime;
     Open;
-
     if IsEmpty then
     begin
-      ShowMessage('Nenhuma informação localizada.');
+      showmessage('Nenhuma informação localizada.');
       Exit;
     end;
   end;
-
   frm_relat.frx_med.ShowReport;
 end;
 
-
-
+// carregar relatorio de pacientes conforme data de cadastro
 procedure Tfrm_relat.btn_pacClick(Sender: TObject);
+begin
+  with frm_relat.query_pac do
+  begin
+    Close;
+    SQL.clear;
+    SQL.Add('SELECT * from pacientes WHERE data_cadastro between :DataIni and :DataFim ORDER BY data_cadastro');
+    Params.ParamByName('DataIni').Value := date_pac.DateTime;
+    Params.ParamByName('DataFim').Value := date_pac2.DateTime;
+    Open;
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+  end;
+  frm_relat.frx_pacientes.ShowReport;
+end;
+
+// carregar relatorio conforme nome do paciente
+procedure Tfrm_relat.btn_pac_nomeClick(Sender: TObject);
 var
   SQLQuery: string;
 begin
   with frm_relat.query_pac do
   begin
     Close;
-    SQL.Clear;
+    SQL.clear;
 
-    if (cm_pac2.Text = '') and (date_pac.checked) and (date_pac2.checked) then
-      begin
-        SQL.Add('SELECT * FROM pacientes ORDER BY data_cadastro');
-      end
+    if cm_pac2.Text <> '' then
+    begin
+      SQL.Add('SELECT * FROM pacientes WHERE nome_pac LIKE :NomePac ORDER BY data_cadastro');
+      ParamByName('NomePac').Value := '%' + cm_pac2.Text + '%';
+    end
     else
     begin
-      if cm_pac2.Text = '' then
-        begin
-          SQL.Add('SELECT * FROM pacientes WHERE data_cadastro BETWEEN :DataIni AND :DataFim ORDER BY data_cadastro');
-          ParamByName('DataIni').Value := date_pac.Date;
-          ParamByName('DataFim').Value := date_pac2.Date;
-        end
-      else
-        begin
-          SQL.Add('SELECT * FROM pacientes WHERE nome_pac LIKE :NomePac ORDER BY data_cadastro');
-          ParamByName('NomePac').Value := '%' + cm_pac2.Text + '%';
-        end;
+      SQL.Add('SELECT * FROM pacientes ORDER BY data_cadastro');
     end;
 
     Open;
 
     if IsEmpty then
     begin
-      ShowMessage('Nenhuma informação localizada.');
+      showmessage('Nenhuma informação localizada.');
       Exit;
     end;
   end;
 
-  frm_relat.frx_pacientes.showreport;
+  frm_relat.frx_pacientes.ShowReport;
+end;
+
+// gerar relatorio de pront conforme data
+procedure Tfrm_relat.btn_pront_dataClick(Sender: TObject);
+begin
+  with frm_relat.query_cons do
+  begin
+    Close;
+    SQL.clear;
+    SQL.Add('SELECT prontuarios.*, pacientes.nome_pac, medicos.nome_med, consultas.data_registro FROM prontuarios');
+    SQL.Add('INNER JOIN medicos ON prontuarios.crm_med = medicos.crm_med');
+    SQL.Add('INNER JOIN pacientes ON prontuarios.cpf_pac = pacientes.cpf_pac');
+    SQL.Add('INNER JOIN consultas ON prontuarios.cpf_pac = consultas.cpf_pac');
+    SQL.Add('WHERE data_registro between :DataIni and :DataFim ORDER BY data_registro');
+    Params.ParamByName('DataIni').Value := date_pront.DateTime;
+    Params.ParamByName('DataFim').Value := date_pront2.DateTime;
+    Open;
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+  end;
+  frm_relat.frx_pront.ShowReport;
 end;
 
 
+// carregar relatorio de pacientes conforme data de cadastro
 
+
+
+//gerar relatorio de prot conforme nome do medico
+procedure Tfrm_relat.btn_pront_medClick(Sender: TObject);
+begin
+  with frm_relat.query_pront do
+  begin
+    Close;
+    SQL.clear;
+
+    if cm_pront_med.Text <> '' then
+    begin
+      SQL.Add('SELECT prontuarios.*, pacientes.nome_pac, medicos.nome_med, consultas.data_registro FROM prontuarios');
+      SQL.Add('INNER JOIN medicos ON prontuarios.crm_med = medicos.crm_med');
+      SQL.Add('INNER JOIN pacientes ON prontuarios.cpf_pac = pacientes.cpf_pac');
+      SQL.Add('INNER JOIN consultas ON prontuarios.cpf_pac = consultas.cpf_pac');
+      SQL.Add('WHERE medicos.nome_med LIKE :NomeMed');
+      ParamByName('NomeMed').Value := '%' + cm_pront_med.Text + '%';
+    end
+    else
+    begin
+      SQL.Add('SELECT prontuarios.*, pacientes.nome_pac, medicos.nome_med, consultas.data_registro FROM prontuarios');
+      SQL.Add('INNER JOIN medicos ON prontuarios.crm_med = medicos.crm_med');
+      SQL.Add('INNER JOIN pacientes ON prontuarios.cpf_pac = pacientes.cpf_pac');
+      SQL.Add('INNER JOIN consultas ON prontuarios.cpf_pac = consultas.cpf_pac');
+    end;
+
+    Open;
+
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+    frm_relat.frx_pront.ShowReport;
+  end;
+end;
+
+// gerar relatorio de prontuario conforme nome do medico
+procedure Tfrm_relat.btn_pront_pacClick(Sender: TObject);
+begin
+  with frm_relat.query_pront do
+  begin
+    Close;
+    SQL.clear;
+
+    if cm_pront_pac.Text <> '' then
+    begin
+      SQL.Add('SELECT prontuarios.*, pacientes.nome_pac, medicos.nome_med, consultas.data_registro FROM prontuarios');
+      SQL.Add('INNER JOIN medicos ON prontuarios.crm_med = medicos.crm_med');
+      SQL.Add('INNER JOIN pacientes ON prontuarios.cpf_pac = pacientes.cpf_pac');
+      SQL.Add('INNER JOIN consultas ON prontuarios.cpf_pac = consultas.cpf_pac');
+      SQL.Add('WHERE pacientes.nome_pac LIKE :NomePac');
+      ParamByName('NomePac').Value := '%' + cm_pront_pac.Text + '%';
+    end
+    else
+    begin
+      SQL.Add('SELECT prontuarios.*, pacientes.nome_pac, medicos.nome_med, consultas.data_registro FROM prontuarios');
+      SQL.Add('INNER JOIN medicos ON prontuarios.crm_med = medicos.crm_med');
+      SQL.Add('INNER JOIN pacientes ON prontuarios.cpf_pac = pacientes.cpf_pac');
+      SQL.Add('INNER JOIN consultas ON prontuarios.cpf_pac = consultas.cpf_pac');
+    end;
+
+    Open;
+
+    if IsEmpty then
+    begin
+      showmessage('Nenhuma informação localizada.');
+      Exit;
+    end;
+    frm_relat.frx_pront.ShowReport;
+  end;
+end;
+
+/// ///                          carregar os combobox                       /////////
 
 procedure Tfrm_relat.carregarcombobox;
 begin
@@ -292,6 +511,69 @@ begin
 
 end;
 
+procedure Tfrm_relat.carregarcomboboxconsmed;
+begin
+
+  query_med.Close;
+  query_med.SQL.clear;
+  query_med.SQL.Add('SELECT * FROM medicos');
+  query_med.Open;
+
+  if not query_med.IsEmpty then
+  begin
+    while not query_med.Eof do
+    begin
+
+      cm_med_cons.Items.Add(query_med.FieldByName('nome_med').AsString);
+      query_med.Next;
+
+    end;
+  end;
+
+end;
+
+procedure Tfrm_relat.carregarcomboboxcprontmed;
+begin
+
+  query_med.Close;
+  query_med.SQL.clear;
+  query_med.SQL.Add('SELECT * FROM medicos');
+  query_med.Open;
+
+  if not query_med.IsEmpty then
+  begin
+    while not query_med.Eof do
+    begin
+
+      cm_pront_med.Items.Add(query_med.FieldByName('nome_med').AsString);
+      query_med.Next;
+
+    end;
+  end;
+
+end;
+
+procedure Tfrm_relat.carregarcomboboxcprontpac;
+begin
+
+  query_cons.Close;
+  query_cons.SQL.clear;
+  query_cons.SQL.Add('SELECT * FROM pacientes');
+  query_cons.Open;
+
+  if not query_cons.IsEmpty then
+  begin
+    while not query_cons.Eof do
+    begin
+
+      cm_pront_pac.Items.Add(query_cons.FieldByName('nome_pac').AsString);
+      query_cons.Next;
+
+    end;
+  end;
+
+end;
+
 procedure Tfrm_relat.carregarcomboboxmed;
 begin
 
@@ -318,6 +600,9 @@ begin
   carregarcombobox;
   carregarcomboboxcons;
   carregarcomboboxmed;
+  carregarcomboboxconsmed;
+  carregarcomboboxcprontpac;
+  carregarcomboboxcprontmed
 end;
 
 end.

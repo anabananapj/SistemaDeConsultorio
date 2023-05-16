@@ -45,8 +45,8 @@
     object lb_saúde: TLabel
       Left = 55
       Top = 1
-      Width = 106
-      Height = 42
+      Width = 92
+      Height = 40
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -493,7 +493,7 @@
         A539E697B36403140D7CFEB4A533B29C2307604E122A35447FB66A79CB8A174D
         C6A8A4288F48CA1220F6F40F833D51A0389A4AB00000000049454E44AE426082}
     end
-    object Image3: TImage
+    object btn_relat: TImage
       Left = 15
       Top = 226
       Width = 38
@@ -543,9 +543,10 @@
         9397C11AA6F910AEA77D7704BCC0BB020A3544B118C28DBB8E58B6046801BE9C
         6007639B7821E0E1DB3560C83FB28D7BF8F8B2161C0D2306257ECA4E941A2EE0
         F8C50F044868FF7FA08DF22F16C886214B67F41F0000000049454E44AE426082}
-      OnClick = Image3Click
-      OnMouseEnter = Image3MouseEnter
-      OnMouseLeave = Image3MouseLeave
+      Visible = False
+      OnClick = btn_relatClick
+      OnMouseEnter = btn_relatMouseEnter
+      OnMouseLeave = btn_relatMouseLeave
     end
   end
   object pn_principal: TPanel
@@ -700,7 +701,7 @@
       OnClick = btn_verconsultasClick
     end
     object CalendarView1: TCalendarView
-      Left = 264
+      Left = 263
       Top = 0
       Width = 1033
       Height = 721

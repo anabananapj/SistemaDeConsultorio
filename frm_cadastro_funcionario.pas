@@ -121,9 +121,28 @@ procedure Tcadastro_funcionario.btn_concluirClick(Sender: TObject);
 var
 VALUES, Sexo, Nasc : String;
 begin
+
+  if (edt_nome.Text = '') or (edt_cpf.Text = '') or (edt_rg.Text = '') or (edt_telefone.Text = '') or (edt_senha.Text = '') or (edt_email.Text = '') or (edt_cep.Text = '') then
+    begin
+      ShowMessage('Preencha todos os campos obrigatórios!');
+      Exit;
+    end;
+
   query_cad_func.open;
   query_cad_func.Close;
   query_cad_func.SQL.Clear;
+
+  query_cad_func.SQL.Add('SELECT COUNT(*) FROM funcionarios WHERE cpf_func = :cpf_func');
+  query_cad_func.ParamByName('cpf_func').Value := edt_cpf.Text;
+  query_cad_func.Open;
+
+  if query_cad_func.Fields[0].AsInteger > 0 then
+  begin
+    ShowMessage('Funcionário já cadastrado!');
+    query_cad_func.Close;
+    Exit;
+  end;
+
   Nasc := FormatDateTime('yyyy-mm-dd', data_nasc.Date);
 
   VALUES := 'VALUES (:nome_func, :sexo_func, ' + QuotedStr(Nasc) + ', :cpf_func, :rg_func, :telefone_func, :cargo_func, :cep, :rua, :numero_casa, :bairro, :cidade, :estado, :email_func)';

@@ -124,9 +124,29 @@ procedure Tcadastro_medico.btn_concluirClick(Sender: TObject);
 var
 VALUES, Sexo, Nasc : String;
 begin
+
+  if (edt_nome.Text = '') or (edt_crm.Text = '') or (edt_rg.Text = '') or (edt_telefone.Text = '') or (edt_senha.Text = '') or (edt_email.Text = '') or (edt_cep.Text = '') or (edt_cpf.Text = '') then
+  begin
+    ShowMessage('Preencha todos os campos obrigatórios!');
+    Exit;
+  end;
+
   query_cad_user.open;
   query_cad_med.Close;
   query_cad_med.SQL.Clear;
+
+  query_cad_med.SQL.Add('SELECT COUNT(*) FROM medicos WHERE cpf_med = :cpf_med');
+  query_cad_med.ParamByName('cpf_med').Value := edt_cpf.Text;
+  query_cad_med.Open;
+
+  if query_cad_med.Fields[0].AsInteger > 0 then
+  begin
+    ShowMessage('Médico já cadastrado!');
+    query_cad_med.Close;
+    Exit;
+  end;
+
+
   Nasc := FormatDateTime('yyyy-mm-dd', data_nasc.Date);
 
   {INSERT TABELA MÉDICOS}
@@ -168,6 +188,8 @@ begin
   query_cad_user.params.ParamByName('cpf_ident').Value := edt_crm.Text;
   query_cad_user.params.ParamByName('senha').Value := edt_senha.Text;
   query_cad_user.params.ParamByName('nivel_de_acesso').Value := 'Médico';
+
+
 
 
 
