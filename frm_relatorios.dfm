@@ -84,7 +84,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 93
+        Left = 91
         Top = 270
         Width = 116
         Height = 24
@@ -97,7 +97,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 99
+        Left = 95
         Top = 333
         Width = 107
         Height = 24
@@ -216,7 +216,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 55
+        Left = 48
         Top = 61
         Width = 201
         Height = 24
@@ -255,7 +255,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label17: TLabel
-        Left = 56
+        Left = 48
         Top = 188
         Width = 188
         Height = 24
@@ -420,7 +420,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 56
+        Left = 53
         Top = 109
         Width = 188
         Height = 24
@@ -565,7 +565,7 @@ object frm_relat: Tfrm_relat
         ParentFont = False
       end
       object Label14: TLabel
-        Left = 61
+        Left = 53
         Top = 61
         Width = 201
         Height = 24
@@ -1683,7 +1683,6 @@ object frm_relat: Tfrm_relat
     end
   end
   object query_pac: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'SELECT *'
@@ -1725,7 +1724,6 @@ object frm_relat: Tfrm_relat
     Top = 80
   end
   object query_cons: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       'SELECT consultas.*, pacientes.nome_pac, medicos.crm_med'
@@ -2421,6 +2419,25 @@ object frm_relat: Tfrm_relat
   object dataset_med: TfrxDBDataset
     UserName = 'dataset_med'
     CloseDataSource = False
+    FieldAliases.Strings = (
+      'id_med=id_med'
+      'crm_med=crm_med'
+      'nome_med=nome_med'
+      'email_med=email_med'
+      'sexo_med=sexo_med'
+      'nascimento_med=nascimento_med'
+      'cpf_med=cpf_med'
+      'rg_med=rg_med'
+      'telefone_med=telefone_med'
+      'especialidade_med=especialidade_med'
+      'formacao_med=formacao_med'
+      'cep=cep'
+      'rua=rua'
+      'numero_casa=numero_casa'
+      'bairro=bairro'
+      'cidade=cidade'
+      'estado=estado'
+      'data_cadastro=data_cadastro')
     DataSet = query_med
     BCDToCurrency = False
     DataSetOptions = []
@@ -2436,7 +2453,7 @@ object frm_relat: Tfrm_relat
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45058.962499791700000000
-    ReportOptions.LastChange = 45061.565885347200000000
+    ReportOptions.LastChange = 45062.633050381940000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -2562,7 +2579,7 @@ object frm_relat: Tfrm_relat
           Fill.BackColor = 8404992
           HAlign = haCenter
           Memo.UTF8W = (
-            'Consultas')
+            'M'#233'dicos')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3415,7 +3432,6 @@ object frm_relat: Tfrm_relat
     end
   end
   object query_pront: TFDQuery
-    Active = True
     Connection = DTConnection.FDConnection1
     SQL.Strings = (
       

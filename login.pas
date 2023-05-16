@@ -82,9 +82,9 @@ if query_login.RecordCount > 0 then begin
   nivelAcesso := query_login.FieldByName('nivel_de_acesso').AsString; // carrega o nível de acesso do usuário
 
 
-  frm_login.hide;
+  //frm_login.hide;
   frm_telaprincipal.ShowModal;
-  frm_login.close;
+
 
 end;
 

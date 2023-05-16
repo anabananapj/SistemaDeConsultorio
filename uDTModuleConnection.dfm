@@ -9,14 +9,11 @@ object DTConnection: TDTConnection
       'Database=apr_ana'
       'Server=bdteste.rpinfo.com.br'
       'DriverID=PG')
-    Connected = True
     Left = 48
     Top = 16
   end
   object DriverLink: TFDPhysPgDriverLink
-    VendorLib = 
-      'C:\Users\ana.03960\Downloads\SistemaDeConsultorio\Win32\Debug\ps' +
-      'qlODBC\bin\libpq.dll'
+    VendorLib = 'C:\Program Files (x86)\PostgreSQL\psqlODBC\bin\libpq.dll'
     Left = 112
     Top = 16
   end

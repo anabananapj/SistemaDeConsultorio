@@ -44,6 +44,7 @@ type
     btn_cad_hora: TPanel;
     btn_relat: TImage;
     lb_relatorios: TPanel;
+    Image2: TImage;
     procedure img_menuClick(Sender: TObject);
     procedure btn_cad_pacientesClick(Sender: TObject);
     procedure btn_cad_medicosClick(Sender: TObject);
@@ -74,6 +75,7 @@ type
     procedure btn_relatMouseEnter(Sender: TObject);
     procedure btn_relatMouseLeave(Sender: TObject);
     procedure btn_relatClick(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -225,13 +227,14 @@ begin
     pn_cadastros.Visible := False;
     btn_func.Visible := False;
     btn_pront.Visible := True;
+    btn_relat.Visible := false;
     end
 
     else if nivelAcesso = 'Admin' then begin
     btn_agendar.Visible := True;
     pn_cadastros.Visible := True;
     btn_verconsultas.Visible := True;
-    btn_verconsultas.Top := 65;
+    btn_verconsultas.Top := 70;
     btn_pront.Visible := True;
     btn_func.Visible := True;
     btn_relat.Visible := true;
@@ -274,6 +277,20 @@ end;
 
 
 
+
+
+procedure Tfrm_telaprincipal.Image2Click(Sender: TObject);
+var
+  resposta: Integer;
+begin
+  resposta := MessageDlg('Tem certeza que deseja sair?', mtConfirmation, [mbYes, mbNo], 0);
+  if resposta = mrYes then
+  begin
+    userlogado := '';
+    nivelAcesso := '';
+    Close;
+  end;
+end;
 
 
 procedure Tfrm_telaprincipal.btn_relatClick(Sender: TObject);
