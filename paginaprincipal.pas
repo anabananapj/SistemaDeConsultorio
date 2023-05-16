@@ -42,7 +42,6 @@ type
     Image1: TImage;
     lb_gerenciamento: TPanel;
     btn_cad_hora: TPanel;
-    Image2: TImage;
     btn_relat: TImage;
     lb_relatorios: TPanel;
     procedure img_menuClick(Sender: TObject);

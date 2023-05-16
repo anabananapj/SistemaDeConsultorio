@@ -118,6 +118,8 @@ implementation
 
 uses U_paciente, U_Consulta, U_Medico, uDTModuleConnection;
 
+
+//botão desafio
 procedure Tfrm_relat.btn_apiClick(Sender: TObject);
 var
   Paciente: TPaciente;
@@ -125,12 +127,12 @@ var
   Medico: TMedico;
 begin
   if (MessageBox(handle,
-    'Deseja enviar Pacientes para o serviço de WebService?',
+    'Deseja enviar Pacientes, Médicos e Consultas para o serviço de WebService?',
     'Deseja confirmar?', MB_YESNO + MB_DEFBUTTON2) = mrYes) then
   begin
     Paciente := TPaciente.Create;
     Consulta := TConsulta.Create;
-    Medico := TMedico.Create;
+    Medico   := TMedico.Create;
 
     try
       Paciente.ReturnPaciente;

@@ -14,7 +14,9 @@ object DTConnection: TDTConnection
     Top = 16
   end
   object DriverLink: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files (x86)\PostgreSQL\psqlODBC\bin\libpq.dll'
+    VendorLib = 
+      'C:\Users\ana.03960\Downloads\SistemaDeConsultorio\Win32\Debug\ps' +
+      'qlODBC\bin\libpq.dll'
     Left = 112
     Top = 16
   end

@@ -80,6 +80,16 @@ begin
     btn_comecar.Visible := false;
     btn_encerrar.Visible := true;
   end;
+
+  memo_qp.Enabled := true;
+  memo_historia.Enabled := true;
+  memo_observacoes.Enabled := true;
+  memo_receita.Enabled := true;
+  memo_antecedentes.Enabled := true;
+  btn_fechar.Visible := false;
+
+  memo_qp.SetFocus;
+
 end;
 
 
