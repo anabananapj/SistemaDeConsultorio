@@ -25,6 +25,7 @@ type
     procedure btn_fecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btn_agendarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
         procedure carregarcombobox;
@@ -48,7 +49,6 @@ var
 begin
   horaConsulta := hora_cons.Time;
 
-  query_cad_hora.Open;
   try
     sql := 'SELECT * FROM hora_cons WHERE medico_nome = :medico_nome AND hora_consulta = :hora_consulta';
     query_cad_hora.SQL.Text := sql;
@@ -64,6 +64,8 @@ begin
     end
     else
     begin
+      query_cad_hora.Close; // Fecha a consulta antes de reutilizá-la
+
       sql := 'INSERT INTO hora_cons (medico_nome, hora_consulta) VALUES (:medico_nome, :hora_consulta) ';
 
       query_cad_hora.SQL.Text := sql;
@@ -75,6 +77,8 @@ begin
 
       ModalResult := mrOk;
       messagedlg('Horário Cadastrado!', mtConfirmation, [mbOK], 0);
+
+      Close;
     end;
   except
     on E: Exception do
@@ -118,10 +122,15 @@ end;
 
 procedure Tcad_hora.FormCreate(Sender: TObject);
 begin
-carregarcombobox;
-hora_cons.Time := EncodeTime(0, 0, 0, 0);
+  carregarcombobox;
+  hora_cons.Time := EncodeTime(0, 0, 0, 0);
 end;
 
+
+procedure Tcad_hora.FormShow(Sender: TObject);
+begin
+ cm_medicos.ItemIndex := -1;
+end;
 
 end.
 

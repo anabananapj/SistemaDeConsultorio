@@ -14,6 +14,7 @@ object cad_hora: Tcad_hora
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pn_editar: TPanel
@@ -26,12 +27,10 @@ object cad_hora: Tcad_hora
     Color = 3416861
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -152
-    ExplicitTop = -72
     object lb_hora: TLabel
       Left = 147
       Top = 157
-      Width = 53
+      Width = 51
       Height = 24
       Caption = 'Hora:'
       Font.Charset = ANSI_CHARSET
@@ -44,7 +43,7 @@ object cad_hora: Tcad_hora
     object Label1: TLabel
       Left = 134
       Top = 76
-      Width = 83
+      Width = 74
       Height = 24
       Caption = 'M'#233'dico:'
       Font.Charset = ANSI_CHARSET
@@ -71,7 +70,6 @@ object cad_hora: Tcad_hora
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 473
       object btn_fechar: TImage
         Left = 307
         Top = 10
@@ -131,7 +129,7 @@ object cad_hora: Tcad_hora
       Left = 103
       Top = 105
       Width = 145
-      Height = 29
+      Height = 26
       Style = csDropDownList
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText

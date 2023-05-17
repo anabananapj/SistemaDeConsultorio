@@ -45,8 +45,8 @@
     object lb_saúde: TLabel
       Left = 55
       Top = 1
-      Width = 106
-      Height = 42
+      Width = 92
+      Height = 40
       Alignment = taCenter
       Caption = 'sa'#250'de'
       Font.Charset = ANSI_CHARSET
@@ -126,7 +126,6 @@
     Color = 2431253
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -6
     object img_menu: TImage
       Left = 17
       Top = 15

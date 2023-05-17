@@ -108,7 +108,7 @@ object medicos: Tmedicos
         item
           Expanded = False
           FieldName = 'especialidade_med'
-          Title.Caption = 'Profiss'#227'o'
+          Title.Caption = 'Especialidade'
           Width = 200
           Visible = True
         end
@@ -148,7 +148,7 @@ object medicos: Tmedicos
         end
         item
           Expanded = False
-          FieldName = 'telefone_pac'
+          FieldName = 'telefone_med'
           Title.Caption = 'Telefone'
           Width = 170
           Visible = True

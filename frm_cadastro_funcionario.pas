@@ -143,6 +143,10 @@ begin
     Exit;
   end;
 
+
+  query_cad_func.Close;
+  query_cad_func.SQL.Clear;
+
   Nasc := FormatDateTime('yyyy-mm-dd', data_nasc.Date);
 
   VALUES := 'VALUES (:nome_func, :sexo_func, ' + QuotedStr(Nasc) + ', :cpf_func, :rg_func, :telefone_func, :cargo_func, :cep, :rua, :numero_casa, :bairro, :cidade, :estado, :email_func)';
